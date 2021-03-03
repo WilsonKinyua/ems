@@ -138,6 +138,18 @@
                     <form method="POST" action="{{ route('register') }}">
                             {{ csrf_field() }}
                         <h2 class="form-title">Create account</h2>
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="flash-message">
+                                        @foreach (['danger', 'warning', 'success', 'info'] as $msg)
+                                            @if(Session::has('alert-' . $msg))
+                                                <p class="alert alert-{{ $msg }}">{{ Session::get('alert-' . $msg) }} <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a></p>
+                                            @endif
+                                        @endforeach
+                                    </div>
+
+                                </div>
+                            </div>
                         <div class="form-group">
                             {{-- <input type="text" class="form-input" name="name" id="name" placeholder="Your Name"/> --}}
                             <input type="text" name="first_name" class="form-input{{ $errors->has('first_name') ? ' is-invalid' : '' }}" required autofocus placeholder="Enter first name" value="{{ old('first_name', null) }}">
