@@ -85,7 +85,7 @@ class RegisterController extends Controller
         $user->last_name    = $request->last_name;
         $user->mobile       = $request->mobile;
         $user->company      = $request->company;
-        $user->country      = $request->country;
+        // $user->country      = $request->country;
         $user->email        = $request->email;
         $user->password     = Hash::make($request->password);
         $token              = Str::random(64);

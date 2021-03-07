@@ -1,101 +1,3 @@
-{{-- @extends('layouts.app')
-@section('content')
-
-<div class="row justify-content-center">
-    <div class="col-md-6">
-
-        <div class="card mx-4">
-            <div class="card-body p-4">
-
-                <form method="POST" action="{{ route('register') }}">
-                    {{ csrf_field() }}
-
-                    <h1>{{ trans('panel.site_title') }}</h1>
-                    <p class="text-muted">{{ trans('global.register') }}</p>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <i class="fa fa-user fa-fw"></i>
-                            </span>
-                        </div>
-                        <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" required autofocus placeholder="{{ trans('global.user_name') }}" value="{{ old('name', null) }}">
-                        @if($errors->has('name'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('name') }}
-                            </div>
-                        @endif
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <i class="fa fa-envelope fa-fw"></i>
-                            </span>
-                        </div>
-                        <input type="email" name="email" class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}" required placeholder="{{ trans('global.login_email') }}" value="{{ old('email', null) }}">
-                        @if($errors->has('email'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('email') }}
-                            </div>
-                        @endif
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <i class="fa fa-phone fa-fw"></i>
-                            </span>
-                        </div>
-                        <input type="number" name="mobile" class="form-control{{ $errors->has('mobile') ? ' is-invalid' : '' }}" required placeholder="Enter Mobile" value="{{ old('mobile', null) }}">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <i class="fa fa-house fa-fw"></i>
-                            </span>
-                        </div>
-                        <input type="text" name="company" class="form-control{{ $errors->has('company') ? ' is-invalid' : '' }}" required placeholder="Enter Company" value="{{ old('company', null) }}">
-                    </div>
-
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <i class="fa fa-lock fa-fw"></i>
-                            </span>
-                        </div>
-                        <input type="password" name="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" required placeholder="{{ trans('global.login_password') }}">
-                        @if($errors->has('password'))
-                            <div class="invalid-feedback">
-                                {{ $errors->first('password') }}
-                            </div>
-                        @endif
-                    </div>
-
-                    <div class="input-group mb-4">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">
-                                <i class="fa fa-lock fa-fw"></i>
-                            </span>
-                        </div>
-                        <input type="password" name="password_confirmation" class="form-control" required placeholder="{{ trans('global.login_password_confirmation') }}">
-                    </div>
-
-                    <button class="btn btn-block btn-primary">
-                        {{ trans('global.register') }}
-                    </button>
-                </form>
-
-            </div>
-        </div>
-
-    </div>
-</div>
-
-@endsection --}}
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -132,7 +34,6 @@
     <div class="main">
 
         <section class="signup">
-            <!-- <img src="images/signup-bg.jpg" alt=""> -->
             <div class="container">
                 <div class="signup-content">
                     <form method="POST" action="{{ route('register') }}">
@@ -151,27 +52,15 @@
                                 </div>
                             </div>
                         <div class="form-group">
-                            {{-- <input type="text" class="form-input" name="name" id="name" placeholder="Your Name"/> --}}
                             <input type="text" name="first_name" class="form-input{{ $errors->has('first_name') ? ' is-invalid' : '' }}" required autofocus placeholder="Enter first name" value="{{ old('first_name', null) }}">
-                            {{-- @if($errors->has('name'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('name') }}
-                                </div>
-                            @endif --}}
                         </div>
                         <div class="form-group">
-                            {{-- <input type="text" class="form-input" name="name" id="name" placeholder="Your Name"/> --}}
                             <input type="text" name="last_name" class="form-input{{ $errors->has('last_name') ? ' is-invalid' : '' }}" required autofocus placeholder="Enter last name" value="{{ old('last_name', null) }}">
-                            {{-- @if($errors->has('name'))
-                                <div class="invalid-feedback">
-                                    {{ $errors->first('name') }}
-                                </div>
-                            @endif --}}
                         </div>
-                        <div class="form-group">
+                        {{-- <div class="form-group">
                             <input type="text" name="company" class="form-input{{ $errors->has('company') ? ' is-invalid' : '' }}" required placeholder="Enter Company" value="{{ old('company', null) }}">
-                        </div>
-                        <div class="form-group">
+                        </div> --}}
+                        {{-- <div class="form-group">
                             <select id="country" name="country" class="form-control" required>
                                 <option>select country</option>
                                 <option value="AF">Afghanistan</option>
@@ -427,9 +316,8 @@
                                 <option value="ZM">Zambia</option>
                                 <option value="ZW">Zimbabwe</option>
                             </select>
-                        </div>
+                        </div> --}}
                         <div class="form-group">
-                            {{-- <input type="email" class="form-input" name="email" id="email" placeholder="Your Email"/> --}}
                             <input type="email" name="email" class="form-input{{ $errors->has('email') ? ' is-invalid' : '' }}" required placeholder="{{ trans('global.login_email') }}" value="{{ old('email', null) }}">
                             @if($errors->has('email'))
                                 <div class="invalid-feedback">
@@ -451,9 +339,7 @@
                         </div>
 
                         <div class="form-group">
-                            {{-- <input type="password" class="form-input" name="re_password" id="re_password" placeholder="Repeat your password"/> --}}
                             <input type="password" name="password_confirmation" class="form-input" required placeholder="{{ trans('global.login_password_confirmation') }}">
-
                         </div>
                         <div class="form-group">
                             <input type="checkbox" name="agree-term" id="agree-term" class="agree-term" />
