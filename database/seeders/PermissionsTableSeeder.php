@@ -92,38 +92,118 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 21,
-                'title' => 'audit_log_show',
-            ],
-            [
-                'id'    => 22,
-                'title' => 'audit_log_access',
-            ],
-            [
-                'id'    => 23,
                 'title' => 'event_access',
             ],
             [
-                'id'    => 24,
+                'id'    => 22,
                 'title' => 'event_category_create',
             ],
             [
-                'id'    => 25,
+                'id'    => 23,
                 'title' => 'event_category_edit',
             ],
             [
-                'id'    => 26,
+                'id'    => 24,
                 'title' => 'event_category_show',
             ],
             [
-                'id'    => 27,
+                'id'    => 25,
                 'title' => 'event_category_delete',
             ],
             [
-                'id'    => 28,
+                'id'    => 26,
                 'title' => 'event_category_access',
             ],
             [
+                'id'    => 27,
+                'title' => 'task_management_access',
+            ],
+            [
+                'id'    => 28,
+                'title' => 'task_status_create',
+            ],
+            [
                 'id'    => 29,
+                'title' => 'task_status_edit',
+            ],
+            [
+                'id'    => 30,
+                'title' => 'task_status_show',
+            ],
+            [
+                'id'    => 31,
+                'title' => 'task_status_delete',
+            ],
+            [
+                'id'    => 32,
+                'title' => 'task_status_access',
+            ],
+            [
+                'id'    => 33,
+                'title' => 'task_tag_create',
+            ],
+            [
+                'id'    => 34,
+                'title' => 'task_tag_edit',
+            ],
+            [
+                'id'    => 35,
+                'title' => 'task_tag_show',
+            ],
+            [
+                'id'    => 36,
+                'title' => 'task_tag_delete',
+            ],
+            [
+                'id'    => 37,
+                'title' => 'task_tag_access',
+            ],
+            [
+                'id'    => 38,
+                'title' => 'task_create',
+            ],
+            [
+                'id'    => 39,
+                'title' => 'task_edit',
+            ],
+            [
+                'id'    => 40,
+                'title' => 'task_show',
+            ],
+            [
+                'id'    => 41,
+                'title' => 'task_delete',
+            ],
+            [
+                'id'    => 42,
+                'title' => 'task_access',
+            ],
+            [
+                'id'    => 43,
+                'title' => 'tasks_calendar_access',
+            ],
+            [
+                'id'    => 44,
+                'title' => 'event_listing_create',
+            ],
+            [
+                'id'    => 45,
+                'title' => 'event_listing_edit',
+            ],
+            [
+                'id'    => 46,
+                'title' => 'event_listing_show',
+            ],
+            [
+                'id'    => 47,
+                'title' => 'event_listing_delete',
+            ],
+            [
+                'id'    => 48,
+                'title' => 'event_listing_access',
+            ],
+            [
+                'id'    => 49,
                 'title' => 'profile_password_edit',
             ],
         ];

@@ -19,7 +19,7 @@
         "laravel/tinker": "^2.0",
         "laravel/ui": "^3.0",
         "yajra/laravel-datatables-oracle": "^9.11",
-        "nuovo/spreadsheet-reader": "^0.5.11",
+        "spatie/laravel-medialibrary": "^8.7",
         "laravel/sanctum": "^2.8"
     },
     "require-dev": {

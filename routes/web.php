@@ -1,11 +1,18 @@
 <?php
 
-// Route::view('/', '/login');
-Route::redirect('/', 'login', 301);
+Route::redirect('/', '/login');
+Route::get('/home', function () {
+    if (session('status')) {
+        return redirect()->route('admin.home')->with('status', session('status'));
+    }
+
+    return redirect()->route('admin.home');
+});
+
 Route::get('userVerification/{token}', 'UserVerificationController@approve')->name('userVerification');
 Auth::routes();
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth', 'admin']], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'middleware' => ['auth']], function () {
     Route::get('/', 'HomeController@index')->name('home');
     // Permissions
     Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
@@ -17,21 +24,40 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
 
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
-    Route::post('users/parse-csv-import', 'UsersController@parseCsvImport')->name('users.parseCsvImport');
-    Route::post('users/process-csv-import', 'UsersController@processCsvImport')->name('users.processCsvImport');
     Route::resource('users', 'UsersController');
 
     // User Alerts
     Route::delete('user-alerts/destroy', 'UserAlertsController@massDestroy')->name('user-alerts.massDestroy');
     Route::resource('user-alerts', 'UserAlertsController', ['except' => ['edit', 'update']]);
 
-    // Audit Logs
-    Route::resource('audit-logs', 'AuditLogsController', ['except' => ['create', 'store', 'edit', 'update', 'destroy']]);
-
     // Event Categories
     Route::delete('event-categories/destroy', 'EventCategoryController@massDestroy')->name('event-categories.massDestroy');
     Route::resource('event-categories', 'EventCategoryController');
 
+    // Task Statuses
+    Route::delete('task-statuses/destroy', 'TaskStatusController@massDestroy')->name('task-statuses.massDestroy');
+    Route::resource('task-statuses', 'TaskStatusController');
+
+    // Task Tags
+    Route::delete('task-tags/destroy', 'TaskTagController@massDestroy')->name('task-tags.massDestroy');
+    Route::resource('task-tags', 'TaskTagController');
+
+    // Tasks
+    Route::delete('tasks/destroy', 'TaskController@massDestroy')->name('tasks.massDestroy');
+    Route::post('tasks/media', 'TaskController@storeMedia')->name('tasks.storeMedia');
+    Route::post('tasks/ckmedia', 'TaskController@storeCKEditorImages')->name('tasks.storeCKEditorImages');
+    Route::resource('tasks', 'TaskController');
+
+    // Tasks Calendars
+    Route::resource('tasks-calendars', 'TasksCalendarController', ['except' => ['create', 'store', 'edit', 'update', 'show', 'destroy']]);
+
+    // Event Listings
+    Route::delete('event-listings/destroy', 'EventListingController@massDestroy')->name('event-listings.massDestroy');
+    Route::post('event-listings/media', 'EventListingController@storeMedia')->name('event-listings.storeMedia');
+    Route::post('event-listings/ckmedia', 'EventListingController@storeCKEditorImages')->name('event-listings.storeCKEditorImages');
+    Route::resource('event-listings', 'EventListingController');
+
+    Route::get('system-calendar', 'SystemCalendarController@index')->name('systemCalendar');
     Route::get('user-alerts/read', 'UserAlertsController@read');
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
@@ -42,32 +68,4 @@ Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 
         Route::post('profile', 'ChangePasswordController@updateProfile')->name('password.updateProfile');
         Route::post('profile/destroy', 'ChangePasswordController@destroy')->name('password.destroyProfile');
     }
-});
-Route::group(['as' => 'frontend.', 'namespace' => 'Frontend', 'middleware' => ['auth']], function () {
-    Route::get('/home', 'HomeController@index')->name('home');
-
-    // Permissions
-    Route::delete('permissions/destroy', 'PermissionsController@massDestroy')->name('permissions.massDestroy');
-    Route::resource('permissions', 'PermissionsController');
-
-    // Roles
-    Route::delete('roles/destroy', 'RolesController@massDestroy')->name('roles.massDestroy');
-    Route::resource('roles', 'RolesController');
-
-    // Users
-    Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
-    Route::resource('users', 'UsersController');
-
-    // User Alerts
-    Route::delete('user-alerts/destroy', 'UserAlertsController@massDestroy')->name('user-alerts.massDestroy');
-    Route::resource('user-alerts', 'UserAlertsController', ['except' => ['edit', 'update']]);
-
-    // Event Categories
-    Route::delete('event-categories/destroy', 'EventCategoryController@massDestroy')->name('event-categories.massDestroy');
-    Route::resource('event-categories', 'EventCategoryController');
-
-    Route::get('frontend/profile', 'ProfileController@index')->name('profile.index');
-    Route::post('frontend/profile', 'ProfileController@update')->name('profile.update');
-    Route::post('frontend/profile/destroy', 'ProfileController@destroy')->name('profile.destroy');
-    Route::post('frontend/profile/password', 'ProfileController@password')->name('profile.password');
 });

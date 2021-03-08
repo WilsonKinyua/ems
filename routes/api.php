@@ -12,4 +12,18 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Event Categories
     Route::apiResource('event-categories', 'EventCategoryApiController');
+
+    // Task Statuses
+    Route::apiResource('task-statuses', 'TaskStatusApiController');
+
+    // Task Tags
+    Route::apiResource('task-tags', 'TaskTagApiController');
+
+    // Tasks
+    Route::post('tasks/media', 'TaskApiController@storeMedia')->name('tasks.storeMedia');
+    Route::apiResource('tasks', 'TaskApiController');
+
+    // Event Listings
+    Route::post('event-listings/media', 'EventListingApiController@storeMedia')->name('event-listings.storeMedia');
+    Route::apiResource('event-listings', 'EventListingApiController');
 });

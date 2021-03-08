@@ -10,49 +10,16 @@ use App\Models\EventCategory;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
-use Yajra\DataTables\Facades\DataTables;
 
 class EventCategoryController extends Controller
 {
-    public function index(Request $request)
+    public function index()
     {
         abort_if(Gate::denies('event_category_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        if ($request->ajax()) {
-            $query = EventCategory::query()->select(sprintf('%s.*', (new EventCategory)->table));
-            $table = Datatables::of($query);
+        $eventCategories = EventCategory::all();
 
-            $table->addColumn('placeholder', '&nbsp;');
-            $table->addColumn('actions', '&nbsp;');
-
-            $table->editColumn('actions', function ($row) {
-                $viewGate      = 'event_category_show';
-                $editGate      = 'event_category_edit';
-                $deleteGate    = 'event_category_delete';
-                $crudRoutePart = 'event-categories';
-
-                return view('partials.datatablesActions', compact(
-                    'viewGate',
-                    'editGate',
-                    'deleteGate',
-                    'crudRoutePart',
-                    'row'
-                ));
-            });
-
-            $table->editColumn('id', function ($row) {
-                return $row->id ? $row->id : "";
-            });
-            $table->editColumn('title', function ($row) {
-                return $row->title ? $row->title : "";
-            });
-
-            $table->rawColumns(['actions', 'placeholder']);
-
-            return $table->make(true);
-        }
-
-        return view('admin.eventCategories.index');
+        return view('admin.eventCategories.index', compact('eventCategories'));
     }
 
     public function create()
@@ -64,7 +31,7 @@ class EventCategoryController extends Controller
 
     public function store(StoreEventCategoryRequest $request)
     {
-        $eventCategory = EventCategory::create($request->all());
+        $eventCategory = EventCategory::create($request->validated());
 
         return redirect()->route('admin.event-categories.index');
     }
@@ -78,7 +45,7 @@ class EventCategoryController extends Controller
 
     public function update(UpdateEventCategoryRequest $request, EventCategory $eventCategory)
     {
-        $eventCategory->update($request->all());
+        $eventCategory->update($request->validated());
 
         return redirect()->route('admin.event-categories.index');
     }

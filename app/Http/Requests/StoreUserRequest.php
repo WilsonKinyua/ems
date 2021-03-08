@@ -17,15 +17,7 @@ class StoreUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'first_name'     => [
-                'string',
-                'required',
-            ],
-            'last_name'     => [
-                'string',
-                'required',
-            ],
-            'country'     => [
+            'name'     => [
                 'string',
                 'required',
             ],
