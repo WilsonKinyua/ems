@@ -25,10 +25,18 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.name') }}
+                            {{ trans('cruds.user.fields.fname') }}
                         </th>
                         <td>
-                            {{ $user->name }}
+                            {{ $user->first_name }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.user.fields.lname') }}
+                        </th>
+                        <td>
+                            {{ $user->last_name }}
                         </td>
                     </tr>
                     <tr>
@@ -41,10 +49,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.user.fields.mobile') }}
+                            {{ trans('cruds.user.fields.job_title') }}
                         </th>
                         <td>
-                            {{ $user->mobile }}
+                            {{ $user->job_title }}
                         </td>
                     </tr>
                     <tr>
@@ -53,14 +61,6 @@
                         </th>
                         <td>
                             {{ $user->company }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.user.fields.country') }}
-                        </th>
-                        <td>
-                            {{ App\Models\User::COUNTRY_SELECT[$user->country] ?? '' }}
                         </td>
                     </tr>
                     <tr>

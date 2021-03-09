@@ -26,7 +26,7 @@ class UserAlertsController extends Controller
     {
         abort_if(Gate::denies('user_alert_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $users = User::all()->pluck('name', 'id');
+        $users = User::all()->pluck('first_name', 'id');
 
         return view('admin.userAlerts.create', compact('users'));
     }

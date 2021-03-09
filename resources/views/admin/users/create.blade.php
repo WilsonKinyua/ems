@@ -10,14 +10,28 @@
         <form method="POST" action="{{ route("admin.users.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label class="required" for="name">{{ trans('cruds.user.fields.name') }}</label>
-                <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
+                <label class="required" for="fname">{{ trans('cruds.user.fields.fname') }}</label>
+                <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="first_name" id="name" value="{{ old('first_name', '') }}" required>
                 @if($errors->has('name'))
                     <div class="invalid-feedback">
                         {{ $errors->first('name') }}
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.user.fields.name_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="name">{{ trans('cruds.user.fields.lname') }}</label>
+                <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="last_name" id="name" value="{{ old('last_name', '') }}" required>
+                @if($errors->has('name'))
+                    <div class="invalid-feedback">
+                        {{ $errors->first('name') }}
+                    </div>
+                @endif
+                <span class="help-block">{{ trans('cruds.user.fields.name_helper') }}</span>
+            </div>
+            <div class="form-group">
+                <label class="required" for="company">{{ trans('cruds.user.fields.company') }}</label>
+                <input class="form-control" type="text" name="company" id="name" value="{{ old('company', '') }}" required>
             </div>
             <div class="form-group">
                 <label class="required" for="email">{{ trans('cruds.user.fields.email') }}</label>
@@ -30,39 +44,8 @@
                 <span class="help-block">{{ trans('cruds.user.fields.email_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="mobile">{{ trans('cruds.user.fields.mobile') }}</label>
-                <input class="form-control {{ $errors->has('mobile') ? 'is-invalid' : '' }}" type="number" name="mobile" id="mobile" value="{{ old('mobile', '') }}" step="1">
-                @if($errors->has('mobile'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('mobile') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.user.fields.mobile_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label for="company">{{ trans('cruds.user.fields.company') }}</label>
-                <input class="form-control {{ $errors->has('company') ? 'is-invalid' : '' }}" type="text" name="company" id="company" value="{{ old('company', '') }}">
-                @if($errors->has('company'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('company') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.user.fields.company_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label>{{ trans('cruds.user.fields.country') }}</label>
-                <select class="form-control {{ $errors->has('country') ? 'is-invalid' : '' }}" name="country" id="country">
-                    <option value disabled {{ old('country', null) === null ? 'selected' : '' }}>{{ trans('global.pleaseSelect') }}</option>
-                    @foreach(App\Models\User::COUNTRY_SELECT as $key => $label)
-                        <option value="{{ $key }}" {{ old('country', '') === (string) $key ? 'selected' : '' }}>{{ $label }}</option>
-                    @endforeach
-                </select>
-                @if($errors->has('country'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('country') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.user.fields.country_helper') }}</span>
+                <label for="job_title">{{ trans('cruds.user.fields.job_title') }}</label>
+                <input class="form-control" type="text" name="job_title" id="job_title" value="{{ old('job_title', '') }}">
             </div>
             <div class="form-group">
                 <label class="required" for="password">{{ trans('cruds.user.fields.password') }}</label>

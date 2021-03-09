@@ -32,14 +32,14 @@
                             {{ trans('cruds.user.fields.email') }}
                         </th>
                         <th>
-                            {{ trans('cruds.user.fields.mobile') }}
+                            {{ trans('cruds.user.fields.job_title') }}
                         </th>
                         <th>
                             {{ trans('cruds.user.fields.company') }}
                         </th>
-                        <th>
+                        {{-- <th>
                             {{ trans('cruds.user.fields.country') }}
-                        </th>
+                        </th> --}}
                         <th>
                             {{ trans('cruds.user.fields.email_verified_at') }}
                         </th>
@@ -64,20 +64,20 @@
                                 {{ $user->id ?? '' }}
                             </td>
                             <td>
-                                {{ $user->name ?? '' }}
+                                {{ $user->first_name ?? '' }} {{ $user->last_name ?? '' }}
                             </td>
                             <td>
                                 {{ $user->email ?? '' }}
                             </td>
                             <td>
-                                {{ $user->mobile ?? '' }}
+                                {{ $user->job_title ?? '' }}
                             </td>
                             <td>
                                 {{ $user->company ?? '' }}
                             </td>
-                            <td>
+                            {{-- <td>
                                 {{ App\Models\User::COUNTRY_SELECT[$user->country] ?? '' }}
-                            </td>
+                            </td> --}}
                             <td>
                                 {{ $user->email_verified_at ?? '' }}
                             </td>
@@ -169,7 +169,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

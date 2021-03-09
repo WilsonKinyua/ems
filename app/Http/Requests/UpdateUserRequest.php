@@ -17,19 +17,21 @@ class UpdateUserRequest extends FormRequest
     public function rules()
     {
         return [
-            'name'    => [
+            'first_name'     => [
+                'string',
+                'required',
+            ],
+            'last_name'     => [
+                'string',
+                'required',
+            ],
+            'job_title'     => [
                 'string',
                 'required',
             ],
             'email'   => [
                 'required',
                 'unique:users,email,' . request()->route('user')->id,
-            ],
-            'mobile'  => [
-                'nullable',
-                'integer',
-                'min:-2147483648',
-                'max:2147483647',
             ],
             'company' => [
                 'string',

@@ -59,7 +59,7 @@
                             </td>
                             <td>
                                 @foreach($userAlert->users as $key => $item)
-                                    <span class="badge badge-info">{{ $item->name }}</span>
+                                    <span class="badge badge-info">{{ $item->first_name }}</span>
                                 @endforeach
                             </td>
                             <td>
@@ -139,7 +139,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

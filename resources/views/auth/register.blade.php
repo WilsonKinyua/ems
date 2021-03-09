@@ -19,7 +19,21 @@
                                 <i class="fa fa-user fa-fw"></i>
                             </span>
                         </div>
-                        <input type="text" name="name" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" required autofocus placeholder="{{ trans('global.user_name') }}" value="{{ old('name', null) }}">
+                        <input type="text" name="fname" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" required autofocus placeholder="{{ trans('global.user_fname') }}" value="{{ old('fname', null) }}">
+                        @if($errors->has('name'))
+                            <div class="invalid-feedback">
+                                {{ $errors->first('name') }}
+                            </div>
+                        @endif
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-user fa-fw"></i>
+                            </span>
+                        </div>
+                        <input type="text" name="lname" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" required autofocus placeholder="{{ trans('global.user_lname') }}" value="{{ old('lname', null) }}">
                         @if($errors->has('name'))
                             <div class="invalid-feedback">
                                 {{ $errors->first('name') }}
@@ -39,6 +53,24 @@
                                 {{ $errors->first('email') }}
                             </div>
                         @endif
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-building fa-fw"></i>
+                            </span>
+                        </div>
+                        <input type="text" name="company" class="form-control" required autofocus placeholder="{{ trans('global.company') }}" value="{{ old('company', null) }}">
+                    </div>
+
+                    <div class="input-group mb-3">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text">
+                                <i class="fa fa-male fa-fw"></i>
+                            </span>
+                        </div>
+                        <input type="text" name="job_title" class="form-control" required autofocus placeholder="{{ trans('global.job_title') }}" value="{{ old('job_title', null) }}">
                     </div>
 
                     <div class="input-group mb-3">
