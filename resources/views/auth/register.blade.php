@@ -117,7 +117,7 @@
                                     <div class="position-relative h-100 d-flex justify-content-center align-items-center bg-premium-dark"
                                         tabindex="-1">
                                         <div class="slide-img-bg"
-                                            style="background-image: url('https://images.pexels.com/photos/1034662/pexels-photo-1034662.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500');"></div>
+                                            style="background-image: url('assets/images/loginregister/loginregister.jpg');"></div>
                                         <div class="slider-content">
                                             <h3>{{ trans('panel.site_title') }}</h3>
                                             <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic dicta nihil 
