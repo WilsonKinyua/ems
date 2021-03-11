@@ -14,7 +14,7 @@
             <div class="page-title-wrapper">
                 <div class="page-title-heading">
                     <div>
-                        Welcome back, <span class="username text-success">{{ Auth::user()->first_name }}</span>
+                        Welcome back, <span style="text-transform: capitalize" class="username text-success">{{ Auth::user()->first_name }}</span>
                     </div>
                 </div>    </div>
         </div>

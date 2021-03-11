@@ -94,9 +94,8 @@
                                                                         src="assets/images/avatars/1.jpg" alt="">
                                                                 </div>
                                                                 <div class="widget-content-left">
-                                                                    <div class="widget-heading">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</div>
-                                                                    <div class="widget-subheading opacity-8">A short
-                                                                        profile description</div>
+                                                                    <div style="text-transform: capitalize" class="widget-heading">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</div>
+                                                                    <div class="widget-subheading opacity-8">{{ Auth::user()->description }}</div>
                                                                 </div>
                                                                 <div class="widget-content-right mr-2">
                                                                     <a class="btn-pill btn-shadow btn-shine btn btn-focus" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
@@ -135,8 +134,8 @@
                                     </div>
                                 </div>
                                 <div class="widget-content-left  ml-3 header-user-info">
-                                    <div class="widget-heading"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </div>
-                                    <div class="widget-subheading"> {{ Auth::user()->job_title }} </div>
+                                    <div style="text-transform: capitalize" class="widget-heading"> {{ Auth::user()->first_name }} {{ Auth::user()->last_name }} </div>
+                                    <div style="text-transform: capitalize" class="widget-subheading"> {{ Auth::user()->job_title }} </div>
                                 </div>
 
                             </div>
