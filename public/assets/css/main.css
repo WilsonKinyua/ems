@@ -41,6 +41,15 @@
 		transform: rotate(359deg);
 	}
 }
+
+/* My new styles start */
+
+.username {
+    font-size:22px;
+    font-weight: 700;
+}
+
+/* My new styles end */
 /*------------------------------------------------------------------------------
  * Container and UL / LI
  *----------------------------------------------------------------------------*/
@@ -20707,7 +20716,7 @@ legend {
 
 .widget-chart .widget-numbers {
 	font-weight: bold;
-	font-size: 2.5rem;
+	font-size: 2.0rem;
 	display: block;
 	line-height: 1;
 	margin: 1rem auto;

@@ -37,27 +37,27 @@
                 <li class="app-sidebar__heading">Menu</li>
                 <li class="mm-active">
                     <a href="#">
-                        <i class="metismenu-icon pe-7s-rocket"></i>Dashboards
+                        <i class="metismenu-icon pe-7s-rocket"></i>Dashboard
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
                     <ul>
                         <li>
-                            <a href="index-2.html" class="mm-active">
-                                <i class="metismenu-icon"></i>Analytics
+                            <a href="#" class="mm-active">
+                                <i class="metismenu-icon"></i>Menu Item One
                             </a>
                         </li>
                         <li>
-                            <a href="dashboards-commerce.html">
-                                <i class="metismenu-icon"></i>Commerce
+                            <a href="#">
+                                <i class="metismenu-icon"></i>Menu Two
                             </a>
                         </li>
                         <li>
-                            <a href="dashboards-sales.html">
+                            <a href="#">
                                 <i class="metismenu-icon">
-                                </i>Sales
+                                </i>Menu Three
                             </a>
                         </li>
-                        <li>
+                        {{-- <li>
                             <a href="#">
                                 <i class="metismenu-icon"></i> Minimal
                                 <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
@@ -79,10 +79,10 @@
                             <a href="dashboards-crm.html">
                                 <i class="metismenu-icon"></i> CRM
                             </a>
-                        </li>
+                        </li> --}}
                     </ul>
                 </li>
-                <li>
+                {{-- <li>
                     <a href="#">
                         <i class="metismenu-icon pe-7s-browser"></i>Pages
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
@@ -482,7 +482,7 @@
                     <a href="charts-sparklines.html">
                         <i class="metismenu-icon pe-7s-graph1"></i>Chart Sparklines
                     </a>
-                </li>
+                </li> --}}
             </ul>
         </div>
     </div>
