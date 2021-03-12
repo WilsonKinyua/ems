@@ -206,6 +206,30 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 49,
                 'title' => 'profile_password_edit',
             ],
+            [
+                'id'    => 50,
+                'title' => 'delegate_create',
+            ],
+            [
+                'id'    => 51,
+                'title' => 'delegate_edit',
+            ],
+            [
+                'id'    => 52,
+                'title' => 'delegate_show',
+            ],
+            [
+                'id'    => 53,
+                'title' => 'delegate_delete',
+            ],
+            [
+                'id'    => 54,
+                'title' => 'delegate_access',
+            ],
+            [
+                'id'    => 55,
+                'title' => 'profile_password_edit',
+            ],
         ];
 
         Permission::insert($permissions);

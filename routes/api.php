@@ -26,4 +26,7 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Event Listings
     Route::post('event-listings/media', 'EventListingApiController@storeMedia')->name('event-listings.storeMedia');
     Route::apiResource('event-listings', 'EventListingApiController');
+
+    // Delegates
+    Route::apiResource('delegates', 'DelegateApiController');
 });
