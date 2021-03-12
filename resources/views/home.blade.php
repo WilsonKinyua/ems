@@ -19,6 +19,23 @@
                 </div>    </div>
         </div>
 
+        @if(session('message'))
+            <div class="row mb-2">
+                <div class="col-lg-12">
+                    <div class="alert alert-success" role="alert">{{ session('message') }}</div>
+                </div>
+            </div>
+        @endif
+        @if($errors->count() > 0)
+            <div class="alert alert-danger">
+                <ul class="list-unstyled">
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+        
         <div class="tab-content">
             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
                 <div class="">
@@ -48,7 +65,7 @@
                                     </div>
                                     <div class="widget-content-right">
                                         <div class="widget-numbers text-success">
-                                            <button class="btn btn-primary">Upload</button>
+                                            <button class="btn btn-primary" data-toggle="modal" data-target="#csvImportModal">Upload</button>
                                         </div>
                                     </div>
                                 </div>
@@ -218,10 +235,16 @@
     </div>
 
 </div>
-
 @endsection
 
 @section('scripts')
 @parent
 
 @endsection
+
+    {{-- Upload delegates csv modal --}}
+    @section('modal')
+
+        @include('csvImport.modal', ['model' => 'Delegate', 'route' => 'admin.delegates.parseCsvImport'])
+
+    @endsection

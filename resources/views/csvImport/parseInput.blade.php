@@ -1,8 +1,13 @@
-@extends('layouts.admin')
+@extends('layouts.main-admin')
+
+@section('title')
+    {{ trans('panel.site_title') }} ||  Upload CSV
+@endsection
 
 @section('content')
-
-<div class='row'>
+<div class="app-main__outer">
+    <div class="app-main__inner">
+    <div class='row'>
     <div class='col-md-12'>
         <div class="card panel-default">
             <div class="card-header">
@@ -55,6 +60,8 @@
             </div>
         </div>
     </div>
+</div>
+</div>
 </div>
 
 @endsection
