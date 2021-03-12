@@ -30,7 +30,6 @@ class ChangePasswordController extends Controller
         $user = auth()->user();
 
         $data = [
-            "description"       => $request->description,
             'first_name'        => $request->firstname,
             'last_name'         => $request->lastname,
             'company'           => $request->company,

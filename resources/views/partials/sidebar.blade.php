@@ -42,7 +42,7 @@
                     </a>
                     <ul>
                         <li>
-                            <a href="#" class="mm-active">
+                            <a href="{{ route("admin.home")}}" class="mm-active">
                                 <i class="metismenu-icon"></i>Menu Item One
                             </a>
                         </li>
