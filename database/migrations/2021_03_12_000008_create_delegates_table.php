@@ -19,6 +19,7 @@ class CreateDelegatesTable extends Migration
             $table->string('citizenship')->nullable();
             $table->string('type_of_attendee')->nullable();
             $table->string('payment_status')->nullable();
+            $table->string("created_by_id")->default(1);
             $table->timestamps();
             $table->softDeletes();
         });
