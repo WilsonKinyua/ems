@@ -25,11 +25,21 @@ class ChangePasswordController extends Controller
         return redirect()->route('profile.password.edit')->with('message', __('global.change_password_success'));
     }
 
-    public function updateProfile(UpdateProfileRequest $request)
+    public function updateProfile(Request $request)
     {
         $user = auth()->user();
 
-        $user->update($request->validated());
+        $data = [
+            "description"       => $request->description,
+            'first_name'        => $request->firstname,
+            'last_name'         => $request->lastname,
+            'company'           => $request->company,
+            'job_title'         => $request->job_title,
+            // 'email'             => $request->email,
+        ];
+
+        // dd($user);
+        $user->update($data);
 
         return redirect()->route('profile.password.edit')->with('message', __('global.update_profile_success'));
     }

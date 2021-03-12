@@ -75,7 +75,7 @@
                                     <div class="btn-group">
                                         <a data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"
                                             class="p-0 btn">
-                                            <img width="42" class="rounded-circle" src="assets/images/avatars/1.jpg"
+                                            <img width="42" class="rounded-circle" src="{{ asset('assets/images/avatars/1.jpg')}}"
                                                 alt="">
                                             <i class="fa fa-angle-down ml-2 opacity-8"></i>
                                         </a>
@@ -84,14 +84,14 @@
                                             <div class="dropdown-menu-header">
                                                 <div class="dropdown-menu-header-inner bg-info">
                                                     <div class="menu-header-image opacity-2"
-                                                        style="background-image: url('assets/images/dropdown-header/city3.jpg');">
+                                                        style="background-image: url('{{ asset('assets/images/dropdown-header/city3.jpg')}}');">
                                                     </div>
                                                     <div class="menu-header-content text-left">
                                                         <div class="widget-content p-0">
                                                             <div class="widget-content-wrapper">
                                                                 <div class="widget-content-left mr-3">
                                                                     <img width="42" class="rounded-circle"
-                                                                        src="assets/images/avatars/1.jpg" alt="">
+                                                                        src="{{ asset('assets/images/avatars/1.jpg')}}" alt="">
                                                                 </div>
                                                                 <div class="widget-content-left">
                                                                     <div style="text-transform: capitalize" class="widget-heading">{{ Auth::user()->first_name }} {{ Auth::user()->last_name }}</div>
@@ -100,7 +100,7 @@
                                                                 <div class="widget-content-right mr-2">
                                                                     <a class="btn-pill btn-shadow btn-shine btn btn-focus" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('frm-logout').submit();">
                                                                         Logout
-                                                                    </a>    
+                                                                    </a>
                                                                     <form id="frm-logout" action="{{ route('logout') }}" method="POST" style="display: none;">
                                                                         {{ csrf_field() }}
                                                                     </form>
@@ -115,15 +115,14 @@
                                                     <ul class="nav flex-column">
                                                         <li class="nav-item-header nav-item">Activity</li>
                                                         <li class="nav-item">
-                                                            <a href="javascript:void(0);" class="nav-link">Change
-                                                                Password</a>
+                                                            <a href="{{ route('profile.password.edit') }}" class="nav-link">My Account</a>
                                                         </li>
-                                                        <li class="nav-item">
+                                                        {{-- <li class="nav-item">
                                                             <a href="javascript:void(0);" class="nav-link">
                                                                 My Account
                                                             </a>
 
-                                                        </li>
+                                                        </li> --}}
                                                     </ul>
                                                 </div>
                                             </div>
