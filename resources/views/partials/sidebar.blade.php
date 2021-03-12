@@ -43,7 +43,7 @@
                     <ul>
                         <li>
                             <a href="{{ route("admin.home")}}" class="mm-active">
-                                <i class="metismenu-icon"></i>Menu Item One
+                                <i class="metismenu-icon"></i>Delegate invitation
                             </a>
                         </li>
                         <li>
