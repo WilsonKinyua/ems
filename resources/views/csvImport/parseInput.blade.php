@@ -21,7 +21,7 @@
                     <input type="hidden" name="hasHeader" value="{{ $hasHeader }}" />
                     <input type="hidden" name="modelName" value="{{ $modelName }}" />
                     <input type="hidden" name="redirect" value="{{ $redirect }}" />
-
+                    <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
                     <table class="table">
                         @if(isset($headers))
                             <tr>

@@ -16,7 +16,7 @@
                     <div class="page-title-icon">
                         <i class="fas fa-user-alt"></i>
                     </div>
-                    <div>List of all upload maybe (delegates)
+                    <div>List of all uploads maybe (delegates)
                         <div class="page-title-subheading">
                             Short description maybe
                         </div>

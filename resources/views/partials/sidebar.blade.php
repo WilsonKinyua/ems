@@ -37,18 +37,18 @@
                 <li class="app-sidebar__heading">Menu</li>
                 <li class="mm-active">
                     <a href="#">
-                        <i class="metismenu-icon pe-7s-rocket"></i>Dashboard
+                        <i class="metismenu-icon pe-7s-rocket"></i>Delegate
                         <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
                     </a>
                     <ul>
                         <li>
-                            <a href="{{ route("admin.home")}}" class="mm-active">
-                                <i class="metismenu-icon"></i>Delegate invitation
+                            <a href="{{ route("admin.home")}}" class="{{ request()->is("admin") || request()->is("admin/#") ? "mm-active" : "" }}">
+                                <i class="metismenu-icon"></i>Dashboard
                             </a>
                         </li>
                         <li>
-                            <a href="#">
-                                <i class="metismenu-icon"></i>Menu Two
+                            <a href="{{ route('admin.delegates.index')}}" class="{{ request()->is("admin/delegates") || request()->is("admin/delegates/*") ? "mm-active" : "" }}">
+                                <i class="metismenu-icon"></i>Delegate List
                             </a>
                         </li>
                         <li>

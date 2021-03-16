@@ -27,13 +27,13 @@ class Delegate extends Model
         'secondname',
         'email',
         'company',
+        'created_by_id',
         'citizenship',
         'type_of_attendee',
         'payment_status',
         'created_at',
         'updated_at',
         'deleted_at',
-        'created_by_id',
     ];
 
     protected function serializeDate(DateTimeInterface $date)

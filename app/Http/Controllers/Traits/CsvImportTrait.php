@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Traits;
 
+use App\Models\Delegate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -47,7 +48,16 @@ trait CsvImportTrait
             $for_insert = array_chunk($insert, 100);
 
             foreach ($for_insert as $insert_item) {
-                $model::insert($insert_item);
+                if($model == Delegate::class) {
+                    foreach ($insert_item as $item) {
+                        $item["created_by_id"] = \Auth::user()->id;
+                       $model::create($item);
+                    }
+                    // dd($insert_item);
+                }else {
+                    $model::insert($insert_item);
+                }
+                // $model::insert($insert_item);
             }
 
             $rows  = count($insert);
