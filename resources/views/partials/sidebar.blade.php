@@ -51,10 +51,17 @@
                                 <i class="metismenu-icon"></i>Delegate List
                             </a>
                         </li>
+                        @php($unread = \App\Models\QaTopic::unreadCount())
                         <li>
-                            <a href="#">
+                            <a href="{{ route("admin.messenger.index") }}" class="{{ request()->is("admin/messenger") || request()->is("admin/messenger/*") ? "mm-active" : "" }}">
                                 <i class="metismenu-icon">
-                                </i>Menu Three
+                                </i>{{ trans('global.messages') }}
+                                <span style="color: red">
+                                    @if($unread > 0)
+                                        <strong>( {{ $unread }} )</strong>
+                                    @endif
+                                </span>
+
                             </a>
                         </li>
                         {{-- <li>
