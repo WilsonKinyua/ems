@@ -30,6 +30,6 @@ class SendingManyEmails extends Mailable
      */
     public function build()
     {
-        return $this->view('sendingmanyemails')->with("details",$this->details);
+        return $this->subject("Delegate subject of the email")->view('emails-templates.delegate-email-template')->with("details",$this->details);
     }
 }
