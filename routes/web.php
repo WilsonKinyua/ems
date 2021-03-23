@@ -65,7 +65,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('delegates/parse-csv-import', 'DelegateController@parseCsvImport')->name('delegates.parseCsvImport');
     Route::post('delegates/process-csv-import', 'DelegateController@processCsvImport')->name('delegates.processCsvImport');
     Route::resource('delegates', 'DelegateController');
-
+    Route::get('delegates/compose/mail','DelegateController@composeMail')->name("compose.mailmail");
     // sending emails
     Route::post("delegates/send-emails","Emails\DelegateSendingEmails@store")->name("delagates.emails");
 

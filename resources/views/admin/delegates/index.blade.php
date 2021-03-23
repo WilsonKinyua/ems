@@ -50,9 +50,10 @@
             <div class="d-flex justify-content-between mt-3">
                 <div>
                     <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#createdelegate">Add Delegate</button>
+                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#csvImportModal">Upload CSV <i class="fas fa-upload"></i></button>
                 </div>
                 <div>
-                    <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sendemails">Send Email</button>
+                    <a class="btn btn-primary btn-lg" href="{{ route('admin.compose.mailmail')}}">Compose Mail</a>
                 </div>
             </div>
         </div>
@@ -140,13 +141,13 @@
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.delegates.show', $delegate->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
-                                @endcan
+                                @endcan --}}
 
                                 @can('delegate_edit')
                                     <a class="btn btn-xs btn-info" href="{{ route('admin.delegates.edit', $delegate->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
-                                @endcan --}}
+                                @endcan
 
                                 @can('delegate_delete')
                                     <form action="{{ route('admin.delegates.destroy', $delegate->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
@@ -215,7 +216,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="sendemailsLabel">Send Emails to Many users at once</h5>
+                <h5 class="modal-title" id="sendemailsLabel">Send Email to Many recipients at once</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -224,6 +225,8 @@
                 <form action="{{ route('admin.delagates.emails')}}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <h5 class="card-title">Please Select recipient</h5>
+                    <button type="button" class="chosen-toggle select">Select all</button>
+                    <button type="button" class="chosen-toggle deselect">Deselect all</button>
                     <select multiple="multiple" class="multiselect-dropdown form-control" name="emails[]">
                             @foreach($delegates as $key => $delegate)
                                 <option value="{{ $delegate->id }}">{{ $delegate->firstname}}</option>
@@ -372,5 +375,8 @@
         </div>
     </div>
 </div>
+{{-- csv import  --}}
+    @include('csvImport.modal', ['model' => 'Delegate', 'route' => 'admin.delegates.parseCsvImport'])
+
 @endsection
 @endsection

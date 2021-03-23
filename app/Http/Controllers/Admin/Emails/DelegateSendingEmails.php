@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin\Emails;
 use App\Http\Controllers\Controller;
 use App\Jobs\SendingManyEmailsJob;
 use App\Models\Delegate;
+use App\Models\DelegateMessage;
 use Illuminate\Http\Request;
 
 class DelegateSendingEmails extends Controller
@@ -20,8 +21,15 @@ class DelegateSendingEmails extends Controller
 
            $details=[
             "email" => $user->email,
-            "name"  => $user->firstname
+            "name"  => $user->firstname,
+            "subject" => $request->subject,
+            "body" => $request->body
             ];
+
+            DelegateMessage::create([
+                "subject" => $request->subject,
+                "body" => $request->body
+            ]);
 
             SendingManyEmailsJob::dispatch($details);
 

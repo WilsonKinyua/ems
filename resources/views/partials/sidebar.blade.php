@@ -48,10 +48,10 @@
                         </li>
                         <li>
                             <a href="{{ route('admin.delegates.index')}}" class="{{ request()->is("admin/delegates") || request()->is("admin/delegates/*") ? "mm-active" : "" }}">
-                                <i class="metismenu-icon"></i>Delegate List
+                                <i class="fas fa-users"></i>  Delegates
                             </a>
                         </li>
-                        @php($unread = \App\Models\QaTopic::unreadCount())
+                        {{-- @php($unread = \App\Models\QaTopic::unreadCount())
                         <li>
                             <a href="{{ route("admin.messenger.index") }}" class="{{ request()->is("admin/messenger") || request()->is("admin/messenger/*") ? "mm-active" : "" }}">
                                 <i class="metismenu-icon">
@@ -63,7 +63,7 @@
                                 </span>
 
                             </a>
-                        </li>
+                        </li> --}}
                         {{-- <li>
                             <a href="#">
                                 <i class="metismenu-icon"></i> Minimal

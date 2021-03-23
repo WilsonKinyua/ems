@@ -36,7 +36,7 @@ class DelegateController extends Controller
     {
         $delegate = Delegate::create($request->all());
 
-        return redirect()->route('admin.delegates.index')->with('message', 'Delegate added successfully');;
+        return redirect()->route('admin.delegates.index')->with('message', 'Delegate added successfully');
     }
 
     public function edit(Delegate $delegate)
@@ -78,5 +78,16 @@ class DelegateController extends Controller
         Delegate::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
+    }
+
+    // view for compose mail
+    public function ComposeMail() {
+
+        abort_if(Gate::denies('delegate_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $delegates = Delegate::with(['created_by'])->get();
+
+        return view("admin.delegates.compose-mail",compact("delegates"));
+
     }
 }
