@@ -12,7 +12,7 @@ class DelegateMessage extends Model
 {
     use SoftDeletes, MultiTenantModelTrait, HasFactory;
 
-    public $table = 'delegates';
+    public $table = 'delegate_messages';
 
     protected $dates = [
         'created_at',

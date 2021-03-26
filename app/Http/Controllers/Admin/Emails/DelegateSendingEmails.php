@@ -25,15 +25,14 @@ class DelegateSendingEmails extends Controller
             "subject" => $request->subject,
             "body" => $request->body
             ];
-
-            DelegateMessage::create([
-                "subject" => $request->subject,
-                "body" => $request->body
-            ]);
-
             SendingManyEmailsJob::dispatch($details);
-
         }
+
+        DelegateMessage::create([
+            "subject" => $request->subject,
+            "body" => $request->body
+        ]);
+
         return redirect()->back()->with('message', 'Email sent successfully');
     }
 

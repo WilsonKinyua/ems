@@ -363,23 +363,19 @@
                                                             <tr>
                                                                 <td align="left"
                                                                     style="padding:0;Margin:0;padding-top:15px;padding-right:25px">
-                                                                    <h3
+                                                                    {{-- <h3
                                                                         style="Margin:0;line-height:24px;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;font-size:20px;font-style:normal;font-weight:normal;color:#333333">
-                                                                        Lorem ipsum text</h3>
+                                                                        Lorem ipsum text</h3> --}}
                                                                 </td>
                                                             </tr>
                                                             <tr>
                                                                 <td align="left"
                                                                     style="padding:0;Margin:0;padding-top:10px;padding-bottom:10px;padding-right:25px">
-                                                                    <p
-                                                                        style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
-                                                                        Lorem ipsum dolor sit amet, consectetur
-                                                                        adipiscing elit. Pellentesque vitae interdum
-                                                                        ligula. Pellentesque feugiat ligula ligula, in
-                                                                        interdum dolor aliquet et. Aliquam vitae sem
-                                                                        eget erat viverra malesuada. Aliquam volutpat
-                                                                        vel est quis euismod. Faucibus varius ex eget
-                                                                        aliquam.</p>
+                                                                    <p style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
+
+                                                                        {!! $details['body'] !!}
+
+                                                                    </p>
                                                                 </td>
                                                             </tr>
                                                             <tr>
@@ -391,7 +387,7 @@
                                                                             style="mso-style-priority:100 !important;text-decoration:none;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;color:#FFFFFF;font-size:18px;border-style:solid;border-color:#121413;border-width:10px 20px 10px 20px;display:inline-block;background:#121413;border-radius:11px;font-family:'times new roman', times, baskerville, georgia, serif;font-weight:bold;font-style:normal;line-height:22px;width:auto;text-align:center">Verify
                                                                             Account</a></span></td> --}}
                                                             </tr>
-                                                            <tr>
+                                                            {{-- <tr>
                                                                 <td align="left" style="padding:0;Margin:0">
                                                                     <p
                                                                         style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:arial, 'helvetica neue', helvetica, sans-serif;line-height:21px;color:#333333;font-size:14px">
@@ -403,7 +399,7 @@
                                                                         vel est quis euismod. Faucibus varius ex eget
                                                                         aliquam.</p>
                                                                 </td>
-                                                            </tr>
+                                                            </tr> --}}
                                                         </table>
                                                     </td>
                                                 </tr>
@@ -455,7 +451,7 @@
                             </td>
                         </tr>
                     </table>
-                    <table class="es-footer" cellspacing="0" cellpadding="0" align="center"
+                    {{-- <table class="es-footer" cellspacing="0" cellpadding="0" align="center"
                         style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%;background-color:transparent;background-repeat:repeat;background-position:center top">
                         <tr>
                             <td align="center" style="padding:0;Margin:0">
@@ -581,7 +577,7 @@
                                 </table>
                             </td>
                         </tr>
-                    </table>
+                    </table> --}}
                     <table class="es-content" cellspacing="0" cellpadding="0" align="center"
                         style="mso-table-lspace:0pt;mso-table-rspace:0pt;border-collapse:collapse;border-spacing:0px;table-layout:fixed !important;width:100%">
                         <tr>
