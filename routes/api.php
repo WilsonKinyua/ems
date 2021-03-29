@@ -29,4 +29,8 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Delegates
     Route::apiResource('delegates', 'DelegateApiController');
+
+    // Sponsors
+    Route::post('sponsors/media', 'SponsorApiController@storeMedia')->name('sponsors.storeMedia');
+    Route::apiResource('sponsors', 'SponsorApiController');
 });

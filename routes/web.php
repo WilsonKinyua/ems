@@ -69,6 +69,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // sending emails
     Route::post("delegates/send-emails","Emails\DelegateSendingEmails@store")->name("delagates.emails");
 
+    // Sponsors
+    Route::delete('sponsors/destroy', 'SponsorController@massDestroy')->name('sponsors.massDestroy');
+    Route::post('sponsors/media', 'SponsorController@storeMedia')->name('sponsors.storeMedia');
+    Route::post('sponsors/ckmedia', 'SponsorController@storeCKEditorImages')->name('sponsors.storeCKEditorImages');
+    Route::resource('sponsors', 'SponsorController');
+
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');
     Route::post('messenger', 'MessengerController@storeTopic')->name('messenger.storeTopic');

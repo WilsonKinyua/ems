@@ -230,6 +230,26 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 55,
                 'title' => 'profile_password_edit',
             ],
+            [
+                'id'    => 56,
+                'title' => 'sponsor_create',
+            ],
+            [
+                'id'    => 57,
+                'title' => 'sponsor_edit',
+            ],
+            [
+                'id'    => 58,
+                'title' => 'sponsor_show',
+            ],
+            [
+                'id'    => 59,
+                'title' => 'sponsor_delete',
+            ],
+            [
+                'id'    => 60,
+                'title' => 'sponsor_access',
+            ],
         ];
 
         Permission::insert($permissions);

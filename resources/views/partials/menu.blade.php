@@ -47,6 +47,16 @@
                 </ul>
             </li>
         @endcan
+        @can('sponsor_access')
+            <li class="c-sidebar-nav-item">
+                <a href="{{ route("admin.sponsors.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/sponsors") || request()->is("admin/sponsors/*") ? "c-active" : "" }}">
+                    <i class="fa-fw fas fa-user-check c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.sponsor.title') }}
+                </a>
+            </li>
+        @endcan
         @can('user_management_access')
             <li class="c-sidebar-nav-dropdown {{ request()->is("admin/permissions*") ? "c-show" : "" }} {{ request()->is("admin/roles*") ? "c-show" : "" }} {{ request()->is("admin/users*") ? "c-show" : "" }} {{ request()->is("admin/user-alerts*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">
