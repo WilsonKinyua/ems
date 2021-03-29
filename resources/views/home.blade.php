@@ -1,4 +1,4 @@
-    @section('title')
+    {{-- @section('title')
 
         Admin Dashboard {{ trans('panel.site_title') }}
 
@@ -37,7 +37,7 @@
         @endif
         <div class="tab-content">
             <div class="tab-pane tabs-animation fade show active" id="tab-content-0" role="tabpanel">
-                {{-- <div class="">
+                <div class="">
                     <div class="row">
                         <div class="col-lg-4 col-xl-4">
                             <div class="card mb-3 widget-content">
@@ -84,7 +84,7 @@
                         </div>
                     </div>
 
-                </div> --}}
+                </div>
                 <div class="divider"></div>
                 <div class="row">
                     <div class="col-lg-6 col-xl-4">
@@ -95,7 +95,7 @@
                                 </div>
                                 <div class="widget-content-right">
                                     <div class="widget-numbers text-success">
-                                        <a href="" class="btn btn-primary" data-toggle="modal" data-target="#sponsortemplate">View Template</a>
+                                        <a href="{{ route('admin.sponsors.create') }}" class="btn btn-primary">View Template</a>
                                     </div>
                                 </div>
                             </div>
@@ -256,9 +256,161 @@
 
 @endsection
 
-    {{-- modal --}}
+
     @section('modal')
 
         @include('modal.sponsor-modal')
 
-    @endsection
+    @endsection --}}
+
+
+@section('title')
+
+    Welcome back - {{ trans('panel.site_title') }}
+
+@endsection
+
+@extends('layouts.theme')
+
+
+@section('content')
+<div class="container-fluid">
+    <div class="inner-body">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-header-1">
+                <h1 class="main-content-title tx-30">Dashboard</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
+                </ol>
+            </div>
+        </div>
+        <!-- End Page Header -->
+
+        <!-- Row -->
+					<div class="row">
+						<div class="col-xl-8">
+							<div class="row">
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+									<div class="card overflow-hidden bg-primary-gradient">
+										<div class="card-body">
+											<div class="d-flex clearfix">
+												<div class="text-left">
+													<p class="mb-0 text-white fs-24">Guests</p>
+													<h1 class="mb-0 text-white fs-30">300 K</h1>
+													<p class="mb-0 text-white icon-service-1"><span
+															class="text-white"><i
+																class="fa fa-chevron-up text-white"></i> +64.4%</span>
+													</p>
+												</div>
+												<div class="ml-auto">
+													<span class="bg-primary icon-service text-white ">
+														<i class="fas fa-user sub-icon"></i>
+													</span>
+												</div>
+											</div>
+										</div>
+										<img src="https://www.spruko.com/demo/dashpro/Dashpro/assets/img/pngs/img-1.png"
+											alt="img" class="img-card-circle">
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+									<div class="card overflow-hidden bg-secondary-gradient">
+										<div class="card-body">
+											<div class="d-flex clearfix">
+												<div class="text-left">
+													<p class="mb-0 text-white fs-24">Delegates</p>
+													<h1 class="mb-0 text-white fs-30">15.7 K</h1>
+													<p class="mb-0 text-white icon-service-1"><span
+															class="text-white"><i
+																class="fa fa-chevron-up text-white"></i> +12.6%</span>
+													</p>
+												</div>
+												<div class="ml-auto">
+													<span class="bg-secondary icon-service text-white ">
+														<i class="fas fa-users sub-icon"></i>
+													</span>
+												</div>
+											</div>
+										</div>
+										<img src="https://www.spruko.com/demo/dashpro/Dashpro/assets/img/pngs/img-2.png"
+											alt="img" class="img-card-circle">
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+									<div class="card overflow-hidden bg-purple-gradient">
+										<div class="card-body">
+											<div class="d-flex clearfix">
+												<div class="text-left">
+													<p class="mb-0 text-white fs-24">Sponsors</p>
+													<h1 class="mb-0 text-white fs-30">3662.1 K</h1>
+													<p class="mb-0 text-white icon-service-1"><span
+															class="text-white"><i
+																class="fa fa-chevron-down text-white"></i> -16.2%</span>
+													</p>
+												</div>
+												<div class="ml-auto">
+													<span class="bg-purple icon-service text-white">
+														<i class="fas fa-layer-group"></i>
+													</span>
+												</div>
+											</div>
+										</div>
+										<img src="https://www.spruko.com/demo/dashpro/Dashpro/assets/img/pngs/img-2.png"
+											alt="img" class="img-card-circle">
+									</div>
+								</div>
+								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
+									<div class="card overflow-hidden bg-success-gradient">
+										<div class="card-body">
+											<div class="d-flex clearfix">
+												<div class="text-left">
+													<p class="mb-0 text-white fs-24">Speakers</p>
+													<h1 class="mb-0 text-white fs-30">1.3644 K</h1>
+													<p class="mb-0 text-white icon-service-1"><span
+															class="text-white"><i
+																class="fa fa-chevron-up text-white"></i> +56.6%</span>
+													</p>
+												</div>
+												<div class="ml-auto">
+													<span class="bg-success icon-service text-white ">
+														<i class="fab fa-speaker-deck"></i>
+													</span>
+												</div>
+											</div>
+										</div>
+										<img src="https://www.spruko.com/demo/dashpro/Dashpro/assets/img/pngs/img-1.png"
+											alt="img" class="img-card-circle">
+									</div>
+								</div>
+							</div>
+						</div>
+
+						<div class="col-xl-4">
+							<div class="card">
+								<div class="card-header pd-t-20 bd-b-0">
+									<div class="d-md-flex justify-content-between">
+										<h4 class="card-title font-weight-semibold mb-sm-3">A simple Bar Graph</h4>
+										<div class="dash2-select wd-150">
+											<select name="coins" class="form-control custom-select select2">
+												<option value="1" selected>Guests</option>
+												<option value="2">Sponsors</option>
+												<option value="3">Delegates</option>
+												<option value="4">Speakers</option>
+												<option value="5">Etc</option>
+											</select>
+										</div>
+									</div>
+								</div>
+								<div class="card-body p-0 mb-0">
+									<div id="bar" class="sales-bar"></div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+        </div>
+    </div>
+
+@endsection
