@@ -57,7 +57,7 @@
                                                     <th>
                                                         {{ trans('cruds.delegate.fields.email') }}
                                                     </th>
-                                                    {{-- <th>
+                                                    <th>
                                                         {{ trans('cruds.delegate.fields.company') }}
                                                     </th>
                                                     <th>
@@ -65,7 +65,7 @@
                                                     </th>
                                                     <th>
                                                         {{ trans('cruds.delegate.fields.type_of_attendee') }}
-                                                    </th> --}}
+                                                    </th>
                                                     <th>
                                                         {{ trans('cruds.delegate.fields.payment_status') }}
                                                     </th>
@@ -98,7 +98,7 @@
                                                     <td>
                                                         {{ $delegate->email ?? '' }}
                                                     </td>
-                                                    {{-- <td>
+                                                    <td>
                                                         {{ $delegate->company ?? '' }}
                                                     </td>
                                                     <td>
@@ -106,7 +106,7 @@
                                                     </td>
                                                     <td>
                                                         {{ $delegate->type_of_attendee ?? '' }}
-                                                    </td> --}}
+                                                    </td>
                                                     <td>
                                                         {{ $delegate->payment_status ?? '' }}
                                                     </td>

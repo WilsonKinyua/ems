@@ -101,8 +101,3 @@ Route::prefix('email')->group(function () {
     Route::post('/email','EmailController@store')->name('email.store');
 });
 
-Route::get('dash', function () {
-
-    return view('layouts.theme');
-
-});
