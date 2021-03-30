@@ -148,3 +148,7 @@
     </div>
 </div>
 @endsection
+
+@section('modal')
+
+@endsection

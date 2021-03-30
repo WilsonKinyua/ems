@@ -132,19 +132,19 @@
                         <h6 class="main-notification-title">Alexandra Churchill</h6>
                         <p class="main-notification-text">Web Designer</p>
                     </div>
-                    <a class="dropdown-item border-top" href="profile.html">
+                    <a class="dropdown-item border-top" href="#">
                         <i class="fa fa-user"></i> My Profile
                     </a>
-                    <a class="dropdown-item" href="profile.html">
+                    <a class="dropdown-item" href="#">
                         <i class="fa fa-edit"></i> Edit Profile
                     </a>
-                    <a class="dropdown-item" href="profile.html">
+                    <a class="dropdown-item" href="#">
                         <i class="fa fa-settings"></i> Account Settings
                     </a>
-                    <a class="dropdown-item" href="lockscreen.html">
+                    <a class="dropdown-item" href="#">
                         <i class="fa fa fa-unlock"></i> Lock screen
                     </a>
-                    <a class="dropdown-item" href="signin.html">
+                    <a class="dropdown-item" href="#">
                         <i class="fa fa-power"></i> Sign Out
                     </a>
                 </div>
