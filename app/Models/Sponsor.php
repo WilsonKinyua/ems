@@ -2,47 +2,35 @@
 
 namespace App\Models;
 
-use Carbon\Carbon;
+use App\Traits\MultiTenantModelTrait;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia;
-use Spatie\MediaLibrary\MediaCollections\Models\Media;
 use \DateTimeInterface;
 
-class Sponsor extends Model implements HasMedia
+class Sponsor extends Model
 {
-    use SoftDeletes, InteractsWithMedia, HasFactory;
+    use SoftDeletes, MultiTenantModelTrait, HasFactory;
 
     public $table = 'sponsors';
 
-    protected $appends = [
-        'logo',
-        'signature',
-    ];
-
     protected $dates = [
-        'date',
         'created_at',
         'updated_at',
         'deleted_at',
     ];
 
     protected $fillable = [
-        'subject',
-        'date',
-        'address',
-        'ref',
-        'body',
         'name',
-        'company_organisation',
-        'phone_number',
+        'phone',
         'email',
-        'website_link',
+        'postal_address',
+        'city',
+        'country',
         'created_at',
         'updated_at',
         'deleted_at',
+        'created_by_id',
     ];
 
     protected function serializeDate(DateTimeInterface $date)
@@ -50,45 +38,8 @@ class Sponsor extends Model implements HasMedia
         return $date->format('Y-m-d H:i:s');
     }
 
-    public function registerMediaConversions(Media $media = null): void
+    public function created_by()
     {
-        $this->addMediaConversion('thumb')->fit('crop', 50, 50);
-        $this->addMediaConversion('preview')->fit('crop', 120, 120);
-    }
-
-    public function getLogoAttribute()
-    {
-        $file = $this->getMedia('logo')->last();
-
-        if ($file) {
-            $file->url       = $file->getUrl();
-            $file->thumbnail = $file->getUrl('thumb');
-            $file->preview   = $file->getUrl('preview');
-        }
-
-        return $file;
-    }
-
-    public function getDateAttribute($value)
-    {
-        return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;
-    }
-
-    public function setDateAttribute($value)
-    {
-        $this->attributes['date'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
-    }
-
-    public function getSignatureAttribute()
-    {
-        $file = $this->getMedia('signature')->last();
-
-        if ($file) {
-            $file->url       = $file->getUrl();
-            $file->thumbnail = $file->getUrl('thumb');
-            $file->preview   = $file->getUrl('preview');
-        }
-
-        return $file;
+        return $this->belongsTo(User::class, 'created_by_id');
     }
 }

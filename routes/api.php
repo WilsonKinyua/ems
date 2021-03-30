@@ -30,7 +30,10 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Delegates
     Route::apiResource('delegates', 'DelegateApiController');
 
+    // Sponsor Templates
+    Route::post('sponsor-templates/media', 'SponsorTemplateApiController@storeMedia')->name('sponsor-templates.storeMedia');
+    Route::apiResource('sponsor-templates', 'SponsorTemplateApiController');
+
     // Sponsors
-    Route::post('sponsors/media', 'SponsorApiController@storeMedia')->name('sponsors.storeMedia');
-    Route::apiResource('sponsors', 'SponsorApiController');
+    Route::apiResource('sponsors', 'SponsorsApiController');
 });

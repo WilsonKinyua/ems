@@ -69,11 +69,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // sending emails
     Route::post("delegates/send-emails","Emails\DelegateSendingEmails@store")->name("delagates.emails");
 
+    // Sponsor Templates
+    Route::delete('sponsor-templates/destroy', 'SponsorTemplateController@massDestroy')->name('sponsor-templates.massDestroy');
+    Route::post('sponsor-templates/media', 'SponsorTemplateController@storeMedia')->name('sponsor-templates.storeMedia');
+    Route::post('sponsor-templates/ckmedia', 'SponsorTemplateController@storeCKEditorImages')->name('sponsor-templates.storeCKEditorImages');
+    Route::resource('sponsor-templates', 'SponsorTemplateController');
+
     // Sponsors
-    Route::delete('sponsors/destroy', 'SponsorController@massDestroy')->name('sponsors.massDestroy');
-    Route::post('sponsors/media', 'SponsorController@storeMedia')->name('sponsors.storeMedia');
-    Route::post('sponsors/ckmedia', 'SponsorController@storeCKEditorImages')->name('sponsors.storeCKEditorImages');
-    Route::resource('sponsors', 'SponsorController');
+    Route::delete('sponsors/destroy', 'SponsorsController@massDestroy')->name('sponsors.massDestroy');
+    Route::post('sponsors/parse-csv-import', 'SponsorsController@parseCsvImport')->name('sponsors.parseCsvImport');
+    Route::post('sponsors/process-csv-import', 'SponsorsController@processCsvImport')->name('sponsors.processCsvImport');
+    Route::resource('sponsors', 'SponsorsController');
 
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');

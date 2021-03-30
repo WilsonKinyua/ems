@@ -10,16 +10,12 @@ class CreateSponsorsTable extends Migration
     {
         Schema::create('sponsors', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('ref');
-            $table->longText('body');
             $table->string('name');
-            $table->string('company_organisation');
-            $table->integer('phone_number');
+            $table->string('phone');
             $table->string('email');
-            $table->string('website_link');
-            $table->string('subject')->nullable();
-            $table->date('date');
-            $table->longText('address');
+            $table->string('postal_address')->nullable();
+            $table->string('city')->nullable();
+            $table->string('country');
             $table->timestamps();
             $table->softDeletes();
         });

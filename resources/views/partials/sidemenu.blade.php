@@ -44,6 +44,37 @@
                 </ul>
             </li>
             @endcan
+
+            @can('sponsor_management_access')
+            <li class="nav-header"><span class="nav-label">Sponsor Management</span></li>
+            <li class="nav-item {{ request()->is("admin/sponsors*") ? "show active" : "" }} {{ request()->is("admin/sponsor-templates*") ? "show active" : "" }}">
+                <a class="nav-link with-sub" href="#"><i class="fa fa-shopping-bag sidemenu-icon"></i>
+                    <span class="sidemenu-label">Sponsors</span>
+                    <i class="angle fa fa-chevron-right"></i>
+                </a>
+                <ul class="nav-sub">
+                    @can('sponsor_access')
+                        <li style="" class="nav-sub-item {{ request()->is("admin/sponsors") || request()->is("admin/sponsors/*") ? "active" : "" }}">
+                            <a class="nav-sub-link" href="{{ route("admin.sponsors.index") }}">
+                                {{-- <i class="fas fa-list sub-icon"></i> --}}
+                            <span class="dot"><i class="fas fa-circle"></i></span> Sponsor List</a>
+                        </li>
+                        <li class="nav-sub-item {{ request()->is("admin/sponsors/create") || request()->is("admin/sponsors/create/*") ? "active" : "" }}">
+                            <a class="nav-sub-link" href="{{ route('admin.sponsors.create') }}">
+                                {{-- <i class="fas fa-users sub-icon"></i>  --}}
+                            <span class="dot"><i class="fas fa-circle"></i></span> Add Sponsor</a>
+                        </li>
+                    @endcan
+                    @can('sponsor_template_access')
+                        <li class="nav-sub-item {{ request()->is("admin/sponsor-templates") || request()->is("admin/sponsor-templates/*") ? "active" : "" }}">
+                            <a class="nav-sub-link" href="{{ route("admin.sponsor-templates.index") }}">
+                            <span class="dot"><i class="fas fa-circle"></i></span> Compose Mail
+                            </a>
+                        </li>
+                    @endcan
+                </ul>
+            </li>
+            @endcan
             {{-- <li class="nav-item">
                 <a class="nav-link " href="index2.html"><i class="fe fe-layers sidemenu-icon"></i><span
                         class="sidemenu-label">Analytics</span></a>

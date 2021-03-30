@@ -1,51 +1,59 @@
 @extends('layouts.admin')
 @section('content')
-@can('sponsor_create')
+@can('sponsor_template_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.sponsors.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.sponsor.title_singular') }}
+            <a class="btn btn-success" href="{{ route('admin.sponsor-templates.create') }}">
+                {{ trans('global.add') }} {{ trans('cruds.sponsorTemplate.title_singular') }}
             </a>
-            <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
-                {{ trans('global.app_csvImport') }}
-            </button>
-            @include('csvImport.modal', ['model' => 'Sponsor', 'route' => 'admin.sponsors.parseCsvImport'])
         </div>
     </div>
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.sponsor.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.sponsorTemplate.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
         <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Sponsor">
+            <table class=" table table-bordered table-striped table-hover datatable datatable-SponsorTemplate">
                 <thead>
                     <tr>
                         <th width="10">
 
                         </th>
                         <th>
-                            {{ trans('cruds.sponsor.fields.id') }}
+                            {{ trans('cruds.sponsorTemplate.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.sponsor.fields.name') }}
+                            {{ trans('cruds.sponsorTemplate.fields.subject') }}
                         </th>
                         <th>
-                            {{ trans('cruds.sponsor.fields.phone') }}
+                            {{ trans('cruds.sponsorTemplate.fields.logo') }}
                         </th>
                         <th>
-                            {{ trans('cruds.sponsor.fields.email') }}
+                            {{ trans('cruds.sponsorTemplate.fields.date') }}
                         </th>
                         <th>
-                            {{ trans('cruds.sponsor.fields.postal_address') }}
+                            {{ trans('cruds.sponsorTemplate.fields.ref') }}
                         </th>
                         <th>
-                            {{ trans('cruds.sponsor.fields.city') }}
+                            {{ trans('cruds.sponsorTemplate.fields.signature') }}
                         </th>
                         <th>
-                            {{ trans('cruds.sponsor.fields.country') }}
+                            {{ trans('cruds.sponsorTemplate.fields.name') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.sponsorTemplate.fields.company_organisation') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.sponsorTemplate.fields.phone_number') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.sponsorTemplate.fields.email') }}
+                        </th>
+                        <th>
+                            {{ trans('cruds.sponsorTemplate.fields.website_link') }}
                         </th>
                         <th>
                             &nbsp;
@@ -53,47 +61,59 @@
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($sponsors as $key => $sponsor)
-                        <tr data-entry-id="{{ $sponsor->id }}">
+                    @foreach($sponsorTemplates as $key => $sponsorTemplate)
+                        <tr data-entry-id="{{ $sponsorTemplate->id }}">
                             <td>
 
                             </td>
                             <td>
-                                {{ $sponsor->id ?? '' }}
+                                {{ $sponsorTemplate->id ?? '' }}
                             </td>
                             <td>
-                                {{ $sponsor->name ?? '' }}
+                                {{ $sponsorTemplate->subject ?? '' }}
                             </td>
                             <td>
-                                {{ $sponsor->phone ?? '' }}
+                                {{ $sponsorTemplate->logo ?? '' }}
                             </td>
                             <td>
-                                {{ $sponsor->email ?? '' }}
+                                {{ $sponsorTemplate->date ?? '' }}
                             </td>
                             <td>
-                                {{ $sponsor->postal_address ?? '' }}
+                                {{ $sponsorTemplate->ref ?? '' }}
                             </td>
                             <td>
-                                {{ $sponsor->city ?? '' }}
+                                {{ $sponsorTemplate->signature ?? '' }}
                             </td>
                             <td>
-                                {{ $sponsor->country ?? '' }}
+                                {{ $sponsorTemplate->name ?? '' }}
                             </td>
                             <td>
-                                @can('sponsor_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.sponsors.show', $sponsor->id) }}">
+                                {{ $sponsorTemplate->company_organisation ?? '' }}
+                            </td>
+                            <td>
+                                {{ $sponsorTemplate->phone_number ?? '' }}
+                            </td>
+                            <td>
+                                {{ $sponsorTemplate->email ?? '' }}
+                            </td>
+                            <td>
+                                {{ $sponsorTemplate->website_link ?? '' }}
+                            </td>
+                            <td>
+                                @can('sponsor_template_show')
+                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.sponsor-templates.show', $sponsorTemplate->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                @can('sponsor_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.sponsors.edit', $sponsor->id) }}">
+                                @can('sponsor_template_edit')
+                                    <a class="btn btn-xs btn-info" href="{{ route('admin.sponsor-templates.edit', $sponsorTemplate->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('sponsor_delete')
-                                    <form action="{{ route('admin.sponsors.destroy', $sponsor->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                @can('sponsor_template_delete')
+                                    <form action="{{ route('admin.sponsor-templates.destroy', $sponsorTemplate->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
                                         <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
@@ -118,11 +138,11 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('sponsor_delete')
+@can('sponsor_template_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
-    url: "{{ route('admin.sponsors.massDestroy') }}",
+    url: "{{ route('admin.sponsor-templates.massDestroy') }}",
     className: 'btn-danger',
     action: function (e, dt, node, config) {
       var ids = $.map(dt.rows({ selected: true }).nodes(), function (entry) {
@@ -153,7 +173,7 @@
     order: [[ 1, 'desc' ]],
     pageLength: 100,
   });
-  let table = $('.datatable-Sponsor:not(.ajaxTable)').DataTable({ buttons: dtButtons })
+  let table = $('.datatable-SponsorTemplate:not(.ajaxTable)').DataTable({ buttons: dtButtons })
   $('a[data-toggle="tab"]').on('shown.bs.tab click', function(e){
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();

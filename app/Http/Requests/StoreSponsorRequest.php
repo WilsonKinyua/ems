@@ -17,48 +17,26 @@ class StoreSponsorRequest extends FormRequest
     public function rules()
     {
         return [
-            'subject'              => [
+            'name'           => [
+                'string',
+                'required',
+            ],
+            'phone'          => [
+                'string',
+                'required',
+            ],
+            'email'          => [
+                'required',
+            ],
+            'postal_address' => [
                 'string',
                 'nullable',
             ],
-            'logo'                 => [
-                'required',
-            ],
-            'date'                 => [
-                'required',
-                'date_format:' . config('panel.date_format'),
-            ],
-            'address'              => [
-                'required',
-            ],
-            'ref'                  => [
+            'city'           => [
                 'string',
-                'required',
+                'nullable',
             ],
-            'body'                 => [
-                'required',
-            ],
-            'signature'            => [
-                'required',
-            ],
-            'name'                 => [
-                'string',
-                'required',
-            ],
-            'company_organisation' => [
-                'string',
-                'required',
-            ],
-            'phone_number'         => [
-                'required',
-                'integer',
-                'min:-2147483648',
-                'max:2147483647',
-            ],
-            'email'                => [
-                'required',
-            ],
-            'website_link'         => [
+            'country'        => [
                 'string',
                 'required',
             ],

@@ -25,70 +25,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.sponsor.fields.subject') }}
-                        </th>
-                        <td>
-                            {{ $sponsor->subject }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.sponsor.fields.logo') }}
-                        </th>
-                        <td>
-                            @if($sponsor->logo)
-                                <a href="{{ $sponsor->logo->getUrl() }}" target="_blank" style="display: inline-block">
-                                    <img src="{{ $sponsor->logo->getUrl('thumb') }}">
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.sponsor.fields.date') }}
-                        </th>
-                        <td>
-                            {{ $sponsor->date }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.sponsor.fields.address') }}
-                        </th>
-                        <td>
-                            {!! $sponsor->address !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.sponsor.fields.ref') }}
-                        </th>
-                        <td>
-                            {{ $sponsor->ref }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.sponsor.fields.body') }}
-                        </th>
-                        <td>
-                            {!! $sponsor->body !!}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.sponsor.fields.signature') }}
-                        </th>
-                        <td>
-                            @if($sponsor->signature)
-                                <a href="{{ $sponsor->signature->getUrl() }}" target="_blank" style="display: inline-block">
-                                    <img src="{{ $sponsor->signature->getUrl('thumb') }}">
-                                </a>
-                            @endif
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.sponsor.fields.name') }}
                         </th>
                         <td>
@@ -97,18 +33,10 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.sponsor.fields.company_organisation') }}
+                            {{ trans('cruds.sponsor.fields.phone') }}
                         </th>
                         <td>
-                            {{ $sponsor->company_organisation }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.sponsor.fields.phone_number') }}
-                        </th>
-                        <td>
-                            {{ $sponsor->phone_number }}
+                            {{ $sponsor->phone }}
                         </td>
                     </tr>
                     <tr>
@@ -121,10 +49,26 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.sponsor.fields.website_link') }}
+                            {{ trans('cruds.sponsor.fields.postal_address') }}
                         </th>
                         <td>
-                            {{ $sponsor->website_link }}
+                            {{ $sponsor->postal_address }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.sponsor.fields.city') }}
+                        </th>
+                        <td>
+                            {{ $sponsor->city }}
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>
+                            {{ trans('cruds.sponsor.fields.country') }}
+                        </th>
+                        <td>
+                            {{ $sponsor->country }}
                         </td>
                     </tr>
                 </tbody>

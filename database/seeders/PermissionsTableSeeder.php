@@ -232,22 +232,46 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 56,
-                'title' => 'sponsor_create',
+                'title' => 'sponsor_template_create',
             ],
             [
                 'id'    => 57,
-                'title' => 'sponsor_edit',
+                'title' => 'sponsor_template_edit',
             ],
             [
                 'id'    => 58,
-                'title' => 'sponsor_show',
+                'title' => 'sponsor_template_show',
             ],
             [
                 'id'    => 59,
-                'title' => 'sponsor_delete',
+                'title' => 'sponsor_template_delete',
             ],
             [
                 'id'    => 60,
+                'title' => 'sponsor_template_access',
+            ],
+            [
+                'id'    => 61,
+                'title' => 'sponsor_management_access',
+            ],
+            [
+                'id'    => 62,
+                'title' => 'sponsor_create',
+            ],
+            [
+                'id'    => 63,
+                'title' => 'sponsor_edit',
+            ],
+            [
+                'id'    => 64,
+                'title' => 'sponsor_show',
+            ],
+            [
+                'id'    => 65,
+                'title' => 'sponsor_delete',
+            ],
+            [
+                'id'    => 66,
                 'title' => 'sponsor_access',
             ],
         ];
