@@ -66,15 +66,15 @@
                         </li>
                     @endcan
                     @can('sponsor_template_access')
-                        <li class="nav-sub-item {{ request()->is("admin/sponsor-templates") || request()->is("admin/sponsor-templates/*") ? "active" : "" }}">
-                            <a class="nav-sub-link" href="{{ route("admin.sponsor-templates.index") }}">
+                        <li class="nav-sub-item {{ request()->is("admin/sponsor-templates/create") || request()->is("admin/sponsor-templates/create/*") ? "active" : "" }}">
+                            <a class="nav-sub-link" href="{{ route("admin.sponsor-templates.create") }}">
                             <span class="dot"><i class="fas fa-circle"></i></span> Compose Mail
                             </a>
                         </li>
                     @endcan
                 </ul>
             </li>
-            @endcan
+            @endcan 
             {{-- <li class="nav-item">
                 <a class="nav-link " href="index2.html"><i class="fe fe-layers sidemenu-icon"></i><span
                         class="sidemenu-label">Analytics</span></a>

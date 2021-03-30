@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroySponsorTemplateRequest;
 use App\Http\Requests\StoreSponsorTemplateRequest;
 use App\Http\Requests\UpdateSponsorTemplateRequest;
+use App\Models\Sponsor;
 use App\Models\SponsorTemplate;
 use Gate;
 use Illuminate\Http\Request;
@@ -35,13 +36,45 @@ class SponsorTemplateController extends Controller
 
     public function store(StoreSponsorTemplateRequest $request)
     {
-        $sponsorTemplate = SponsorTemplate::create($request->all());
 
-        if ($media = $request->input('ck-media', false)) {
-            Media::whereIn('id', $media)->update(['model_id' => $sponsorTemplate->id]);
+        // move and create the image
+        if($filelogo = $request->file("logo")) {
+
+            $logo_name = time() . $filelogo->getClientOriginalName();
+            $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
+
         }
 
-        return redirect()->route('admin.sponsor-templates.index');
+        if($signaturefile = $request->file("signature")) {
+
+            $signature_name = time() . $signaturefile->getClientOriginalName();
+            $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+        }
+
+        // form request data array
+        $data = [
+            "subject" => $request->subject,
+            "logo" => $logo_name,
+            "date" => $request->date,
+            "address" => $request->address,
+            "ref" => $request->ref,
+            "signature" => $signature_name,
+            "name" => $request->name,
+            "company_organisation" => $request->company_organisation,
+            "body" => $request->body,
+            "phone_number" => $request->phone_number,
+            "email" => $request->email,
+            "website_link" => $request->website_link,
+            'created_by_id' => \Auth::user()->id
+        ];
+
+
+        $sponsorTemplate = SponsorTemplate::create($data);
+
+        return redirect()->route("admin.compose.preview", $sponsorTemplate->id)
+                                ->with('success', 'Template created successfully');
+
     }
 
     public function edit(SponsorTemplate $sponsorTemplate)
@@ -96,4 +129,19 @@ class SponsorTemplateController extends Controller
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
+
+    // preview mail before send
+    public function preview($id) {
+
+       $template = SponsorTemplate::findOrFail($id);
+       $sponsors = Sponsor::all();
+       return view('admin.sponsorTemplates.preview',compact('template','sponsors'));
+
+    }
+
+    // send sponsor mail
+    public function sendMail() {
+
+    }
+
 }

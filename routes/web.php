@@ -74,6 +74,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('sponsor-templates/media', 'SponsorTemplateController@storeMedia')->name('sponsor-templates.storeMedia');
     Route::post('sponsor-templates/ckmedia', 'SponsorTemplateController@storeCKEditorImages')->name('sponsor-templates.storeCKEditorImages');
     Route::resource('sponsor-templates', 'SponsorTemplateController');
+    // preview mail before send
+    Route::get('sponsor-template/compose/preview/{id}',"SponsorTemplateController@preview")->name('compose.preview');
+    // send the previewed mail
+    Route::post('sponsor-template/compose/preview/send','SponsorTemplateController@sendMail')->name('sponsor.sendmail');
 
     // Sponsors
     Route::delete('sponsors/destroy', 'SponsorsController@massDestroy')->name('sponsors.massDestroy');
