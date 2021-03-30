@@ -48,7 +48,7 @@
             @can('sponsor_management_access')
             <li class="nav-header"><span class="nav-label">Sponsor Management</span></li>
             <li class="nav-item {{ request()->is("admin/sponsors*") ? "show active" : "" }} {{ request()->is("admin/sponsor-templates*") ? "show active" : "" }}">
-                <a class="nav-link with-sub" href="#"><i class="fa fa-shopping-bag sidemenu-icon"></i>
+                <a class="nav-link with-sub" href="#"><i class="fa fa-users sidemenu-icon"></i>
                     <span class="sidemenu-label">Sponsors</span>
                     <i class="angle fa fa-chevron-right"></i>
                 </a>
