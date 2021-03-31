@@ -21,10 +21,10 @@ class UpdateSponsorTemplateRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'logo'                 => [
-                'string',
-                'required',
-            ],
+            // 'logo'                 => [
+            //     'file',
+            //     'required',
+            // ],
             'date'                 => [
                 'required',
                 'date_format:' . config('panel.date_format'),
@@ -39,10 +39,10 @@ class UpdateSponsorTemplateRequest extends FormRequest
             'body'                 => [
                 'required',
             ],
-            'signature'            => [
-                'string',
-                'required',
-            ],
+            // 'signature'            => [
+            //     'file',
+            //     'required',
+            // ],
             'name'                 => [
                 'string',
                 'required',
@@ -53,9 +53,6 @@ class UpdateSponsorTemplateRequest extends FormRequest
             ],
             'phone_number'         => [
                 'required',
-                'integer',
-                'min:-2147483648',
-                'max:2147483647',
             ],
             'email'                => [
                 'required',

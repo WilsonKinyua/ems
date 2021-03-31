@@ -2,14 +2,14 @@
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h4 class="modal-title" id="myModalLabel">@lang('global.app_csvImport')</h4>
+                <h4 class="modal-title" id="myModalLabel">Select Recipient </h4>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             </div>
             <div class="modal-body">
                 <div class='row'>
                     <div class='col-md-12'>
 
-                        <form class="form-horizontal" method="POST" action="{{ route("admin.sponsor.sendmail") }}" enctype="multipart/form-data">
+                        <form class="form-horizontal" method="POST" action="{{ route("admin.sponsor.emails") }}" enctype="multipart/form-data">
                             {{ csrf_field() }}
                             <input type="hidden" name="id" value="{{ $template->id }}">
                             <div class="form-group">

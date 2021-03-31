@@ -21,7 +21,7 @@
 
         <div style="margin-bottom: 10px;" class="row">
             <div class="col-lg-12">
-                <a class="btn btn-success" href="{{ route('admin.sponsors.create') }}">
+                <a class="btn btn-success" href="{{ route('admin.sponsor-templates.edit',$template->id) }}">
                     Edit Template
                 </a>
                 <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
@@ -37,7 +37,7 @@
                     {{-- <div class="">
                         Email Preview
                     </div> --}}
-                    <div class="    ">
+                    <div class=>
 
                         <div class="es-wrapper-color" style="background-color:#BDC8C8">
 

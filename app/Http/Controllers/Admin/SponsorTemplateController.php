@@ -88,9 +88,44 @@ class SponsorTemplateController extends Controller
 
     public function update(UpdateSponsorTemplateRequest $request, SponsorTemplate $sponsorTemplate)
     {
-        $sponsorTemplate->update($request->all());
+          // move and create the image
+          if($filelogo = $request->file("logo")) {
 
-        return redirect()->route('admin.sponsor-templates.index');
+            $logo_name = time() . $filelogo->getClientOriginalName();
+            $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
+
+        }
+
+        if($signaturefile = $request->file("signature")) {
+
+            $signature_name = time() . $signaturefile->getClientOriginalName();
+            $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+        }
+
+        // form request data array
+        $data = [
+            "subject" => $request->subject,
+            "logo" => $logo_name,
+            "date" => $request->date,
+            "address" => $request->address,
+            "ref" => $request->ref,
+            "signature" => $signature_name,
+            "name" => $request->name,
+            "company_organisation" => $request->company_organisation,
+            "body" => $request->body,
+            "phone_number" => $request->phone_number,
+            "email" => $request->email,
+            "website_link" => $request->website_link,
+            'created_by_id' => \Auth::user()->id
+        ];
+
+
+        $sponsorTemplate->update($data);
+
+        // return redirect()->route('admin.sponsor-templates.index');
+        return redirect()->route("admin.compose.preview", $sponsorTemplate->id)
+                                ->with('success', 'Template updated successfully');
     }
 
     public function show(SponsorTemplate $sponsorTemplate)
@@ -136,11 +171,6 @@ class SponsorTemplateController extends Controller
        $template = SponsorTemplate::findOrFail($id);
        $sponsors = Sponsor::all();
        return view('admin.sponsorTemplates.preview',compact('template','sponsors'));
-
-    }
-
-    // send sponsor mail
-    public function sendMail() {
 
     }
 

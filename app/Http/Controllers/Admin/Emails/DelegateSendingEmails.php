@@ -13,6 +13,7 @@ class DelegateSendingEmails extends Controller
     // sending many emails using job dispatch
 
     public function store(Request $request) {
+        
         $id = $request->emails;
 
         foreach ($id as $key => $value) {

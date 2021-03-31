@@ -78,6 +78,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('sponsor-template/compose/preview/{id}',"SponsorTemplateController@preview")->name('compose.preview');
     // send the previewed mail
     Route::post('sponsor-template/compose/preview/send','SponsorTemplateController@sendMail')->name('sponsor.sendmail');
+    // send mail
+    Route::post("sponsor-template/compose/preview/send-mail","Emails\SponsorSendingEmails@store")->name("sponsor.emails");
 
     // Sponsors
     Route::delete('sponsors/destroy', 'SponsorsController@massDestroy')->name('sponsors.massDestroy');
