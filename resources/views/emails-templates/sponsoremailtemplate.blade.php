@@ -58,7 +58,7 @@
                                       <tr>
                                         <td align="center" style="padding:0;Margin:0;font-size:0px">
                                             <img class="adapt-img"
-                                            src="{{ $details['logo'] }}"
+                                            src="{{ asset($details['logo']) }}"
                                             alt
                                             style="width:200px; height:63px; display:block;border:0;outline:none;text-decoration:none;-ms-interpolation-mode:bicubic"
                                             >
