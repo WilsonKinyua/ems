@@ -11,7 +11,7 @@
     <link rel="shortcut icon" href="https://developerwilson.com/assets/images/ico/favicon.png">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no" />
     <meta name="description" content="Please Register to access your account -- {{ trans('panel.site_title') }}">
-    {{-- Main style --}}
+
     <link href="{{ asset('assets/css/main.css')}}" rel="stylesheet">
 </head>
 
@@ -120,8 +120,8 @@
                                             style="background-image: url('assets/images/loginregister/loginregister.jpg');"></div>
                                         <div class="slider-content">
                                             <h3>{{ trans('panel.site_title') }}</h3>
-                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic dicta nihil 
-                                                necessitatibus rerum, blanditiis ex explicabo vero in eaque totam tempore 
+                                            <p>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic dicta nihil
+                                                necessitatibus rerum, blanditiis ex explicabo vero in eaque totam tempore
                                                 officiis pariatur eius, expedita saepe nam rem dignissimos nulla?
                                             </p>
                                         </div>
