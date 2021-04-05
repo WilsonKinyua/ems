@@ -57,6 +57,70 @@
                 </a>
             </li>
         @endcan
+        @can('sponsor_management_access')
+        <li class="c-sidebar-nav-dropdown {{ request()->is("admin/sponsors*") ? "c-show" : "" }} {{ request()->is("admin/sponsor-templates*") ? "c-show" : "" }}">
+            <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                <i class="fa-fw fas fa-user-friends c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.sponsorManagement.title') }}
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                @can('sponsor_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.sponsors.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/sponsors") || request()->is("admin/sponsors/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-align-justify c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.sponsor.title') }}
+                        </a>
+                    </li>
+                @endcan
+                @can('sponsor_template_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.sponsor-templates.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/sponsor-templates") || request()->is("admin/sponsor-templates/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-user-check c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.sponsorTemplate.title') }}
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+        </li>
+    @endcan
+    @can('speaker_management_access')
+        <li class="c-sidebar-nav-dropdown {{ request()->is("admin/speakers*") ? "c-show" : "" }} {{ request()->is("admin/speaker-templates*") ? "c-show" : "" }}">
+            <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                <i class="fa-fw fab fa-speakap c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.speakerManagement.title') }}
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                @can('speaker_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.speakers.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/speakers") || request()->is("admin/speakers/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fab fa-speakap c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.speaker.title') }}
+                        </a>
+                    </li>
+                @endcan
+                @can('speaker_template_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.speaker-templates.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/speaker-templates") || request()->is("admin/speaker-templates/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-user-check c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.speakerTemplate.title') }}
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+        </li>
+    @endcan
         @can('user_management_access')
             <li class="c-sidebar-nav-dropdown {{ request()->is("admin/permissions*") ? "c-show" : "" }} {{ request()->is("admin/roles*") ? "c-show" : "" }} {{ request()->is("admin/users*") ? "c-show" : "" }} {{ request()->is("admin/user-alerts*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">

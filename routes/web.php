@@ -87,6 +87,18 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('sponsors/process-csv-import', 'SponsorsController@processCsvImport')->name('sponsors.processCsvImport');
     Route::resource('sponsors', 'SponsorsController');
 
+    // Speakers
+    Route::delete('speakers/destroy', 'SpeakerController@massDestroy')->name('speakers.massDestroy');
+    Route::post('speakers/parse-csv-import', 'SpeakerController@parseCsvImport')->name('speakers.parseCsvImport');
+    Route::post('speakers/process-csv-import', 'SpeakerController@processCsvImport')->name('speakers.processCsvImport');
+    Route::resource('speakers', 'SpeakerController');
+
+    // Speaker Templates
+    Route::delete('speaker-templates/destroy', 'SpeakerTemplateController@massDestroy')->name('speaker-templates.massDestroy');
+    Route::post('speaker-templates/media', 'SpeakerTemplateController@storeMedia')->name('speaker-templates.storeMedia');
+    Route::post('speaker-templates/ckmedia', 'SpeakerTemplateController@storeCKEditorImages')->name('speaker-templates.storeCKEditorImages');
+    Route::resource('speaker-templates', 'SpeakerTemplateController');
+
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');
     Route::post('messenger', 'MessengerController@storeTopic')->name('messenger.storeTopic');

@@ -274,6 +274,50 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 66,
                 'title' => 'sponsor_access',
             ],
+            [
+                'id'    => 67,
+                'title' => 'speaker_create',
+            ],
+            [
+                'id'    => 68,
+                'title' => 'speaker_edit',
+            ],
+            [
+                'id'    => 69,
+                'title' => 'speaker_show',
+            ],
+            [
+                'id'    => 70,
+                'title' => 'speaker_delete',
+            ],
+            [
+                'id'    => 71,
+                'title' => 'speaker_access',
+            ],
+            [
+                'id'    => 72,
+                'title' => 'speaker_management_access',
+            ],
+            [
+                'id'    => 73,
+                'title' => 'speaker_template_create',
+            ],
+            [
+                'id'    => 74,
+                'title' => 'speaker_template_edit',
+            ],
+            [
+                'id'    => 75,
+                'title' => 'speaker_template_show',
+            ],
+            [
+                'id'    => 76,
+                'title' => 'speaker_template_delete',
+            ],
+            [
+                'id'    => 77,
+                'title' => 'speaker_template_access',
+            ],
         ];
 
         Permission::insert($permissions);

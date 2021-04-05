@@ -36,4 +36,8 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Sponsors
     Route::apiResource('sponsors', 'SponsorsApiController');
+
+    // Speaker Templates
+    Route::post('speaker-templates/media', 'SpeakerTemplateApiController@storeMedia')->name('speaker-templates.storeMedia');
+    Route::apiResource('speaker-templates', 'SpeakerTemplateApiController');
 });
