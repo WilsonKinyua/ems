@@ -36,7 +36,7 @@ class DelegateController extends Controller
     {
         $delegate = Delegate::create($request->all());
 
-        return redirect()->route('admin.delegates.index')->with('message', 'Delegate added successfully');
+        return redirect()->route('admin.delegates.index')->with('success', 'Delegate added successfully');
     }
 
     public function edit(Delegate $delegate)
@@ -52,7 +52,7 @@ class DelegateController extends Controller
     {
         $delegate->update($request->all());
 
-        return redirect()->route('admin.delegates.index');
+        return redirect()->route('admin.delegates.index')->with('success', 'Delegate updated successfully');
     }
 
     public function show(Delegate $delegate)

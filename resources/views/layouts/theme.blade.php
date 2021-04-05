@@ -54,6 +54,8 @@
 
     {{-- ckeditor --}}
     <script src="https://cdn.ckeditor.com/4.16.0/standard/ckeditor.js"></script>
+    {{-- toastr --}}
+    <link rel="stylesheet" href="{{ asset('asset/plugins/toastr.min.css')}}">
     @yield('styles')
 </head>
 
@@ -79,8 +81,23 @@
         <!-- Mobile-header -->
             @include('partials.mobile-header')
         <!-- Mobile-header closed -->
-        <div class="main-content side-content pt-0">
-
+            <div class="main-content side-content pt-0">
+                {{-- @if(session('message'))
+                <div class="row mb-2">
+                    <div class="col-lg-12">
+                        <div class="alert alert-success" role="alert">{{ session('message') }}</div>
+                    </div>
+                </div>
+            @endif
+            @if($errors->count() > 0)
+                <div class="alert alert-danger">
+                    <ul class="list-unstyled">
+                        @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif --}}
 
                 @yield('content')
 
@@ -233,7 +250,6 @@
     </div>
     	<!-- Back-to-top -->
 	<a href="#top" id="back-to-top"><i class="fa fa-arrow-up"></i></a>
-
 	<!-- Jquery js-->
 	<script src="{{ asset('asset/plugins/jquery/jquery.min.js')}}"></script>
 
@@ -285,6 +301,10 @@
 
     {{-- plugins --}}
     <script type="text/javascript" src="{{ asset('assets/scripts/main.js')}}"></script>
+
+    {{-- notification --}}
+    <script src="{{ asset('asset/plugins/toastr.min.js')}}"></script>
+    @yield('scripts')
     {{-- <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js'></script>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/chosen/1.7.0/chosen.jquery.min.js'></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -433,9 +453,6 @@
     });
 });
 
-    </script>
-    @yield('scripts')
-    <script>
         $('select').chosen({width: "300px"});
         $('.chosen-toggle').each(function(index) {
         console.log(index);

@@ -44,7 +44,7 @@ class SponsorSendingEmails extends Controller
 
          }
 
-         return redirect()->back()->with('success', 'Email sent successfully');
+         return redirect()->route('admin.sponsors.index')->with('success', 'Email sent successfully');
 
     }
 }

@@ -13,7 +13,7 @@ class DelegateSendingEmails extends Controller
     // sending many emails using job dispatch
 
     public function store(Request $request) {
-        
+
         $id = $request->emails;
 
         foreach ($id as $key => $value) {
@@ -34,7 +34,7 @@ class DelegateSendingEmails extends Controller
             "body" => $request->body
         ]);
 
-        return redirect()->back()->with('message', 'Email sent successfully');
+        return redirect()->route('admin.delegates.index')->with('success', 'Email sent successfully');
     }
 
 }

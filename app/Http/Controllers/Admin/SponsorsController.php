@@ -36,7 +36,7 @@ class SponsorsController extends Controller
     {
         $sponsor = Sponsor::create($request->all());
 
-        return redirect()->route('admin.sponsors.index');
+        return redirect()->route('admin.sponsors.index')->with('success', 'Sponsor created successfully');
     }
 
     public function edit(Sponsor $sponsor)
@@ -52,7 +52,7 @@ class SponsorsController extends Controller
     {
         $sponsor->update($request->all());
 
-        return redirect()->route('admin.sponsors.index');
+        return redirect()->route('admin.sponsors.index')->with('success', 'Sponsor updated successfully');
     }
 
     public function show(Sponsor $sponsor)
@@ -70,7 +70,7 @@ class SponsorsController extends Controller
 
         $sponsor->delete();
 
-        return back();
+        return back()->with('success', 'Sponsor removed successfully');
     }
 
     public function massDestroy(MassDestroySponsorRequest $request)
