@@ -1,115 +1,138 @@
-@extends('layouts.admin')
+@extends('layouts.theme')
+
+@section('title')
+      Sponsor List - {{ trans('panel.site_title') }}
+@endsection
+
 @section('content')
-@can('speaker_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.speakers.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.speaker.title_singular') }}
-            </a>
-            <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
-                {{ trans('global.app_csvImport') }}
-            </button>
-            @include('csvImport.modal', ['model' => 'Speaker', 'route' => 'admin.speakers.parseCsvImport'])
+
+<div class="container-fluid">
+    <div class="inner-body">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-header-1">
+                <h1 class="main-content-title tx-30">Sponsor</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Sponsor List</li>
+                </ol>
+            </div>
         </div>
-    </div>
-@endcan
-<div class="card">
-    <div class="card-header">
-        {{ trans('cruds.speaker.title_singular') }} {{ trans('global.list') }}
-    </div>
 
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-Speaker">
-                <thead>
-                    <tr>
-                        <th width="10">
+        @can('speaker_create')
+            <div style="margin-bottom: 10px;" class="row">
+                <div class="col-lg-12">
+                    <a class="btn btn-success" href="{{ route('admin.speakers.create') }}">
+                        {{ trans('global.add') }} {{ trans('cruds.speaker.title_singular') }}
+                    </a>
+                    <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
+                        {{ trans('global.app_csvImport') }}
+                    </button>
+                    @include('csvImport.modal', ['model' => 'Speaker', 'route' => 'admin.speakers.parseCsvImport'])
+                </div>
+            </div>
+        @endcan
 
-                        </th>
-                        <th>
-                            {{ trans('cruds.speaker.fields.id') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.speaker.fields.name') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.speaker.fields.phone') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.speaker.fields.email') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.speaker.fields.postal_address') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.speaker.fields.city') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.speaker.fields.country') }}
-                        </th>
-                        <th>
-                            &nbsp;
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($speakers as $key => $speaker)
-                        <tr data-entry-id="{{ $speaker->id }}">
-                            <td>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card">
+                <div class="card-body">
 
-                            </td>
-                            <td>
-                                {{ $speaker->id ?? '' }}
-                            </td>
-                            <td>
-                                {{ $speaker->name ?? '' }}
-                            </td>
-                            <td>
-                                {{ $speaker->phone ?? '' }}
-                            </td>
-                            <td>
-                                {{ $speaker->email ?? '' }}
-                            </td>
-                            <td>
-                                {{ $speaker->postal_address ?? '' }}
-                            </td>
-                            <td>
-                                {{ $speaker->city ?? '' }}
-                            </td>
-                            <td>
-                                {{ $speaker->country ?? '' }}
-                            </td>
-                            <td>
-                                @can('speaker_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.speakers.show', $speaker->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
+                    <div class="table-responsive">
+                        <table class=" table table-bordered table-striped table-hover datatable datatable-Speaker">
+                            <thead>
+                                <tr>
+                                    <th width="10">
 
-                                @can('speaker_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.speakers.edit', $speaker->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                @endcan
+                                    </th>
+                                    <th>
+                                        {{ trans('cruds.speaker.fields.id') }}
+                                    </th>
+                                    <th>
+                                        {{ trans('cruds.speaker.fields.name') }}
+                                    </th>
+                                    <th>
+                                        {{ trans('cruds.speaker.fields.phone') }}
+                                    </th>
+                                    <th>
+                                        {{ trans('cruds.speaker.fields.email') }}
+                                    </th>
+                                    <th>
+                                        {{ trans('cruds.speaker.fields.postal_address') }}
+                                    </th>
+                                    <th>
+                                        {{ trans('cruds.speaker.fields.city') }}
+                                    </th>
+                                    <th>
+                                        {{ trans('cruds.speaker.fields.country') }}
+                                    </th>
+                                    <th>
+                                        &nbsp;
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                @foreach($speakers as $key => $speaker)
+                                    <tr data-entry-id="{{ $speaker->id }}">
+                                        <td>
 
-                                @can('speaker_delete')
-                                    <form action="{{ route('admin.speakers.destroy', $speaker->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                    </form>
-                                @endcan
+                                        </td>
+                                        <td>
+                                            {{ $speaker->id ?? '' }}
+                                        </td>
+                                        <td>
+                                            {{ $speaker->name ?? '' }}
+                                        </td>
+                                        <td>
+                                            {{ $speaker->phone ?? '' }}
+                                        </td>
+                                        <td>
+                                            {{ $speaker->email ?? '' }}
+                                        </td>
+                                        <td>
+                                            {{ $speaker->postal_address ?? '' }}
+                                        </td>
+                                        <td>
+                                            {{ $speaker->city ?? '' }}
+                                        </td>
+                                        <td>
+                                            {{ $speaker->country ?? '' }}
+                                        </td>
+                                        <td>
+                                            @can('speaker_show')
+                                                <a class="btn btn-xs btn-primary" href="{{ route('admin.speakers.show', $speaker->id) }}">
+                                                    {{ trans('global.view') }}
+                                                </a>
+                                            @endcan
 
-                            </td>
+                                            @can('speaker_edit')
+                                                <a class="btn btn-xs btn-info" href="{{ route('admin.speakers.edit', $speaker->id) }}">
+                                                    {{ trans('global.edit') }}
+                                                </a>
+                                            @endcan
 
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                                            @can('speaker_delete')
+                                                <form action="{{ route('admin.speakers.destroy', $speaker->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                                    <input type="hidden" name="_method" value="DELETE">
+                                                    <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                    <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                                </form>
+                                            @endcan
+
+                                        </td>
+
+                                    </tr>
+                                @endforeach
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
+</div>
 
 
 @endsection
@@ -158,7 +181,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

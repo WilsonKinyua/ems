@@ -28,6 +28,13 @@
                     <a class="nav-link" href="{{ route("admin.sponsors.index") }}"><i class="fas fa-layer-group sidemenu-icon"></i><span class="sidemenu-label">Sponsors</span></a>
                 </li>
             @endcan
+            @can('speaker_management_access')
+            @can('speaker_access')
+                <li class="nav-item {{ request()->is("admin/speakers") || request()->is("admin/speakers/*") ? "" : "" }}">
+                    <a class="nav-link" href="{{ route("admin.speakers.index") }}"><i class="fas fa-layer-group sidemenu-icon"></i><span class="sidemenu-label">{{ trans('cruds.speaker.title') }}</span></a>
+                </li>
+            @endcan
+            @endcan
             {{-- <li class="nav-item">
                 <a class="nav-link " href="index2.html"><i class="fe fe-layers sidemenu-icon"></i><span
                         class="sidemenu-label">Analytics</span></a>
