@@ -426,10 +426,31 @@
 													</p>
 												</div>
 												<div class="ml-auto">
-                                                    <button class="btn btn-primary btn-lg">View</button>
-													{{-- <span class="bg-primary icon-service-2 text-white ">
-														<i class="mdi mdi-calculator">View</i>
-													</span> --}}
+
+                                                <!-- Button trigger modal -->
+                                                    <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#delegatemodal">
+                                                        View
+                                                    </button>
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="delegatemodal" tabindex="-1" role="dialog" aria-labelledby="delegatemodalTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle">Delegate Management</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <a type="button" class="btn btn-primary btn-sm text-white p-3 text-bold mt-3" href="{{ route('admin.delegates.create') }}">Add Delegate</a>
+                                                                <a type="button" class="btn btn-primary btn-sm text-white p-3 text-bold mt-3" href="{{ route('admin.delegates.index') }}">View Delegates</a>
+                                                                <a type="button" class="btn btn-primary btn-sm text-white p-3 text-bold mt-3" href="{{ route('admin.compose.mailmail')}}">Compose Delegate Email</a>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- end modal --}}
 												</div>
 											</div>
 										</div>
@@ -448,10 +469,30 @@
                                                     </p>
 												</div>
 												<div class="ml-auto">
-                                                    <button class="btn btn-primary btn-lg">View</button>
-													{{-- <span class="bg-secondary icon-service-2 text-white ">
-														<i class="mdi mdi-poll">View</i>
-													</span> --}}
+                                                        <!-- Button trigger modal -->
+                                                        <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#sponsormodal">
+                                                        View
+                                                    </button>
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="sponsormodal" tabindex="-1" role="dialog" aria-labelledby="sponsormodalTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle">Sponsor Management</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <a type="button" class="btn btn-primary btn-sm text-white p-3 text-bold mt-3" href="{{ route('admin.sponsors.create') }}">Add Sponsor</a>
+                                                                <a type="button" class="btn btn-primary btn-sm text-white p-3 text-bold mt-3" href="{{ route('admin.sponsors.index') }}">View Sponsors</a>
+                                                                <a type="button" class="btn btn-primary btn-sm text-white p-3 text-bold mt-3" href="{{ route("admin.sponsor-templates.create") }}">Compose Sponsor Email</a>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- end modal --}}
 												</div>
 											</div>
 										</div>
@@ -465,7 +506,7 @@
 													<p class="mb-1 text-dark fs-20 font-weight-medium">Speakers</p>
 													<h6 class="mb-1 text-primary fs-18 font-weight-semibold">Total</h6>
 													<p class="mb-1 text-muted fs-16 font-weight-semibold">0
-														BTC</p>
+														</p>
 												</div>
 												<div class="ml-auto">
                                                     <button class="btn btn-primary btn-lg">View</button>
