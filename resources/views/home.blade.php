@@ -289,7 +289,7 @@
         <!-- End Page Header -->
 
         <!-- Row -->
-					<div class="row">
+					{{-- <div class="row">
 						<div class="col-xl-8">
 							<div class="row">
 								<div class="col-sm-12 col-md-6 col-lg-6 col-xl-6">
@@ -408,8 +408,250 @@
 								</div>
 							</div>
 						</div>
-					</div>
+					</div> --}}
 
+                    <!-- ROW-3 -->
+					<div class="row">
+						<div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+							<div class="row">
+								<div class="col-xl-4 col-md-6 col-lg-6">
+									<div class="card">
+										<div class="card-body p-4">
+											<div class="d-flex no-block align-items-center">
+												<div class="text-left">
+													<p class="mb-1 text-dark fs-20 font-weight-medium">Delegates</p>
+													<h6 class="mb-1 text-primary fs-18 font-weight-semibold">Total</h6>
+													<p class="mb-1 text-muted fs-16 font-weight-semibold">
+                                                        {{ $totaldelegates }}
+													</p>
+												</div>
+												<div class="ml-auto">
+                                                    <button class="btn btn-primary btn-lg">View</button>
+													{{-- <span class="bg-primary icon-service-2 text-white ">
+														<i class="mdi mdi-calculator">View</i>
+													</span> --}}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-4 col-md-6 col-lg-6">
+									<div class="card">
+										<div class="card-body p-4">
+											<div class="d-flex no-block align-items-center">
+												<div class="text-left">
+													<p class="mb-1 text-dark fs-20 font-weight-medium">Sponsors</p>
+													<h6 class="mb-1 text-primary fs-18 font-weight-semibold">Total
+													</h6>
+													<p class="mb-1 text-muted fs-16 font-weight-semibold">
+                                                        {{ $totalsponsors }}
+                                                    </p>
+												</div>
+												<div class="ml-auto">
+                                                    <button class="btn btn-primary btn-lg">View</button>
+													{{-- <span class="bg-secondary icon-service-2 text-white ">
+														<i class="mdi mdi-poll">View</i>
+													</span> --}}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-4 col-md-6 col-lg-6">
+									<div class="card ">
+										<div class="card-body p-4">
+											<div class="d-flex no-block align-items-center">
+												<div class="text-left">
+													<p class="mb-1 text-dark fs-20 font-weight-medium">Speakers</p>
+													<h6 class="mb-1 text-primary fs-18 font-weight-semibold">Total</h6>
+													<p class="mb-1 text-muted fs-16 font-weight-semibold">0
+														BTC</p>
+												</div>
+												<div class="ml-auto">
+                                                    <button class="btn btn-primary btn-lg">View</button>
+													{{-- <span class="bg-purple icon-service-2 text-white ">
+														<i class="mdi mdi-trending-up">View</i>
+													</span> --}}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+							<div class="row">
+								<div class="col-xl-4 col-md-6 col-lg-6">
+									<div class="card">
+										<div class="card-body p-4">
+											<div class="d-flex no-block align-items-center">
+												<div class="text-left">
+													<p class="mb-1 text-dark fs-20 font-weight-medium">Guest of Honor</p>
+													<h6 class="mb-1 text-primary fs-18 font-weight-semibold">Total</h6>
+													<p class="mb-1 text-muted fs-16 font-weight-semibold">0
+													</p>
+												</div>
+												<div class="ml-auto">
+                                                    <button class="btn btn-primary btn-lg">View</button>
+													{{-- <span class="bg-primary icon-service-2 text-white ">
+														<i class="mdi mdi-calculator">View</i>
+													</span> --}}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-4 col-md-6 col-lg-6">
+									<div class="card">
+										<div class="card-body p-4">
+											<div class="d-flex no-block align-items-center">
+												<div class="text-left">
+													<p class="mb-1 text-dark fs-20 font-weight-medium">Exhibitors</p>
+													<h6 class="mb-1 text-primary fs-18 font-weight-semibold">Total
+													</h6>
+													<p class="mb-1 text-muted fs-16 font-weight-semibold">0
+														</p>
+												</div>
+												<div class="ml-auto">
+                                                    <button class="btn btn-primary btn-lg">View</button>
+													{{-- <span class="bg-secondary icon-service-2 text-white ">
+														<i class="mdi mdi-poll">View</i>
+													</span> --}}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-4 col-md-6 col-lg-6">
+									<div class="card ">
+										<div class="card-body p-4">
+											<div class="d-flex no-block align-items-center">
+												<div class="text-left">
+													<p class="mb-1 text-dark fs-20 font-weight-medium">Media</p>
+													<h6 class="mb-1 text-primary fs-18 font-weight-semibold">Total</h6>
+													<p class="mb-1 text-muted fs-16 font-weight-semibold">0
+														</p>
+												</div>
+												<div class="ml-auto">
+                                                    <button class="btn btn-primary btn-lg">View</button>
+													{{-- <span class="bg-purple icon-service-2 text-white ">
+														<i class="mdi mdi-trending-up">View</i>
+													</span> --}}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								{{-- <div class="col-xl-3 col-md-6 col-lg-6">
+									<div class="card">
+										<div class="card-body p-4">
+											<div class="d-flex no-block align-items-center">
+												<div class="text-left">
+													<p class="mb-1 text-dark fs-20 font-weight-medium">Guest of Hoor</p>
+													<h6 class="mb-1 text-success fs-18 font-weight-semibold">Total
+													</h6>
+													<p class="mb-1 text-muted fs-16 font-weight-semibold">$18,517,712
+														BTC</p>
+												</div>
+												<div class="ml-auto">
+													<span class="bg-success icon-service-2 text-white">
+														<b class="fs-30 my-auto py-auto"><p>View</p></b>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div> --}}
+							</div>
+						</div>
+                        <div class="col-lg-12 col-md-12 col-sm-12 col-xl-12">
+							<div class="row">
+								<div class="col-xl-4 col-md-6 col-lg-6">
+									<div class="card">
+										<div class="card-body p-4">
+											<div class="d-flex no-block align-items-center">
+												<div class="text-left">
+													<p class="mb-1 text-dark fs-20 font-weight-medium">Partners</p>
+													<h6 class="mb-1 text-primary fs-18 font-weight-semibold">Total</h6>
+													<p class="mb-1 text-muted fs-16 font-weight-semibold">0
+													</p>
+												</div>
+												<div class="ml-auto">
+                                                    <button class="btn btn-primary btn-lg">View</button>
+													{{-- <span class="bg-primary icon-service-2 text-white ">
+														<i class="mdi mdi-calculator">View</i>
+													</span> --}}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-4 col-md-6 col-lg-6">
+									<div class="card">
+										<div class="card-body p-4">
+											<div class="d-flex no-block align-items-center">
+												<div class="text-left">
+													<p class="mb-1 text-dark fs-20 font-weight-medium">Customs</p>
+													<h6 class="mb-1 text-primary fs-18 font-weight-semibold">Total
+													</h6>
+													<p class="mb-1 text-muted fs-16 font-weight-semibold">0
+														</p>
+												</div>
+												<div class="ml-auto">
+                                                    <button class="btn btn-primary btn-lg">View</button>
+													{{-- <span class="bg-secondary icon-service-2 text-white ">
+														<i class="mdi mdi-poll">View</i>
+													</span> --}}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-xl-4 col-md-6 col-lg-6">
+									<div class="card ">
+										<div class="card-body p-4">
+											<div class="d-flex no-block align-items-center">
+												<div class="text-left">
+													<p class="mb-1 text-dark fs-20 font-weight-medium">Visa</p>
+													<h6 class="mb-1 text-primary fs-18 font-weight-semibold">Total</h6>
+													<p class="mb-1 text-muted fs-16 font-weight-semibold">0
+														</p>
+												</div>
+												<div class="ml-auto">
+                                                    <button class="btn btn-primary btn-lg">View</button>
+													{{-- <span class="bg-purple icon-service-2 text-white ">
+														<i class="mdi mdi-trending-up">View</i>
+													</span> --}}
+												</div>
+											</div>
+										</div>
+									</div>
+								</div>
+								{{-- <div class="col-xl-3 col-md-6 col-lg-6">
+									<div class="card">
+										<div class="card-body p-4">
+											<div class="d-flex no-block align-items-center">
+												<div class="text-left">
+													<p class="mb-1 text-dark fs-20 font-weight-medium">Guest of Hoor</p>
+													<h6 class="mb-1 text-success fs-18 font-weight-semibold">Total
+													</h6>
+													<p class="mb-1 text-muted fs-16 font-weight-semibold">$18,517,712
+														BTC</p>
+												</div>
+												<div class="ml-auto">
+													<span class="bg-success icon-service-2 text-white">
+														<b class="fs-30 my-auto py-auto"><p>View</p></b>
+													</span>
+												</div>
+											</div>
+										</div>
+									</div>
+								</div> --}}
+							</div>
+						</div>
+
+					</div>
+					<!-- ROW-3 END -->
         </div>
     </div>
 

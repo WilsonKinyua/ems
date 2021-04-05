@@ -19,7 +19,25 @@
             </div>
         </div>
         <!-- End Page Header -->
-
+            @can('delegate_access')
+                <div style="margin-bottom: 10px;" class="row">
+                    <div class="col-lg-12">
+                        @can('delegate_create')
+                        <a class="btn btn-success" href="{{ route('admin.delegates.create') }}">
+                            {{ trans('global.add') }} {{ trans('cruds.delegate.title_singular') }}
+                        </a>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#csvImportModal">
+                            Upload CSV
+                            <i class="fas fa-upload"></i>
+                        </button>
+                        @endcan
+                        @include('csvImport.modal', ['model' => 'Delegate', 'route' => 'admin.delegates.parseCsvImport'])
+                        <a class="btn btn-secondary" href="{{ route('admin.compose.mailmail')}}">
+                            Compose Mail
+                        </a>
+                    </div>
+                </div>
+            @endcan
         	<!-- Row -->
 					<div class="row">
 						<div class="col-lg-12">

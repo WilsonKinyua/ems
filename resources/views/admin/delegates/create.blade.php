@@ -17,7 +17,7 @@
                     <li class="breadcrumb-item active" aria-current="page">Add Delegates</li>
                 </ol>
             </div>
-            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#csvImportModal">Upload CSV <i class="fas fa-upload"></i></button>
+            {{-- <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#csvImportModal">Upload CSV <i class="fas fa-upload"></i></button> --}}
         </div>
         <!-- End Page Header -->
 

@@ -19,7 +19,7 @@
             </div>
         </div>
         <!-- End Page Header -->
-        @can('sponsor_create')
+        {{-- @can('sponsor_create')
             <div style="margin-bottom: 10px;" class="row">
                 <div class="col-lg-12">
                     <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
@@ -28,7 +28,7 @@
                     @include('csvImport.modal', ['model' => 'Sponsor', 'route' => 'admin.sponsors.parseCsvImport'])
                 </div>
             </div>
-        @endcan
+        @endcan --}}
         <div class="row">
             <div class="col-lg-12">
                 <div class="card p-3">
@@ -37,6 +37,7 @@
                         <div class="row">
                             <div class="col-md-6">
                                 <div class="form-group">
+                                    <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
                                     <label class="required" for="name">{{ trans('cruds.sponsor.fields.name') }}</label>
                                     <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
                                     @if($errors->has('name'))
