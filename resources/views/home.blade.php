@@ -298,10 +298,10 @@
 											<div class="d-flex clearfix">
 												<div class="text-left">
 													<p class="mb-0 text-white fs-24">Guests</p>
-													<h1 class="mb-0 text-white fs-30">300 K</h1>
+													<h1 class="mb-0 text-white fs-30">000</h1>
 													<p class="mb-0 text-white icon-service-1"><span
 															class="text-white"><i
-																class="fa fa-chevron-up text-white"></i> +64.4%</span>
+																class="fa fa-chevron-up text-white"></i> +%</span>
 													</p>
 												</div>
 												<div class="ml-auto">
@@ -321,10 +321,10 @@
 											<div class="d-flex clearfix">
 												<div class="text-left">
 													<p class="mb-0 text-white fs-24">Delegates</p>
-													<h1 class="mb-0 text-white fs-30">15.7 K</h1>
+													<h1 class="mb-0 text-white fs-30">000 K</h1>
 													<p class="mb-0 text-white icon-service-1"><span
 															class="text-white"><i
-																class="fa fa-chevron-up text-white"></i> +12.6%</span>
+																class="fa fa-chevron-up text-white"></i> +%</span>
 													</p>
 												</div>
 												<div class="ml-auto">
@@ -344,10 +344,10 @@
 											<div class="d-flex clearfix">
 												<div class="text-left">
 													<p class="mb-0 text-white fs-24">Sponsors</p>
-													<h1 class="mb-0 text-white fs-30">3662.1 K</h1>
+													<h1 class="mb-0 text-white fs-30">000 K</h1>
 													<p class="mb-0 text-white icon-service-1"><span
 															class="text-white"><i
-																class="fa fa-chevron-down text-white"></i> -16.2%</span>
+																class="fa fa-chevron-down text-white"></i> -%</span>
 													</p>
 												</div>
 												<div class="ml-auto">
@@ -367,10 +367,10 @@
 											<div class="d-flex clearfix">
 												<div class="text-left">
 													<p class="mb-0 text-white fs-24">Speakers</p>
-													<h1 class="mb-0 text-white fs-30">1.3644 K</h1>
+													<h1 class="mb-0 text-white fs-30">000 K</h1>
 													<p class="mb-0 text-white icon-service-1"><span
 															class="text-white"><i
-																class="fa fa-chevron-up text-white"></i> +56.6%</span>
+																class="fa fa-chevron-up text-white"></i> +%</span>
 													</p>
 												</div>
 												<div class="ml-auto">

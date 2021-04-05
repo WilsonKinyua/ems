@@ -12,7 +12,7 @@
 
 </head>
 
-<body style="margin-top: 20px; width:100%;font-family:arial, 'helvetica neue', helvetica, sans-serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
+<body style="margin-top: 20px; width:100%;font-family:'times new roman', times, baskerville, georgia, serif;-webkit-text-size-adjust:100%;-ms-text-size-adjust:100%;padding:0;Margin:0">
     <div class"">
 
         <div class="es-wrapper-color" style="background-color:#BDC8C8">
@@ -39,7 +39,7 @@
                                       <tr>
                                         <td align="left" style="padding:0;Margin:0">
                                           <p
-                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:21px;color:#333333;font-size:14px">
+                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:21px;color:#333333;font-size:16px!important">
                                             <br></p>
                                         </td>
                                       </tr>
@@ -78,7 +78,7 @@
                                       <tr>
                                         <td align="left" style="padding:0;Margin:0">
                                           <p
-                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:21px;color:#333333;font-size:14px">
+                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:21px;color:#333333;font-size:16px!important">
                                             <br></p>
                                         </td>
                                       </tr>
@@ -100,7 +100,7 @@
                                       <tr>
                                         <td align="left" style="padding:0;Margin:0">
                                           <p
-                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:23px;color:#333333;font-size:15px">
+                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:23px;color:#333333;font-size:16px!important">
                                             <strong>{{ $details['date'] }}</strong><br><br>
                                             {!! $details['address'] !!}
                                             <strong>
@@ -134,7 +134,7 @@
                                       <tr>
                                         <td align="center" style="padding:0;Margin:0">
                                           <p
-                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:24px;color:#333333;font-size:16px">
+                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:24px;color:#333333;font-size:16px!important">
                                             <strong><u>REF:&nbsp; {!! $details['ref'] !!}</u></strong></p>
                                         </td>
                                       </tr>
@@ -165,7 +165,7 @@
                                       <tr>
                                         <td align="left" style="padding:0;Margin:0">
                                           <p
-                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:23px;color:#333333;font-size:15px">
+                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:23px;color:#333333;font-size:16px!important">
                                             {!! $details['body'] !!}
                                         </p>
                                         </td>
@@ -199,7 +199,7 @@
                                             style="Margin:0;-webkit-text-size-adjust:none;
                                             -ms-text-size-adjust:none;mso-line-height-rule:exactly;
                                             font-family:'times new roman', times, baskerville, georgia, serif;
-                                            line-height:21px;color:#333333;font-size:14px">
+                                            line-height:21px;color:#333333;font-size:16px!important">
                                             <strong>
                                                 {{ $details['name'] }}
                                                 <br>
@@ -222,7 +222,7 @@
                                       <tr>
                                         <td align="left" style="padding:0;Margin:0">
                                           <p
-                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:21px;color:#333333;font-size:14px">
+                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:21px;color:#333333;font-size:16px!important">
                                             <br></p>
                                         </td>
                                       </tr>
@@ -240,7 +240,7 @@
                                       <tr>
                                         <td align="left" style="padding:0;Margin:0">
                                           <p
-                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:21px;color:#333333;font-size:14px">
+                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:21px;color:#333333;font-size:16px!important">
                                             <br></p>
                                         </td>
                                       </tr>
@@ -262,7 +262,7 @@
                                       <tr>
                                         <td align="left" style="padding:5px;Margin:0">
                                           <p
-                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:15px;color:#91b9c0;font-size:14px">
+                                            style="Margin:0;-webkit-text-size-adjust:none;-ms-text-size-adjust:none;mso-line-height-rule:exactly;font-family:'times new roman', times, baskerville, georgia, serif;line-height:15px;color:#91b9c0;font-size:16px!important">
                                             {{ $details['phone_number'] }}<br>{{ $details['email'] }}<br>{{ $details['website_link'] }}
                                           </p>
                                         </td>

@@ -15,28 +15,28 @@
     <div class="main-sidebar-body">
         <ul class="nav">
             {{-- <li class="nav-header"><span class="nav-label">Dashboard</span></li> --}}
-            <li class="nav-item {{ request()->is("admin") || request()->is("admin/#") ? "active" : "" }}">
+            <li class="nav-item {{ request()->is("admin") || request()->is("admin/#") ? "" : "" }}">
                 <a class="nav-link" href="{{ route("admin.home")}}"><i class="fas fa-layer-group sidemenu-icon"></i><span class="sidemenu-label">Dashboard</span></a>
             </li>
             @can('delegate_access')
             <li class="nav-header"><span class="nav-label">Delegate Management</span></li>
-            <li class="nav-item {{ request()->is("admin/delegates") || request()->is("admin/delegates/*") ? "show active" : "" }}">
+            <li class="nav-item {{ request()->is("admin/delegates") || request()->is("admin/delegates/*") ? "" : "" }}">
                 <a class="nav-link with-sub" href="#"><i class="fa fa-shopping-bag sidemenu-icon"></i>
                     <span class="sidemenu-label">Delegates</span>
                     <i class="angle fa fa-chevron-right"></i>
                 </a>
                 <ul class="nav-sub">
-                    <li style="" class="nav-sub-item {{ request()->is("admin/delegates") || request()->is("admin/delegates/*") ? "active" : "" }}">
-                        <a class="nav-sub-link" href="{{ route('admin.delegates.index')}}">
-                            {{-- <i class="fas fa-list sub-icon"></i> --}}
-                           <span class="dot"><i class="fas fa-circle"></i></span> Delegate List</a>
-                    </li>
-                    <li class="nav-sub-item {{ request()->is("admin/delegates/create") || request()->is("admin/delegates/create/*") ? "active" : "" }}">
+                    <li class="nav-sub-item {{ request()->is("admin/delegates/create") || request()->is("admin/delegates/create/*") ? "" : "" }}">
                         <a class="nav-sub-link" href="{{ route('admin.delegates.create') }}">
                             {{-- <i class="fas fa-users sub-icon"></i>  --}}
                            <span class="dot"><i class="fas fa-circle"></i></span> Add Delegate</a>
                     </li>
-                    <li class="nav-sub-item {{ request()->is("admin/delegates/compose/mail") || request()->is("admin/delegates/compose/mail/*") ? "active" : "" }}">
+                    <li style="" class="nav-sub-item {{ request()->is("admin/delegates") || request()->is("admin/delegates/*") ? "" : "" }}">
+                        <a class="nav-sub-link" href="{{ route('admin.delegates.index')}}">
+                            {{-- <i class="fas fa-list sub-icon"></i> --}}
+                           <span class="dot"><i class="fas fa-circle"></i></span> Delegate List</a>
+                    </li>
+                    <li class="nav-sub-item {{ request()->is("admin/delegates/compose/mail") || request()->is("admin/delegates/compose/mail/*") ? "" : "" }}">
                         <a class="nav-sub-link" href="{{ route('admin.compose.mailmail')}}">
                            <span class="dot"><i class="fas fa-circle"></i></span> Send Mail
                         </a>
@@ -47,26 +47,26 @@
 
             @can('sponsor_management_access')
             <li class="nav-header"><span class="nav-label">Sponsor Management</span></li>
-            <li class="nav-item {{ request()->is("admin/sponsors*") ? "show active" : "" }} {{ request()->is("admin/sponsor-templates*") ? "show active" : "" }}">
+            <li class="nav-item {{ request()->is("admin/sponsors*") ? "show " : "" }} {{ request()->is("admin/sponsor-templates*") ? "show" : "" }}">
                 <a class="nav-link with-sub" href="#"><i class="fa fa-users sidemenu-icon"></i>
                     <span class="sidemenu-label">Sponsors</span>
                     <i class="angle fa fa-chevron-right"></i>
                 </a>
                 <ul class="nav-sub">
                     @can('sponsor_access')
-                        <li style="" class="nav-sub-item {{ request()->is("admin/sponsors") || request()->is("admin/sponsors/*") ? "active" : "" }}">
-                            <a class="nav-sub-link" href="{{ route("admin.sponsors.index") }}">
-                                {{-- <i class="fas fa-list sub-icon"></i> --}}
-                            <span class="dot"><i class="fas fa-circle"></i></span> Sponsor List</a>
-                        </li>
-                        <li class="nav-sub-item {{ request()->is("admin/sponsors/create") || request()->is("admin/sponsors/create/*") ? "active" : "" }}">
+                        <li class="nav-sub-item {{ request()->is("admin/sponsors/create") || request()->is("admin/sponsors/create/*") ? "" : "" }}">
                             <a class="nav-sub-link" href="{{ route('admin.sponsors.create') }}">
                                 {{-- <i class="fas fa-users sub-icon"></i>  --}}
                             <span class="dot"><i class="fas fa-circle"></i></span> Add Sponsor</a>
                         </li>
+                        <li style="" class="nav-sub-item {{ request()->is("admin/sponsors") || request()->is("admin/sponsors/*") ? "" : "" }}">
+                            <a class="nav-sub-link" href="{{ route("admin.sponsors.index") }}">
+                                {{-- <i class="fas fa-list sub-icon"></i> --}}
+                            <span class="dot"><i class="fas fa-circle"></i></span> Sponsor List</a>
+                        </li>
                     @endcan
                     @can('sponsor_template_access')
-                        <li class="nav-sub-item {{ request()->is("admin/sponsor-templates/create") || request()->is("admin/sponsor-templates/create/*") ? "active" : "" }}">
+                        <li class="nav-sub-item {{ request()->is("admin/sponsor-templates/create") || request()->is("admin/sponsor-templates/create/*") ? "" : "" }}">
                             <a class="nav-sub-link" href="{{ route("admin.sponsor-templates.create") }}">
                             <span class="dot"><i class="fas fa-circle"></i></span> Compose Mail
                             </a>
@@ -74,7 +74,7 @@
                     @endcan
                 </ul>
             </li>
-            @endcan 
+            @endcan
             {{-- <li class="nav-item">
                 <a class="nav-link " href="index2.html"><i class="fe fe-layers sidemenu-icon"></i><span
                         class="sidemenu-label">Analytics</span></a>
