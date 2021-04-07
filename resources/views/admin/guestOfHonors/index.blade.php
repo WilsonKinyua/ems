@@ -1,116 +1,136 @@
-@extends('layouts.admin')
+@extends('layouts.theme')
+
+@section('title')
+      Guest of Honors List - {{ trans('panel.site_title') }}
+@endsection
+
 @section('content')
-@can('guest_of_honor_create')
-    <div style="margin-bottom: 10px;" class="row">
-        <div class="col-lg-12">
-            <a class="btn btn-success" href="{{ route('admin.guest-of-honors.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.guestOfHonor.title_singular') }}
-            </a>
-            <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
-                {{ trans('global.app_csvImport') }}
-            </button>
-            @include('csvImport.modal', ['model' => 'GuestOfHonor', 'route' => 'admin.guest-of-honors.parseCsvImport'])
+
+<div class="container-fluid">
+    <div class="inner-body">
+
+        <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-header-1">
+                <h1 class="main-content-title tx-30">Guest Of Honor</h1>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item active" aria-current="page">Guest Of Honor List</li>
+                </ol>
+            </div>
         </div>
-    </div>
-@endcan
-<div class="card">
-    <div class="card-header">
-        {{ trans('cruds.guestOfHonor.title_singular') }} {{ trans('global.list') }}
-    </div>
 
-    <div class="card-body">
-        <div class="table-responsive">
-            <table class=" table table-bordered table-striped table-hover datatable datatable-GuestOfHonor">
-                <thead>
-                    <tr>
-                        <th width="10">
+        @can('guest_of_honor_create')
+            <div style="margin-bottom: 10px;" class="row">
+                <div class="col-lg-12">
+                    <a class="btn btn-success" href="{{ route('admin.guest-of-honors.create') }}">
+                        {{ trans('global.add') }} {{ trans('cruds.guestOfHonor.title_singular') }}
+                    </a>
+                    <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
+                        {{ trans('global.app_csvImport') }}
+                    </button>
+                    @include('csvImport.modal', ['model' => 'GuestOfHonor', 'route' => 'admin.guest-of-honors.parseCsvImport'])
+                </div>
+            </div>
+        @endcan
 
-                        </th>
-                        <th>
-                            {{ trans('cruds.guestOfHonor.fields.id') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.guestOfHonor.fields.name') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.guestOfHonor.fields.phone') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.guestOfHonor.fields.email') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.guestOfHonor.fields.postal_address') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.guestOfHonor.fields.city') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.guestOfHonor.fields.country') }}
-                        </th>
-                        <th>
-                            &nbsp;
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach($guestOfHonors as $key => $guestOfHonor)
-                        <tr data-entry-id="{{ $guestOfHonor->id }}">
-                            <td>
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="card">
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class=" table table-bordered table-striped table-hover datatable datatable-GuestOfHonor">
+                                <thead>
+                                    <tr>
+                                        <th width="10">
 
-                            </td>
-                            <td>
-                                {{ $guestOfHonor->id ?? '' }}
-                            </td>
-                            <td>
-                                {{ $guestOfHonor->name ?? '' }}
-                            </td>
-                            <td>
-                                {{ $guestOfHonor->phone ?? '' }}
-                            </td>
-                            <td>
-                                {{ $guestOfHonor->email ?? '' }}
-                            </td>
-                            <td>
-                                {{ $guestOfHonor->postal_address ?? '' }}
-                            </td>
-                            <td>
-                                {{ $guestOfHonor->city ?? '' }}
-                            </td>
-                            <td>
-                                {{ $guestOfHonor->country ?? '' }}
-                            </td>
-                            <td>
-                                @can('guest_of_honor_show')
-                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.guest-of-honors.show', $guestOfHonor->id) }}">
-                                        {{ trans('global.view') }}
-                                    </a>
-                                @endcan
+                                        </th>
+                                        <th>
+                                            {{ trans('cruds.guestOfHonor.fields.id') }}
+                                        </th>
+                                        <th>
+                                            {{ trans('cruds.guestOfHonor.fields.name') }}
+                                        </th>
+                                        <th>
+                                            {{ trans('cruds.guestOfHonor.fields.phone') }}
+                                        </th>
+                                        <th>
+                                            {{ trans('cruds.guestOfHonor.fields.email') }}
+                                        </th>
+                                        <th>
+                                            {{ trans('cruds.guestOfHonor.fields.postal_address') }}
+                                        </th>
+                                        <th>
+                                            {{ trans('cruds.guestOfHonor.fields.city') }}
+                                        </th>
+                                        <th>
+                                            {{ trans('cruds.guestOfHonor.fields.country') }}
+                                        </th>
+                                        <th>
+                                            &nbsp;
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach($guestOfHonors as $key => $guestOfHonor)
+                                        <tr data-entry-id="{{ $guestOfHonor->id }}">
+                                            <td>
 
-                                @can('guest_of_honor_edit')
-                                    <a class="btn btn-xs btn-info" href="{{ route('admin.guest-of-honors.edit', $guestOfHonor->id) }}">
-                                        {{ trans('global.edit') }}
-                                    </a>
-                                @endcan
+                                            </td>
+                                            <td>
+                                                {{ $guestOfHonor->id ?? '' }}
+                                            </td>
+                                            <td>
+                                                {{ $guestOfHonor->name ?? '' }}
+                                            </td>
+                                            <td>
+                                                {{ $guestOfHonor->phone ?? '' }}
+                                            </td>
+                                            <td>
+                                                {{ $guestOfHonor->email ?? '' }}
+                                            </td>
+                                            <td>
+                                                {{ $guestOfHonor->postal_address ?? '' }}
+                                            </td>
+                                            <td>
+                                                {{ $guestOfHonor->city ?? '' }}
+                                            </td>
+                                            <td>
+                                                {{ $guestOfHonor->country ?? '' }}
+                                            </td>
+                                            <td>
+                                                @can('guest_of_honor_show')
+                                                    <a class="btn btn-xs btn-primary" href="{{ route('admin.guest-of-honors.show', $guestOfHonor->id) }}">
+                                                        {{ trans('global.view') }}
+                                                    </a>
+                                                @endcan
 
-                                @can('guest_of_honor_delete')
-                                    <form action="{{ route('admin.guest-of-honors.destroy', $guestOfHonor->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
-                                        <input type="hidden" name="_method" value="DELETE">
-                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
-                                    </form>
-                                @endcan
+                                                @can('guest_of_honor_edit')
+                                                    <a class="btn btn-xs btn-info" href="{{ route('admin.guest-of-honors.edit', $guestOfHonor->id) }}">
+                                                        {{ trans('global.edit') }}
+                                                    </a>
+                                                @endcan
 
-                            </td>
+                                                @can('guest_of_honor_delete')
+                                                    <form action="{{ route('admin.guest-of-honors.destroy', $guestOfHonor->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
+                                                        <input type="hidden" name="_method" value="DELETE">
+                                                        <input type="hidden" name="_token" value="{{ csrf_token() }}">
+                                                        <input type="submit" class="btn btn-xs btn-danger" value="{{ trans('global.delete') }}">
+                                                    </form>
+                                                @endcan
 
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+                                            </td>
+
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
-
-
 
 @endsection
 @section('scripts')
@@ -144,6 +164,7 @@
           .done(function () { location.reload() })
       }
     }
+
   }
   dtButtons.push(deleteButton)
 @endcan
@@ -158,8 +179,21 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
+</script>
+<script>
+    @if (session()->has('success'))
+        toastr.success("{{session()->get('success')}}");
+    @endif
+
+    @if (session()->has('danger'))
+        toastr.warning("{{session()->get('danger')}}");
+    @endif
+
+    @if (session()->has('error'))
+        toastr.error("{{session()->get('error')}}");
+    @endif
 </script>
 @endsection

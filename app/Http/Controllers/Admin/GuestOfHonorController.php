@@ -36,7 +36,7 @@ class GuestOfHonorController extends Controller
     {
         $guestOfHonor = GuestOfHonor::create($request->all());
 
-        return redirect()->route('admin.guest-of-honors.index');
+        return redirect()->route('admin.guest-of-honors.index')->with('success','Guest of Honor created successfully');
     }
 
     public function edit(GuestOfHonor $guestOfHonor)

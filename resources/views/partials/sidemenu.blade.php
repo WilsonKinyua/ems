@@ -35,6 +35,13 @@
                 </li>
             @endcan
             @endcan
+            @can('guest_of_honor_management_access')
+            @can('guest_of_honor_access')
+                <li class="nav-item {{ request()->is("admin/guest-of-honors") || request()->is("admin/guest-of-honors/*") ? "" : "" }}">
+                    <a class="nav-link" href="{{ route("admin.guest-of-honors.index") }}"><i class="fas fa-layer-group sidemenu-icon"></i><span class="sidemenu-label">{{ trans('cruds.guestOfHonor.title') }}</span></a>
+                </li>
+            @endcan
+            @endcan
             {{-- <li class="nav-item">
                 <a class="nav-link " href="index2.html"><i class="fe fe-layers sidemenu-icon"></i><span
                         class="sidemenu-label">Analytics</span></a>
