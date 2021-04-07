@@ -15,8 +15,8 @@
     <div class="main-sidebar-body">
         <ul class="nav">
             {{-- <li class="nav-header"><span class="nav-label">Dashboard</span></li> --}}
-            <li class="nav-item {{ request()->is("admin") || request()->is("admin/#") ? "" : "" }}">
-                <a class="nav-link" href="{{ route("admin.home")}}"><i class="fas fa-layer-group sidemenu-icon"></i><span class="sidemenu-label">Dashboard</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="/"><i class="fas fa-layer-group sidemenu-icon"></i><span class="sidemenu-label">Dashboard</span></a>
             </li>
             @can('delegate_access')
                 <li class="nav-item {{ request()->is("admin/delegates") || request()->is("admin/delegates/*") ? "" : "" }}">

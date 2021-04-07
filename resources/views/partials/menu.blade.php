@@ -121,6 +121,38 @@
             </ul>
         </li>
     @endcan
+    @can('guest_of_honor_management_access')
+            <li class="c-sidebar-nav-dropdown {{ request()->is("admin/guest-of-honors*") ? "c-show" : "" }} {{ request()->is("admin/guest-of-honor-templates*") ? "c-show" : "" }}">
+                <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                    <i class="fa-fw fas fa-american-sign-language-interpreting c-sidebar-nav-icon">
+
+                    </i>
+                    {{ trans('cruds.guestOfHonorManagement.title') }}
+                </a>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    @can('guest_of_honor_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.guest-of-honors.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/guest-of-honors") || request()->is("admin/guest-of-honors/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-american-sign-language-interpreting c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.guestOfHonor.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('guest_of_honor_template_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.guest-of-honor-templates.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/guest-of-honor-templates") || request()->is("admin/guest-of-honor-templates/*") ? "c-active" : "" }}">
+                                <i class="fa-fw fas fa-user-check c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.guestOfHonorTemplate.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                </ul>
+            </li>
+        @endcan
         @can('user_management_access')
             <li class="c-sidebar-nav-dropdown {{ request()->is("admin/permissions*") ? "c-show" : "" }} {{ request()->is("admin/roles*") ? "c-show" : "" }} {{ request()->is("admin/users*") ? "c-show" : "" }} {{ request()->is("admin/user-alerts*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">

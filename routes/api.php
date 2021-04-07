@@ -40,4 +40,11 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Speaker Templates
     Route::post('speaker-templates/media', 'SpeakerTemplateApiController@storeMedia')->name('speaker-templates.storeMedia');
     Route::apiResource('speaker-templates', 'SpeakerTemplateApiController');
+
+    // Guest Of Honors
+    Route::apiResource('guest-of-honors', 'GuestOfHonorApiController');
+
+    // Guest Of Honor Templates
+    Route::post('guest-of-honor-templates/media', 'GuestOfHonorTemplateApiController@storeMedia')->name('guest-of-honor-templates.storeMedia');
+    Route::apiResource('guest-of-honor-templates', 'GuestOfHonorTemplateApiController');
 });

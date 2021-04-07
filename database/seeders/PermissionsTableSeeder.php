@@ -318,6 +318,54 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 77,
                 'title' => 'speaker_template_access',
             ],
+            [
+                'id'    => 78,
+                'title' => 'guest_of_honor_management_access',
+            ],
+            [
+                'id'    => 79,
+                'title' => 'guest_of_honor_create',
+            ],
+            [
+                'id'    => 80,
+                'title' => 'guest_of_honor_edit',
+            ],
+            [
+                'id'    => 81,
+                'title' => 'guest_of_honor_show',
+            ],
+            [
+                'id'    => 82,
+                'title' => 'guest_of_honor_delete',
+            ],
+            [
+                'id'    => 83,
+                'title' => 'guest_of_honor_access',
+            ],
+            [
+                'id'    => 84,
+                'title' => 'guest_of_honor_template_create',
+            ],
+            [
+                'id'    => 85,
+                'title' => 'guest_of_honor_template_edit',
+            ],
+            [
+                'id'    => 86,
+                'title' => 'guest_of_honor_template_show',
+            ],
+            [
+                'id'    => 87,
+                'title' => 'guest_of_honor_template_delete',
+            ],
+            [
+                'id'    => 88,
+                'title' => 'guest_of_honor_template_access',
+            ],
+            [
+                'id'    => 89,
+                'title' => 'profile_password_edit',
+            ],
         ];
 
         Permission::insert($permissions);

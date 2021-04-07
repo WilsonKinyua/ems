@@ -103,6 +103,18 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // send mail
     Route::post("speaker-template/compose/preview/send-mail","Emails\SpeakerSendingEmails@store")->name("speaker.emails");
 
+    // Guest Of Honors
+    Route::delete('guest-of-honors/destroy', 'GuestOfHonorController@massDestroy')->name('guest-of-honors.massDestroy');
+    Route::post('guest-of-honors/parse-csv-import', 'GuestOfHonorController@parseCsvImport')->name('guest-of-honors.parseCsvImport');
+    Route::post('guest-of-honors/process-csv-import', 'GuestOfHonorController@processCsvImport')->name('guest-of-honors.processCsvImport');
+    Route::resource('guest-of-honors', 'GuestOfHonorController');
+
+    // Guest Of Honor Templates
+    Route::delete('guest-of-honor-templates/destroy', 'GuestOfHonorTemplateController@massDestroy')->name('guest-of-honor-templates.massDestroy');
+    Route::post('guest-of-honor-templates/media', 'GuestOfHonorTemplateController@storeMedia')->name('guest-of-honor-templates.storeMedia');
+    Route::post('guest-of-honor-templates/ckmedia', 'GuestOfHonorTemplateController@storeCKEditorImages')->name('guest-of-honor-templates.storeCKEditorImages');
+    Route::resource('guest-of-honor-templates', 'GuestOfHonorTemplateController');
+
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');
     Route::post('messenger', 'MessengerController@storeTopic')->name('messenger.storeTopic');
