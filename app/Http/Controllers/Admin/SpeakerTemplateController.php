@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroySpeakerTemplateRequest;
 use App\Http\Requests\StoreSpeakerTemplateRequest;
 use App\Http\Requests\UpdateSpeakerTemplateRequest;
+use App\Models\Speaker;
 use App\Models\SpeakerTemplate;
 use Gate;
 use Illuminate\Http\Request;
@@ -35,13 +36,46 @@ class SpeakerTemplateController extends Controller
 
     public function store(StoreSpeakerTemplateRequest $request)
     {
-        $speakerTemplate = SpeakerTemplate::create($request->all());
+         // move and create the image
+         if($filelogo = $request->file("logo")) {
 
-        if ($media = $request->input('ck-media', false)) {
-            Media::whereIn('id', $media)->update(['model_id' => $speakerTemplate->id]);
+            $logo_name = time() . $filelogo->getClientOriginalName();
+            $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
+
         }
 
-        return redirect()->route('admin.speaker-templates.index');
+        if($signaturefile = $request->file("signature")) {
+
+            $signature_name = time() . $signaturefile->getClientOriginalName();
+            $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+        }
+
+        // form request data array
+        $data = [
+            "subject" => $request->subject,
+            "logo" => $logo_name,
+            "date" => $request->date,
+            "address" => $request->address,
+            "ref" => $request->ref,
+            "signature" => $signature_name,
+            "name" => $request->name,
+            "company_organisation" => $request->company_organisation,
+            "body" => $request->body,
+            "phone_number" => $request->phone_number,
+            "email" => $request->email,
+            "website_link" => $request->website_link,
+            'created_by_id' => \Auth::user()->id
+        ];
+
+
+        // print_r(json_encode($data));
+        $sponsorTemplate = SpeakerTemplate::create($data);
+
+
+        return redirect()->route("admin.speaker.preview", $sponsorTemplate->id)
+                                ->with('success', 'Template created successfully');
+
     }
 
     public function edit(SpeakerTemplate $speakerTemplate)
@@ -55,9 +89,44 @@ class SpeakerTemplateController extends Controller
 
     public function update(UpdateSpeakerTemplateRequest $request, SpeakerTemplate $speakerTemplate)
     {
-        $speakerTemplate->update($request->all());
+            // move and create the image
+            if($filelogo = $request->file("logo")) {
 
-        return redirect()->route('admin.speaker-templates.index');
+            $logo_name = time() . $filelogo->getClientOriginalName();
+            $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
+
+        }
+
+        if($signaturefile = $request->file("signature")) {
+
+            $signature_name = time() . $signaturefile->getClientOriginalName();
+            $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+        }
+
+        // form request data array
+        $data = [
+            "subject" => $request->subject,
+            "logo" => $logo_name,
+            "date" => $request->date,
+            "address" => $request->address,
+            "ref" => $request->ref,
+            "signature" => $signature_name,
+            "name" => $request->name,
+            "company_organisation" => $request->company_organisation,
+            "body" => $request->body,
+            "phone_number" => $request->phone_number,
+            "email" => $request->email,
+            "website_link" => $request->website_link,
+            'created_by_id' => \Auth::user()->id
+        ];
+
+
+        $speakerTemplate->update($data);
+
+        // return redirect()->route('admin.sponsor-templates.index');
+        return redirect()->route("admin.speaker.preview", $speakerTemplate->id)
+                                ->with('success', 'Template updated successfully');
     }
 
     public function show(SpeakerTemplate $speakerTemplate)
@@ -95,5 +164,13 @@ class SpeakerTemplateController extends Controller
         $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
+    }
+
+    public function preview($id) {
+
+        $template = SpeakerTemplate::findOrFail($id);
+        $speakers = Speaker::all();
+        return view('admin.speakerTemplates.preview',compact('template','speakers'));
+
     }
 }

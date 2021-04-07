@@ -77,7 +77,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // preview mail before send
     Route::get('sponsor-template/compose/preview/{id}',"SponsorTemplateController@preview")->name('compose.preview');
     // send the previewed mail
-    Route::post('sponsor-template/compose/preview/send','SponsorTemplateController@sendMail')->name('sponsor.sendmail');
+    // Route::post('sponsor-template/compose/preview/send','SponsorTemplateController@sendMail')->name('sponsor.sendmail');
     // send mail
     Route::post("sponsor-template/compose/preview/send-mail","Emails\SponsorSendingEmails@store")->name("sponsor.emails");
 
@@ -98,6 +98,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('speaker-templates/media', 'SpeakerTemplateController@storeMedia')->name('speaker-templates.storeMedia');
     Route::post('speaker-templates/ckmedia', 'SpeakerTemplateController@storeCKEditorImages')->name('speaker-templates.storeCKEditorImages');
     Route::resource('speaker-templates', 'SpeakerTemplateController');
+    // preview speaker mail before send
+    Route::get('speaker-template/compose/preview/{id}',"SpeakerTemplateController@preview")->name('speaker.preview');
+    // send mail
+    Route::post("speaker-template/compose/preview/send-mail","Emails\SpeakerSendingEmails@store")->name("speaker.emails");
 
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');

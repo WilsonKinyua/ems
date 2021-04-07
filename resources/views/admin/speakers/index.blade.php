@@ -29,7 +29,7 @@
                         {{ trans('global.app_csvImport') }}
                     </button>
                     @include('csvImport.modal', ['model' => 'Speaker', 'route' => 'admin.speakers.parseCsvImport'])
-                    <a class="btn btn-success" href="{{ route('admin.speakers.create') }}">
+                    <a class="btn btn-success" href="{{ route('admin.speaker-templates.create') }}">
                         Compose Mail
                     </a>
                 </div>
@@ -187,5 +187,18 @@
 
 })
 
+</script>
+<script>
+    @if (session()->has('success'))
+        toastr.success("{{session()->get('success')}}");
+    @endif
+
+    @if (session()->has('danger'))
+        toastr.warning("{{session()->get('danger')}}");
+    @endif
+
+    @if (session()->has('error'))
+        toastr.error("{{session()->get('error')}}");
+    @endif
 </script>
 @endsection

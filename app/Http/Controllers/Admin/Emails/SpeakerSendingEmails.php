@@ -4,25 +4,24 @@ namespace App\Http\Controllers\Admin\Emails;
 
 use App\Http\Controllers\Controller;
 use App\Jobs\EmailJob;
-use App\Jobs\SendingSponsorJob;
-use App\Models\Sponsor;
-use App\Models\SponsorTemplate;
+use App\Models\Speaker;
+use App\Models\SpeakerTemplate;
 use Illuminate\Http\Request;
 
-class SponsorSendingEmails extends Controller
+class SpeakerSendingEmails extends Controller
 {
 
     public function store(Request $request) {
 
         // template details
-        $template_details = SponsorTemplate::findOrFail($request->id);
+        $template_details = SpeakerTemplate::findOrFail($request->id);
 
         // emails id from input form
         $id = $request->emails;
 
         foreach ($id as $key => $value) {
 
-            $sponsor = Sponsor::find($value); //find user details
+            $sponsor = Speaker::find($value); //find user details
 
             $emails = $sponsor->email;
 
@@ -41,11 +40,12 @@ class SponsorSendingEmails extends Controller
                 "website_link" => $template_details->website_link,
             ];
 
-             EmailJob::dispatch($details,$emails);
-
+            // dd($emails);
+             $dispath = EmailJob::dispatch($details,$emails);
+            //  dd(EmailJob::dispatch($details,$emails));
          }
 
-         return redirect()->route('admin.sponsors.index')->with('success', 'Email sent successfully');
+         return redirect()->route('admin.speakers.index')->with('success', 'Email sent successfully');
 
     }
 }

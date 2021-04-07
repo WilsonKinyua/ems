@@ -7,7 +7,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class SendingSponsorEmails extends Mailable
+class SendingEmails extends Mailable
 {
     use Queueable, SerializesModels;
 
@@ -30,7 +30,7 @@ class SendingSponsorEmails extends Mailable
      */
     public function build()
     {
-        return $this->subject($this->details['subject'])->view('emails-templates.sponsoremailtemplate')->with("details",$this->details);
+        return $this->subject($this->details['subject'])->view('emails-templates.mainemailtemplate')->with("details",$this->details);
 
     }
 }

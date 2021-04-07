@@ -2,7 +2,7 @@
 
 namespace App\Jobs;
 
-use App\Mail\SendingSponsorEmails;
+use App\Mail\SendingEmails;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -11,7 +11,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Mail;
 
-class SendingSponsorJob implements ShouldQueue
+class EmailJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
@@ -36,7 +36,6 @@ class SendingSponsorJob implements ShouldQueue
      */
     public function handle()
     {
-        $email = new SendingSponsorEmails($this->details);
-        Mail::to($this->emails)->send($email);
+        Mail::to($this->emails)->send(new SendingEmails($this->details));
     }
 }
