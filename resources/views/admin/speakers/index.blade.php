@@ -29,6 +29,9 @@
                         {{ trans('global.app_csvImport') }}
                     </button>
                     @include('csvImport.modal', ['model' => 'Speaker', 'route' => 'admin.speakers.parseCsvImport'])
+                    <a class="btn btn-success" href="{{ route('admin.speakers.create') }}">
+                        Compose Mail
+                    </a>
                 </div>
             </div>
         @endcan
