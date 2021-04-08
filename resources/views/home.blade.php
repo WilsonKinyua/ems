@@ -553,10 +553,30 @@
 													</p>
 												</div>
 												<div class="ml-auto">
-                                                    <button class="btn btn-primary btn-lg">View</button>
-													{{-- <span class="bg-primary icon-service-2 text-white ">
-														<i class="mdi mdi-calculator">View</i>
-													</span> --}}
+                                                     <!-- Button trigger modal -->
+                                                     <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#guestofhonorsmodal">
+                                                        View
+                                                    </button>
+
+                                                    <!-- Modal -->
+                                                    <div class="modal fade" id="guestofhonorsmodal" tabindex="-1" role="dialog" aria-labelledby="guestofhonormodalTitle" aria-hidden="true">
+                                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                                        <div class="modal-content">
+                                                            <div class="modal-header">
+                                                            <h5 class="modal-title" id="exampleModalLongTitle">Guest Of Honor Management</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                                <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                            </div>
+                                                            <div class="modal-body">
+                                                                <a type="button" class="btn btn-primary btn-sm text-white p-3 text-bold mt-3" href="{{ route('admin.guest-of-honors.create') }}">Add Guest Of Honor</a>
+                                                                <a type="button" class="btn btn-primary btn-sm text-white p-3 text-bold mt-3" href="{{ route('admin.guest-of-honors.index') }}">View Guest Of Honor</a>
+                                                                <a type="button" class="btn btn-primary btn-sm text-white p-3 text-bold mt-3" href="{{ route("admin.guest-of-honor-templates.create") }}">Compose Guest Of Honor Email</a>
+                                                            </div>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                    {{-- end modal --}}
 												</div>
 											</div>
 										</div>

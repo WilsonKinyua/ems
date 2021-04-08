@@ -114,6 +114,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('guest-of-honor-templates/media', 'GuestOfHonorTemplateController@storeMedia')->name('guest-of-honor-templates.storeMedia');
     Route::post('guest-of-honor-templates/ckmedia', 'GuestOfHonorTemplateController@storeCKEditorImages')->name('guest-of-honor-templates.storeCKEditorImages');
     Route::resource('guest-of-honor-templates', 'GuestOfHonorTemplateController');
+    // preview speaker mail before send
+    Route::get('guest-of-honor-template/compose/preview/{id}',"GuestOfHonorTemplateController@preview")->name('guestofhonor.preview');
+    // send mail
+    Route::post("guest-of-honor-template/compose/preview/send-mail","Emails\GuestOfHonorSendingEmailsController@store")->name("guestofhonor.emails");
 
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');
