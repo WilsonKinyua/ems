@@ -8,11 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use \DateTimeInterface;
 
-class Medium extends Model
+class Medias extends Model
 {
     use SoftDeletes, MultiTenantModelTrait, HasFactory;
 
-    public $table = 'media';
+    public $table = 'medias';
 
     protected $dates = [
         'created_at',

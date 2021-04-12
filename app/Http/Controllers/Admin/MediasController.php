@@ -4,10 +4,10 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Http\Controllers\Traits\CsvImportTrait;
-use App\Http\Requests\MassDestroyMediumRequest;
-use App\Http\Requests\StoreMediumRequest;
-use App\Http\Requests\UpdateMediumRequest;
-use App\Models\Medium;
+use App\Http\Requests\MassDestroyMediasRequest;
+use App\Http\Requests\StoreMediasRequest;
+use App\Http\Requests\UpdateMediasRequest;
+use App\Models\Medias;
 use Gate;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -20,7 +20,7 @@ class MediasController extends Controller
     {
         abort_if(Gate::denies('medium_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $media = Medium::with(['created_by'])->get();
+        $media = Medias::with(['created_by'])->get();
 
         return view('admin.media.index', compact('media'));
     }
@@ -32,14 +32,14 @@ class MediasController extends Controller
         return view('admin.media.create');
     }
 
-    public function store(StoreMediumRequest $request)
+    public function store(StoreMediasRequest $request)
     {
-        $medium = Medium::create($request->all());
+        $medium = Medias::create($request->all());
 
         return redirect()->route('admin.media.index');
     }
 
-    public function edit(Medium $medium)
+    public function edit(Medias $medium)
     {
         abort_if(Gate::denies('medium_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
@@ -48,14 +48,14 @@ class MediasController extends Controller
         return view('admin.media.edit', compact('medium'));
     }
 
-    public function update(UpdateMediumRequest $request, Medium $medium)
+    public function update(UpdateMediasRequest $request, Medias $medium)
     {
         $medium->update($request->all());
 
         return redirect()->route('admin.media.index');
     }
 
-    public function show(Medium $medium)
+    public function show(Medias $medium)
     {
         abort_if(Gate::denies('medium_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
@@ -64,7 +64,7 @@ class MediasController extends Controller
         return view('admin.media.show', compact('medium'));
     }
 
-    public function destroy(Medium $medium)
+    public function destroy(Medias $medium)
     {
         abort_if(Gate::denies('medium_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
@@ -73,9 +73,9 @@ class MediasController extends Controller
         return back();
     }
 
-    public function massDestroy(MassDestroyMediumRequest $request)
+    public function massDestroy(MassDestroyMediasRequest $request)
     {
-        Medium::whereIn('id', request('ids'))->delete();
+        Medias::whereIn('id', request('ids'))->delete();
 
         return response(null, Response::HTTP_NO_CONTENT);
     }

@@ -2,12 +2,12 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Medium;
+use App\Models\Medias;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Symfony\Component\HttpFoundation\Response;
 
-class MassDestroyMediumRequest extends FormRequest
+class MassDestroyMediasRequest extends FormRequest
 {
     public function authorize()
     {

@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Models\Medium;
+use App\Models\Medias;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
 
-class StoreMediumRequest extends FormRequest
+class UpdateMediasRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('medium_create');
+        return Gate::allows('medium_edit');
     }
 
     public function rules()

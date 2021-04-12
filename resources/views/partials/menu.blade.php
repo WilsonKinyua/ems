@@ -153,6 +153,166 @@
                 </ul>
             </li>
         @endcan
+        @can('exhibitors_management_access')
+        <li class="c-sidebar-nav-dropdown {{ request()->is("admin/exhibitors*") ? "c-show" : "" }} {{ request()->is("admin/exhibitors-templates*") ? "c-show" : "" }}">
+            <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                <i class="fa-fw fas fa-asterisk c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.exhibitorsManagement.title') }}
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                @can('exhibitor_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.exhibitors.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/exhibitors") || request()->is("admin/exhibitors/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-american-sign-language-interpreting c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.exhibitor.title') }}
+                        </a>
+                    </li>
+                @endcan
+                @can('exhibitors_template_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.exhibitors-templates.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/exhibitors-templates") || request()->is("admin/exhibitors-templates/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-user-check c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.exhibitorsTemplate.title') }}
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+        </li>
+    @endcan
+    @can('media_management_access')
+        <li class="c-sidebar-nav-dropdown {{ request()->is("admin/media*") ? "c-show" : "" }} {{ request()->is("admin/media-templates*") ? "c-show" : "" }}">
+            <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                <i class="fa-fw fas fa-asterisk c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.mediaManagement.title') }}
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                @can('medium_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.media.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/media") || request()->is("admin/media/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-american-sign-language-interpreting c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.medium.title') }}
+                        </a>
+                    </li>
+                @endcan
+                @can('media_template_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.media-templates.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/media-templates") || request()->is("admin/media-templates/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-compact-disc c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.mediaTemplate.title') }}
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+        </li>
+    @endcan
+    @can('partners_management_access')
+        <li class="c-sidebar-nav-dropdown {{ request()->is("admin/partners*") ? "c-show" : "" }} {{ request()->is("admin/partners-templates*") ? "c-show" : "" }}">
+            <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                <i class="fa-fw fab fa-mandalorian c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.partnersManagement.title') }}
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                @can('partner_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.partners.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/partners") || request()->is("admin/partners/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-american-sign-language-interpreting c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.partner.title') }}
+                        </a>
+                    </li>
+                @endcan
+                @can('partners_template_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.partners-templates.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/partners-templates") || request()->is("admin/partners-templates/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-file-image c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.partnersTemplate.title') }}
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+        </li>
+    @endcan
+    @can('customs_management_access')
+        <li class="c-sidebar-nav-dropdown {{ request()->is("admin/customs*") ? "c-show" : "" }} {{ request()->is("admin/customs-templates*") ? "c-show" : "" }}">
+            <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                <i class="fa-fw fas fa-arrow-alt-circle-down c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.customsManagement.title') }}
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                @can('custom_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.customs.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/customs") || request()->is("admin/customs/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-american-sign-language-interpreting c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.custom.title') }}
+                        </a>
+                    </li>
+                @endcan
+                @can('customs_template_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.customs-templates.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/customs-templates") || request()->is("admin/customs-templates/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-file-image c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.customsTemplate.title') }}
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+        </li>
+    @endcan
+    @can('visa_management_access')
+        <li class="c-sidebar-nav-dropdown {{ request()->is("admin/visas*") ? "c-show" : "" }} {{ request()->is("admin/visa-templates*") ? "c-show" : "" }}">
+            <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                <i class="fa-fw fab fa-cc-visa c-sidebar-nav-icon">
+
+                </i>
+                {{ trans('cruds.visaManagement.title') }}
+            </a>
+            <ul class="c-sidebar-nav-dropdown-items">
+                @can('visa_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.visas.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/visas") || request()->is("admin/visas/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fab fa-cc-visa c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.visa.title') }}
+                        </a>
+                    </li>
+                @endcan
+                @can('visa_template_access')
+                    <li class="c-sidebar-nav-item">
+                        <a href="{{ route("admin.visa-templates.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/visa-templates") || request()->is("admin/visa-templates/*") ? "c-active" : "" }}">
+                            <i class="fa-fw fas fa-file-image c-sidebar-nav-icon">
+
+                            </i>
+                            {{ trans('cruds.visaTemplate.title') }}
+                        </a>
+                    </li>
+                @endcan
+            </ul>
+        </li>
+    @endcan
         @can('user_management_access')
             <li class="c-sidebar-nav-dropdown {{ request()->is("admin/permissions*") ? "c-show" : "" }} {{ request()->is("admin/roles*") ? "c-show" : "" }} {{ request()->is("admin/users*") ? "c-show" : "" }} {{ request()->is("admin/user-alerts*") ? "c-show" : "" }}">
                 <a class="c-sidebar-nav-dropdown-toggle" href="#">

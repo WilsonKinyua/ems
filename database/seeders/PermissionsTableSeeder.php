@@ -296,75 +296,295 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 72,
-                'title' => 'speaker_management_access',
+                'title' => 'exhibitor_create',
             ],
             [
                 'id'    => 73,
-                'title' => 'speaker_template_create',
+                'title' => 'exhibitor_edit',
             ],
             [
                 'id'    => 74,
-                'title' => 'speaker_template_edit',
+                'title' => 'exhibitor_show',
             ],
             [
                 'id'    => 75,
-                'title' => 'speaker_template_show',
+                'title' => 'exhibitor_delete',
             ],
             [
                 'id'    => 76,
-                'title' => 'speaker_template_delete',
+                'title' => 'exhibitor_access',
             ],
             [
                 'id'    => 77,
-                'title' => 'speaker_template_access',
+                'title' => 'exhibitors_template_create',
             ],
             [
                 'id'    => 78,
-                'title' => 'guest_of_honor_management_access',
+                'title' => 'exhibitors_template_edit',
             ],
             [
                 'id'    => 79,
-                'title' => 'guest_of_honor_create',
+                'title' => 'exhibitors_template_show',
             ],
             [
                 'id'    => 80,
-                'title' => 'guest_of_honor_edit',
+                'title' => 'exhibitors_template_delete',
             ],
             [
                 'id'    => 81,
-                'title' => 'guest_of_honor_show',
+                'title' => 'exhibitors_template_access',
             ],
             [
                 'id'    => 82,
-                'title' => 'guest_of_honor_delete',
+                'title' => 'media_management_access',
             ],
             [
                 'id'    => 83,
-                'title' => 'guest_of_honor_access',
+                'title' => 'medium_create',
             ],
             [
                 'id'    => 84,
-                'title' => 'guest_of_honor_template_create',
+                'title' => 'medium_edit',
             ],
             [
                 'id'    => 85,
-                'title' => 'guest_of_honor_template_edit',
+                'title' => 'medium_show',
             ],
             [
                 'id'    => 86,
-                'title' => 'guest_of_honor_template_show',
+                'title' => 'medium_delete',
             ],
             [
                 'id'    => 87,
-                'title' => 'guest_of_honor_template_delete',
+                'title' => 'medium_access',
             ],
             [
                 'id'    => 88,
-                'title' => 'guest_of_honor_template_access',
+                'title' => 'media_template_create',
             ],
             [
                 'id'    => 89,
+                'title' => 'media_template_edit',
+            ],
+            [
+                'id'    => 90,
+                'title' => 'media_template_show',
+            ],
+            [
+                'id'    => 91,
+                'title' => 'media_template_delete',
+            ],
+            [
+                'id'    => 92,
+                'title' => 'media_template_access',
+            ],
+            [
+                'id'    => 93,
+                'title' => 'partners_management_access',
+            ],
+            [
+                'id'    => 94,
+                'title' => 'partner_create',
+            ],
+            [
+                'id'    => 95,
+                'title' => 'partner_edit',
+            ],
+            [
+                'id'    => 96,
+                'title' => 'partner_show',
+            ],
+            [
+                'id'    => 97,
+                'title' => 'partner_delete',
+            ],
+            [
+                'id'    => 98,
+                'title' => 'partner_access',
+            ],
+            [
+                'id'    => 99,
+                'title' => 'partners_template_create',
+            ],
+            [
+                'id'    => 100,
+                'title' => 'partners_template_edit',
+            ],
+            [
+                'id'    => 101,
+                'title' => 'partners_template_show',
+            ],
+            [
+                'id'    => 102,
+                'title' => 'partners_template_delete',
+            ],
+            [
+                'id'    => 103,
+                'title' => 'partners_template_access',
+            ],
+            [
+                'id'    => 104,
+                'title' => 'customs_management_access',
+            ],
+            [
+                'id'    => 105,
+                'title' => 'custom_create',
+            ],
+            [
+                'id'    => 106,
+                'title' => 'custom_edit',
+            ],
+            [
+                'id'    => 107,
+                'title' => 'custom_show',
+            ],
+            [
+                'id'    => 108,
+                'title' => 'custom_delete',
+            ],
+            [
+                'id'    => 109,
+                'title' => 'custom_access',
+            ],
+            [
+                'id'    => 110,
+                'title' => 'customs_template_create',
+            ],
+            [
+                'id'    => 111,
+                'title' => 'customs_template_edit',
+            ],
+            [
+                'id'    => 112,
+                'title' => 'customs_template_show',
+            ],
+            [
+                'id'    => 113,
+                'title' => 'customs_template_delete',
+            ],
+            [
+                'id'    => 114,
+                'title' => 'customs_template_access',
+            ],
+            [
+                'id'    => 115,
+                'title' => 'visa_management_access',
+            ],
+            [
+                'id'    => 116,
+                'title' => 'visa_create',
+            ],
+            [
+                'id'    => 117,
+                'title' => 'visa_edit',
+            ],
+            [
+                'id'    => 118,
+                'title' => 'visa_show',
+            ],
+            [
+                'id'    => 119,
+                'title' => 'visa_delete',
+            ],
+            [
+                'id'    => 120,
+                'title' => 'visa_access',
+            ],
+            [
+                'id'    => 121,
+                'title' => 'visa_template_create',
+            ],
+            [
+                'id'    => 122,
+                'title' => 'visa_template_edit',
+            ],
+            [
+                'id'    => 123,
+                'title' => 'visa_template_show',
+            ],
+            [
+                'id'    => 124,
+                'title' => 'visa_template_delete',
+            ],
+            [
+                'id'    => 125,
+                'title' => 'visa_template_access',
+            ],
+            [
+                'id'    => 126,
+                'title' => 'speaker_management_access',
+            ],
+            [
+                'id'    => 127,
+                'title' => 'speaker_template_create',
+            ],
+            [
+                'id'    => 128,
+                'title' => 'speaker_template_edit',
+            ],
+            [
+                'id'    => 129,
+                'title' => 'speaker_template_show',
+            ],
+            [
+                'id'    => 130,
+                'title' => 'speaker_template_delete',
+            ],
+            [
+                'id'    => 131,
+                'title' => 'speaker_template_access',
+            ],
+            [
+                'id'    => 132,
+                'title' => 'guest_of_honor_management_access',
+            ],
+            [
+                'id'    => 133,
+                'title' => 'guest_of_honor_create',
+            ],
+            [
+                'id'    => 134,
+                'title' => 'guest_of_honor_edit',
+            ],
+            [
+                'id'    => 135,
+                'title' => 'guest_of_honor_show',
+            ],
+            [
+                'id'    => 136,
+                'title' => 'guest_of_honor_delete',
+            ],
+            [
+                'id'    => 137,
+                'title' => 'guest_of_honor_access',
+            ],
+            [
+                'id'    => 138,
+                'title' => 'guest_of_honor_template_create',
+            ],
+            [
+                'id'    => 139,
+                'title' => 'guest_of_honor_template_edit',
+            ],
+            [
+                'id'    => 140,
+                'title' => 'guest_of_honor_template_show',
+            ],
+            [
+                'id'    => 141,
+                'title' => 'guest_of_honor_template_delete',
+            ],
+            [
+                'id'    => 142,
+                'title' => 'guest_of_honor_template_access',
+            ],
+            [
+                'id'    => 143,
                 'title' => 'profile_password_edit',
+            ],
+            [
+                'id'    => 144,
+                'title' => 'exhibitors_management_access',
             ],
         ];
 
