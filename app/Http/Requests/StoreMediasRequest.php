@@ -11,7 +11,7 @@ class StoreMediasRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('medium_create');
+        return Gate::allows('media_create');
     }
 
     public function rules()

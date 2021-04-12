@@ -11,7 +11,7 @@ class UpdateMediasRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('medium_edit');
+        return Gate::allows('media_edit');
     }
 
     public function rules()

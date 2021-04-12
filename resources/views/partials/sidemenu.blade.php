@@ -50,9 +50,9 @@
             @endcan
             @endcan
             @can('media_management_access')
-            @can('medium_access')
+            @can('media_access')
                 <li class="nav-item {{ request()->is("admin/media") || request()->is("admin/media/*") ? "" : "" }}">
-                    <a class="nav-link" href="{{ route("admin.media.index") }}"><i class="fas fa-layer-group sidemenu-icon"></i><span class="sidemenu-label">{{ trans('cruds.medium.title') }}</span></a>
+                    <a class="nav-link" href="{{ route("admin.media.index") }}"><i class="fas fa-layer-group sidemenu-icon"></i><span class="sidemenu-label">{{ trans('cruds.media.title') }}</span></a>
                 </li>
             @endcan
             @endcan

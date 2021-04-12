@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 @section('content')
-@can('medium_create')
+@can('media_create')
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route('admin.media.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.medium.title_singular') }}
+                {{ trans('global.add') }} {{ trans('cruds.media.title_singular') }}
             </a>
             <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
                 {{ trans('global.app_csvImport') }}
@@ -15,7 +15,7 @@
 @endcan
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.medium.title_singular') }} {{ trans('global.list') }}
+        {{ trans('cruds.media.title_singular') }} {{ trans('global.list') }}
     </div>
 
     <div class="card-body">
@@ -27,25 +27,25 @@
 
                         </th>
                         <th>
-                            {{ trans('cruds.medium.fields.id') }}
+                            {{ trans('cruds.media.fields.id') }}
                         </th>
                         <th>
-                            {{ trans('cruds.medium.fields.name') }}
+                            {{ trans('cruds.media.fields.name') }}
                         </th>
                         <th>
-                            {{ trans('cruds.medium.fields.phone') }}
+                            {{ trans('cruds.media.fields.phone') }}
                         </th>
                         <th>
-                            {{ trans('cruds.medium.fields.email') }}
+                            {{ trans('cruds.media.fields.email') }}
                         </th>
                         <th>
-                            {{ trans('cruds.medium.fields.postal_address') }}
+                            {{ trans('cruds.media.fields.postal_address') }}
                         </th>
                         <th>
-                            {{ trans('cruds.medium.fields.city') }}
+                            {{ trans('cruds.media.fields.city') }}
                         </th>
                         <th>
-                            {{ trans('cruds.medium.fields.country') }}
+                            {{ trans('cruds.media.fields.country') }}
                         </th>
                         <th>
                             &nbsp;
@@ -80,19 +80,19 @@
                                 {{ $medium->country ?? '' }}
                             </td>
                             <td>
-                                @can('medium_show')
+                                @can('media_show')
                                     <a class="btn btn-xs btn-primary" href="{{ route('admin.media.show', $medium->id) }}">
                                         {{ trans('global.view') }}
                                     </a>
                                 @endcan
 
-                                @can('medium_edit')
+                                @can('media_edit')
                                     <a class="btn btn-xs btn-info" href="{{ route('admin.media.edit', $medium->id) }}">
                                         {{ trans('global.edit') }}
                                     </a>
                                 @endcan
 
-                                @can('medium_delete')
+                                @can('media_delete')
                                     <form action="{{ route('admin.media.destroy', $medium->id) }}" method="POST" onsubmit="return confirm('{{ trans('global.areYouSure') }}');" style="display: inline-block;">
                                         <input type="hidden" name="_method" value="DELETE">
                                         <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -118,7 +118,7 @@
 <script>
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
-@can('medium_delete')
+@can('media_delete')
   let deleteButtonTrans = '{{ trans('global.datatables.delete') }}'
   let deleteButton = {
     text: deleteButtonTrans,
@@ -158,7 +158,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

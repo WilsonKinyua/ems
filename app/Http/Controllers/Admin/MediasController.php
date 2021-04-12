@@ -18,7 +18,7 @@ class MediasController extends Controller
 
     public function index()
     {
-        abort_if(Gate::denies('medium_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('media_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $media = Medias::with(['created_by'])->get();
 
@@ -27,7 +27,7 @@ class MediasController extends Controller
 
     public function create()
     {
-        abort_if(Gate::denies('medium_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('media_create'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         return view('admin.media.create');
     }
@@ -41,7 +41,7 @@ class MediasController extends Controller
 
     public function edit(Medias $medium)
     {
-        abort_if(Gate::denies('medium_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('media_edit'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $medium->load('created_by');
 
@@ -57,7 +57,7 @@ class MediasController extends Controller
 
     public function show(Medias $medium)
     {
-        abort_if(Gate::denies('medium_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('media_show'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $medium->load('created_by');
 
@@ -66,7 +66,7 @@ class MediasController extends Controller
 
     public function destroy(Medias $medium)
     {
-        abort_if(Gate::denies('medium_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+        abort_if(Gate::denies('media_delete'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
         $medium->delete();
 

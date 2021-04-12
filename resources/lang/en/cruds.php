@@ -553,7 +553,7 @@ return [
         'title'          => 'Media Management',
         'title_singular' => 'Media Management',
     ],
-    'medium'                 => [
+    'media'                 => [
         'title'          => 'Medias',
         'title_singular' => 'Media',
         'fields'         => [

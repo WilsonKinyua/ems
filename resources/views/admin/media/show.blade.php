@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.show') }} {{ trans('cruds.medium.title') }}
+        {{ trans('global.show') }} {{ trans('cruds.media.title') }}
     </div>
 
     <div class="card-body">
@@ -17,7 +17,7 @@
                 <tbody>
                     <tr>
                         <th>
-                            {{ trans('cruds.medium.fields.id') }}
+                            {{ trans('cruds.media.fields.id') }}
                         </th>
                         <td>
                             {{ $medium->id }}
@@ -25,7 +25,7 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.medium.fields.name') }}
+                            {{ trans('cruds.media.fields.name') }}
                         </th>
                         <td>
                             {{ $medium->name }}
@@ -33,7 +33,7 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.medium.fields.phone') }}
+                            {{ trans('cruds.media.fields.phone') }}
                         </th>
                         <td>
                             {{ $medium->phone }}
@@ -41,7 +41,7 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.medium.fields.email') }}
+                            {{ trans('cruds.media.fields.email') }}
                         </th>
                         <td>
                             {{ $medium->email }}
@@ -49,7 +49,7 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.medium.fields.postal_address') }}
+                            {{ trans('cruds.media.fields.postal_address') }}
                         </th>
                         <td>
                             {{ $medium->postal_address }}
@@ -57,7 +57,7 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.medium.fields.city') }}
+                            {{ trans('cruds.media.fields.city') }}
                         </th>
                         <td>
                             {{ $medium->city }}
@@ -65,7 +65,7 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.medium.fields.country') }}
+                            {{ trans('cruds.media.fields.country') }}
                         </th>
                         <td>
                             {{ $medium->country }}

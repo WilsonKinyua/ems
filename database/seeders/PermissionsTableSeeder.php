@@ -340,23 +340,23 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 83,
-                'title' => 'medium_create',
+                'title' => 'media_create',
             ],
             [
                 'id'    => 84,
-                'title' => 'medium_edit',
+                'title' => 'media_edit',
             ],
             [
                 'id'    => 85,
-                'title' => 'medium_show',
+                'title' => 'media_show',
             ],
             [
                 'id'    => 86,
-                'title' => 'medium_delete',
+                'title' => 'media_delete',
             ],
             [
                 'id'    => 87,
-                'title' => 'medium_access',
+                'title' => 'media_access',
             ],
             [
                 'id'    => 88,
