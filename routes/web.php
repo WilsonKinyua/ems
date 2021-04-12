@@ -204,3 +204,22 @@ Route::prefix('email')->group(function () {
     Route::post('/email','EmailController@store')->name('email.store');
 });
 
+Route::get('/ip', function () {
+
+    $ip = \Request::ip();
+
+    // $ip = '41.220.229.42';
+
+    // $ip = '105.163.1.52';
+    // dd($ip);
+
+    $data = \Location::get($ip);
+
+    print_r(json_encode($data));
+});
+
+// Route::get('/mailable', function () {
+//     $invoice = App\Models\Delegate::find(1);
+
+//     return new App\Mail\SendingEmails($invoice);
+// });
