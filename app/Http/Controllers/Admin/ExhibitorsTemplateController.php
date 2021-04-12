@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyExhibitorsTemplateRequest;
 use App\Http\Requests\StoreExhibitorsTemplateRequest;
 use App\Http\Requests\UpdateExhibitorsTemplateRequest;
+use App\Models\Exhibitor;
 use App\Models\ExhibitorsTemplate;
 use Gate;
 use Illuminate\Http\Request;
@@ -35,13 +36,41 @@ class ExhibitorsTemplateController extends Controller
 
     public function store(StoreExhibitorsTemplateRequest $request)
     {
-        $exhibitorsTemplate = ExhibitorsTemplate::create($request->all());
+            // move and create the image
+            if($filelogo = $request->file("logo")) {
 
-        if ($media = $request->input('ck-media', false)) {
-            Media::whereIn('id', $media)->update(['model_id' => $exhibitorsTemplate->id]);
+            $logo_name = time() . $filelogo->getClientOriginalName();
+            $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
+
         }
 
-        return redirect()->route('admin.exhibitors-templates.index');
+        if($signaturefile = $request->file("signature")) {
+
+            $signature_name = time() . $signaturefile->getClientOriginalName();
+            $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+        }
+
+        // form request data array
+        $data = [
+            "subject" => $request->subject,
+            "logo" => $logo_name,
+            "date" => $request->date,
+            "address" => $request->address,
+            "ref" => $request->ref,
+            "signature" => $signature_name,
+            "name" => $request->name,
+            "company_organisation" => $request->company_organisation,
+            "body" => $request->body,
+            "phone_number" => $request->phone_number,
+            "email" => $request->email,
+            "website_link" => $request->website_link,
+            'created_by_id' => \Auth::user()->id
+        ];
+        $exhibitorsTemplate = ExhibitorsTemplate::create($data);
+        return redirect()->route("admin.exhibitors-templates.preview", $exhibitorsTemplate->id)
+                                    ->with('success', 'Template created successfully');
+
     }
 
     public function edit(ExhibitorsTemplate $exhibitorsTemplate)
@@ -55,9 +84,44 @@ class ExhibitorsTemplateController extends Controller
 
     public function update(UpdateExhibitorsTemplateRequest $request, ExhibitorsTemplate $exhibitorsTemplate)
     {
-        $exhibitorsTemplate->update($request->all());
+            // move and create the image
+            if($filelogo = $request->file("logo")) {
 
-        return redirect()->route('admin.exhibitors-templates.index');
+            $logo_name = time() . $filelogo->getClientOriginalName();
+            $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
+
+        }
+
+        if($signaturefile = $request->file("signature")) {
+
+            $signature_name = time() . $signaturefile->getClientOriginalName();
+            $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+        }
+
+        // form request data array
+        $data = [
+            "subject" => $request->subject,
+            "logo" => $logo_name,
+            "date" => $request->date,
+            "address" => $request->address,
+            "ref" => $request->ref,
+            "signature" => $signature_name,
+            "name" => $request->name,
+            "company_organisation" => $request->company_organisation,
+            "body" => $request->body,
+            "phone_number" => $request->phone_number,
+            "email" => $request->email,
+            "website_link" => $request->website_link,
+            'created_by_id' => \Auth::user()->id
+        ];
+
+        $exhibitorsTemplate->update($data);
+
+        return redirect()->route("admin.exhibitors-templates.preview", $exhibitorsTemplate->id)
+        ->with('success', 'Template updated successfully');
+
+        // return redirect()->route('admin.exhibitors-templates.index');
     }
 
     public function show(ExhibitorsTemplate $exhibitorsTemplate)
@@ -95,5 +159,13 @@ class ExhibitorsTemplateController extends Controller
         $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
+    }
+
+    public function preview($id) {
+
+        $template = ExhibitorsTemplate::findOrFail($id);
+        $exhibitors = Exhibitor::all();
+        return view('admin.exhibitorsTemplates.preview',compact('template','exhibitors'));
+
     }
 }

@@ -42,6 +42,41 @@
                 </li>
             @endcan
             @endcan
+            @can('exhibitors_management_access')
+            @can('exhibitor_access')
+                <li class="nav-item {{ request()->is("admin/exhibitors") || request()->is("admin/exhibitors/*") ? "" : "" }}">
+                    <a class="nav-link" href="{{ route("admin.exhibitors.index") }}"><i class="fas fa-layer-group sidemenu-icon"></i><span class="sidemenu-label">{{ trans('cruds.exhibitor.title') }}</span></a>
+                </li>
+            @endcan
+            @endcan
+            @can('media_management_access')
+            @can('medium_access')
+                <li class="nav-item {{ request()->is("admin/media") || request()->is("admin/media/*") ? "" : "" }}">
+                    <a class="nav-link" href="{{ route("admin.media.index") }}"><i class="fas fa-layer-group sidemenu-icon"></i><span class="sidemenu-label">{{ trans('cruds.medium.title') }}</span></a>
+                </li>
+            @endcan
+            @endcan
+            @can('partners_management_access')
+            @can('partner_access')
+                <li class="nav-item {{ request()->is("admin/partners") || request()->is("admin/partners/*") ? "" : "" }}">
+                    <a class="nav-link" href="{{ route("admin.partners.index") }}"><i class="fas fa-layer-group sidemenu-icon"></i><span class="sidemenu-label">{{ trans('cruds.partner.title') }}</span></a>
+                </li>
+            @endcan
+            @endcan
+            @can('customs_management_access')
+            @can('custom_access')
+                <li class="nav-item {{ request()->is("admin/customs") || request()->is("admin/customs/*") ? "" : "" }}">
+                    <a class="nav-link" href="{{ route("admin.customs.index") }}"><i class="fas fa-layer-group sidemenu-icon"></i><span class="sidemenu-label">{{ trans('cruds.custom.title') }}</span></a>
+                </li>
+            @endcan
+            @endcan
+            @can('visa_management_access')
+            @can('visa_access')
+                <li class="nav-item {{ request()->is("admin/visas") || request()->is("admin/visas/*") ? "" : "" }}">
+                    <a class="nav-link" href="{{ route("admin.visas.index") }}"><i class="fas fa-layer-group sidemenu-icon"></i><span class="sidemenu-label">{{ trans('cruds.visa.title') }}</span></a>
+                </li>
+            @endcan
+            @endcan
             {{-- <li class="nav-item">
                 <a class="nav-link " href="index2.html"><i class="fe fe-layers sidemenu-icon"></i><span
                         class="sidemenu-label">Analytics</span></a>

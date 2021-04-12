@@ -130,6 +130,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('exhibitors-templates/media', 'ExhibitorsTemplateController@storeMedia')->name('exhibitors-templates.storeMedia');
     Route::post('exhibitors-templates/ckmedia', 'ExhibitorsTemplateController@storeCKEditorImages')->name('exhibitors-templates.storeCKEditorImages');
     Route::resource('exhibitors-templates', 'ExhibitorsTemplateController');
+    // preview speaker mail before send
+    Route::get('exhibitors-templates/compose/preview/{id}',"ExhibitorsTemplateController@preview")->name('exhibitors-templates.preview');
+    // send mail
+    Route::post("exhibitors-templates/compose/preview/send-mail","Emails\ExhibitorsSendingEmailsController@store")->name("exhibitors.emails");
 
     // Media
     Route::delete('media/destroy', 'MediasController@massDestroy')->name('media.massDestroy');
