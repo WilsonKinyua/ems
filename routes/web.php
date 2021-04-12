@@ -119,6 +119,65 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // send mail
     Route::post("guest-of-honor-template/compose/preview/send-mail","Emails\GuestOfHonorSendingEmailsController@store")->name("guestofhonor.emails");
 
+    // Exhibitors
+    Route::delete('exhibitors/destroy', 'ExhibitorsController@massDestroy')->name('exhibitors.massDestroy');
+    Route::post('exhibitors/parse-csv-import', 'ExhibitorsController@parseCsvImport')->name('exhibitors.parseCsvImport');
+    Route::post('exhibitors/process-csv-import', 'ExhibitorsController@processCsvImport')->name('exhibitors.processCsvImport');
+    Route::resource('exhibitors', 'ExhibitorsController');
+
+    // Exhibitors Templates
+    Route::delete('exhibitors-templates/destroy', 'ExhibitorsTemplateController@massDestroy')->name('exhibitors-templates.massDestroy');
+    Route::post('exhibitors-templates/media', 'ExhibitorsTemplateController@storeMedia')->name('exhibitors-templates.storeMedia');
+    Route::post('exhibitors-templates/ckmedia', 'ExhibitorsTemplateController@storeCKEditorImages')->name('exhibitors-templates.storeCKEditorImages');
+    Route::resource('exhibitors-templates', 'ExhibitorsTemplateController');
+
+    // Media
+    Route::delete('media/destroy', 'MediasController@massDestroy')->name('media.massDestroy');
+    Route::post('media/parse-csv-import', 'MediasController@parseCsvImport')->name('media.parseCsvImport');
+    Route::post('media/process-csv-import', 'MediasController@processCsvImport')->name('media.processCsvImport');
+    Route::resource('media', 'MediasController');
+
+    // Media Templates
+    Route::delete('media-templates/destroy', 'MediaTemplateController@massDestroy')->name('media-templates.massDestroy');
+    Route::post('media-templates/media', 'MediaTemplateController@storeMedia')->name('media-templates.storeMedia');
+    Route::post('media-templates/ckmedia', 'MediaTemplateController@storeCKEditorImages')->name('media-templates.storeCKEditorImages');
+    Route::resource('media-templates', 'MediaTemplateController');
+
+    // Partners
+    Route::delete('partners/destroy', 'PartnersController@massDestroy')->name('partners.massDestroy');
+    Route::post('partners/parse-csv-import', 'PartnersController@parseCsvImport')->name('partners.parseCsvImport');
+    Route::post('partners/process-csv-import', 'PartnersController@processCsvImport')->name('partners.processCsvImport');
+    Route::resource('partners', 'PartnersController');
+
+    // Partners Templates
+    Route::delete('partners-templates/destroy', 'PartnersTemplateController@massDestroy')->name('partners-templates.massDestroy');
+    Route::post('partners-templates/media', 'PartnersTemplateController@storeMedia')->name('partners-templates.storeMedia');
+    Route::post('partners-templates/ckmedia', 'PartnersTemplateController@storeCKEditorImages')->name('partners-templates.storeCKEditorImages');
+    Route::resource('partners-templates', 'PartnersTemplateController');
+
+    // Customs
+    Route::delete('customs/destroy', 'CustomsController@massDestroy')->name('customs.massDestroy');
+    Route::post('customs/parse-csv-import', 'CustomsController@parseCsvImport')->name('customs.parseCsvImport');
+    Route::post('customs/process-csv-import', 'CustomsController@processCsvImport')->name('customs.processCsvImport');
+    Route::resource('customs', 'CustomsController');
+
+    // Customs Templates
+    Route::delete('customs-templates/destroy', 'CustomsTemplateController@massDestroy')->name('customs-templates.massDestroy');
+    Route::post('customs-templates/media', 'CustomsTemplateController@storeMedia')->name('customs-templates.storeMedia');
+    Route::post('customs-templates/ckmedia', 'CustomsTemplateController@storeCKEditorImages')->name('customs-templates.storeCKEditorImages');
+    Route::resource('customs-templates', 'CustomsTemplateController');
+
+    // Visas
+    Route::delete('visas/destroy', 'VisaController@massDestroy')->name('visas.massDestroy');
+    Route::post('visas/parse-csv-import', 'VisaController@parseCsvImport')->name('visas.parseCsvImport');
+    Route::post('visas/process-csv-import', 'VisaController@processCsvImport')->name('visas.processCsvImport');
+    Route::resource('visas', 'VisaController');
+
+    // Visa Templates
+    Route::delete('visa-templates/destroy', 'VisaTemplateController@massDestroy')->name('visa-templates.massDestroy');
+    Route::post('visa-templates/media', 'VisaTemplateController@storeMedia')->name('visa-templates.storeMedia');
+    Route::post('visa-templates/ckmedia', 'VisaTemplateController@storeCKEditorImages')->name('visa-templates.storeCKEditorImages');
+    Route::resource('visa-templates', 'VisaTemplateController');
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');
     Route::post('messenger', 'MessengerController@storeTopic')->name('messenger.storeTopic');
