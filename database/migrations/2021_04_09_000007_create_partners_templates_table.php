@@ -22,6 +22,7 @@ class CreatePartnersTemplatesTable extends Migration
             $table->string('phone_number')->nullable();
             $table->string('email');
             $table->string('website_link');
+            $table->integer('created_by_id')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

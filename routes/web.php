@@ -162,6 +162,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('partners-templates/media', 'PartnersTemplateController@storeMedia')->name('partners-templates.storeMedia');
     Route::post('partners-templates/ckmedia', 'PartnersTemplateController@storeCKEditorImages')->name('partners-templates.storeCKEditorImages');
     Route::resource('partners-templates', 'PartnersTemplateController');
+    // preview speaker mail before send
+    Route::get('partners-templates/compose/preview/{id}',"PartnersTemplateController@preview")->name('partners-templates.preview');
+    // send mail
+    Route::post("partners-templates/compose/preview/send-mail","Emails\PartnersSendingEmailsController@store")->name("partners-templates.emails");
 
     // Customs
     Route::delete('customs/destroy', 'CustomsController@massDestroy')->name('customs.massDestroy');

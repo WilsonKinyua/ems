@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyPartnersTemplateRequest;
 use App\Http\Requests\StorePartnersTemplateRequest;
 use App\Http\Requests\UpdatePartnersTemplateRequest;
+use App\Models\Partner;
 use App\Models\PartnersTemplate;
 use Gate;
 use Illuminate\Http\Request;
@@ -35,13 +36,44 @@ class PartnersTemplateController extends Controller
 
     public function store(StorePartnersTemplateRequest $request)
     {
-        $partnersTemplate = PartnersTemplate::create($request->all());
+        // move and create the image
+        if($filelogo = $request->file("logo")) {
 
-        if ($media = $request->input('ck-media', false)) {
-            Media::whereIn('id', $media)->update(['model_id' => $partnersTemplate->id]);
+            $logo_name = time() . $filelogo->getClientOriginalName();
+            $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
+
         }
 
-        return redirect()->route('admin.partners-templates.index');
+        if($signaturefile = $request->file("signature")) {
+
+            $signature_name = time() . $signaturefile->getClientOriginalName();
+            $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+        }
+
+        // form request data array
+        $data = [
+            "subject" => $request->subject,
+            "logo" => $logo_name,
+            "date" => $request->date,
+            "address" => $request->address,
+            "ref" => $request->ref,
+            "signature" => $signature_name,
+            "name" => $request->name,
+            "company_organisation" => $request->company_organisation,
+            "body" => $request->body,
+            "phone_number" => $request->phone_number,
+            "email" => $request->email,
+            "website_link" => $request->website_link,
+            'created_by_id' => \Auth::user()->id
+        ];
+
+        $partnersTemplate = PartnersTemplate::create($data);
+
+        return redirect()->route("admin.partners-templates.preview", $partnersTemplate->id)
+        ->with('success', 'Template created successfully');
+
+        // return redirect()->route('admin.partners-templates.index');
     }
 
     public function edit(PartnersTemplate $partnersTemplate)
@@ -55,9 +87,43 @@ class PartnersTemplateController extends Controller
 
     public function update(UpdatePartnersTemplateRequest $request, PartnersTemplate $partnersTemplate)
     {
-        $partnersTemplate->update($request->all());
+          // move and create the image
+          if($filelogo = $request->file("logo")) {
 
-        return redirect()->route('admin.partners-templates.index');
+            $logo_name = time() . $filelogo->getClientOriginalName();
+            $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
+
+        }
+
+        if($signaturefile = $request->file("signature")) {
+
+            $signature_name = time() . $signaturefile->getClientOriginalName();
+            $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+        }
+
+        // form request data array
+        $data = [
+            "subject" => $request->subject,
+            "logo" => $logo_name,
+            "date" => $request->date,
+            "address" => $request->address,
+            "ref" => $request->ref,
+            "signature" => $signature_name,
+            "name" => $request->name,
+            "company_organisation" => $request->company_organisation,
+            "body" => $request->body,
+            "phone_number" => $request->phone_number,
+            "email" => $request->email,
+            "website_link" => $request->website_link,
+            'created_by_id' => \Auth::user()->id
+        ];
+
+        $partnersTemplate->update($data);
+
+        return redirect()->route("admin.partners-templates.preview", $partnersTemplate->id)
+        ->with('success', 'Template created successfully');
+
     }
 
     public function show(PartnersTemplate $partnersTemplate)
@@ -95,5 +161,13 @@ class PartnersTemplateController extends Controller
         $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
+    }
+
+    public function preview($id) {
+
+        $template = PartnersTemplate::findOrFail($id);
+        $partners = Partner::all();
+        return view('admin.partnersTemplates.preview',compact('template','partners'));
+
     }
 }

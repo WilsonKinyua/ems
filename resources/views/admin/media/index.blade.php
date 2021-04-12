@@ -137,3 +137,19 @@ Media List - {{ trans('panel.site_title') }}
 
 @endsection
 
+@section('scripts')
+@parent
+<script>
+    @if (session()->has('success'))
+        toastr.success("{{session()->get('success')}}");
+    @endif
+
+    @if (session()->has('danger'))
+        toastr.warning("{{session()->get('danger')}}");
+    @endif
+
+    @if (session()->has('error'))
+        toastr.error("{{session()->get('error')}}");
+    @endif
+</script>
+@endsection
