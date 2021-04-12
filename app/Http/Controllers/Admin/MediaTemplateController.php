@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyMediaTemplateRequest;
 use App\Http\Requests\StoreMediaTemplateRequest;
 use App\Http\Requests\UpdateMediaTemplateRequest;
+use App\Models\Medias;
 use App\Models\MediaTemplate;
 use Gate;
 use Illuminate\Http\Request;
@@ -35,13 +36,41 @@ class MediaTemplateController extends Controller
 
     public function store(StoreMediaTemplateRequest $request)
     {
-        $mediaTemplate = MediaTemplate::create($request->all());
+        // move and create the image
+        if($filelogo = $request->file("logo")) {
 
-        if ($media = $request->input('ck-media', false)) {
-            Media::whereIn('id', $media)->update(['model_id' => $mediaTemplate->id]);
+            $logo_name = time() . $filelogo->getClientOriginalName();
+            $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
+
         }
 
-        return redirect()->route('admin.media-templates.index');
+        if($signaturefile = $request->file("signature")) {
+
+            $signature_name = time() . $signaturefile->getClientOriginalName();
+            $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+        }
+
+        // form request data array
+        $data = [
+            "subject" => $request->subject,
+            "logo" => $logo_name,
+            "date" => $request->date,
+            "address" => $request->address,
+            "ref" => $request->ref,
+            "signature" => $signature_name,
+            "name" => $request->name,
+            "company_organisation" => $request->company_organisation,
+            "body" => $request->body,
+            "phone_number" => $request->phone_number,
+            "email" => $request->email,
+            "website_link" => $request->website_link,
+            'created_by_id' => \Auth::user()->id
+        ];
+
+        $mediaTemplate = MediaTemplate::create($data);
+        return redirect()->route("admin.media-templates.preview", $mediaTemplate->id)
+                                    ->with('success', 'Template created successfully');
     }
 
     public function edit(MediaTemplate $mediaTemplate)
@@ -55,9 +84,44 @@ class MediaTemplateController extends Controller
 
     public function update(UpdateMediaTemplateRequest $request, MediaTemplate $mediaTemplate)
     {
-        $mediaTemplate->update($request->all());
+        // move and create the image
+        if($filelogo = $request->file("logo")) {
 
-        return redirect()->route('admin.media-templates.index');
+        $logo_name = time() . $filelogo->getClientOriginalName();
+        $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
+
+    }
+
+    if($signaturefile = $request->file("signature")) {
+
+        $signature_name = time() . $signaturefile->getClientOriginalName();
+        $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+    }
+
+    // form request data array
+    $data = [
+        "subject" => $request->subject,
+        "logo" => $logo_name,
+        "date" => $request->date,
+        "address" => $request->address,
+        "ref" => $request->ref,
+        "signature" => $signature_name,
+        "name" => $request->name,
+        "company_organisation" => $request->company_organisation,
+        "body" => $request->body,
+        "phone_number" => $request->phone_number,
+        "email" => $request->email,
+        "website_link" => $request->website_link,
+        'created_by_id' => \Auth::user()->id
+    ];
+
+        $mediaTemplate->update($data);
+
+        return redirect()->route("admin.media-templates.preview", $mediaTemplate->id)
+        ->with('success', 'Template created successfully');
+
+        // return redirect()->route('admin.media-templates.index');
     }
 
     public function show(MediaTemplate $mediaTemplate)
@@ -95,5 +159,13 @@ class MediaTemplateController extends Controller
         $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
+    }
+
+    public function preview($id) {
+
+        $template = MediaTemplate::findOrFail($id);
+        $medias = Medias::all();
+        return view('admin.mediaTemplates.preview',compact('template','medias'));
+
     }
 }
