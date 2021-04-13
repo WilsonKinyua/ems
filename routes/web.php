@@ -194,6 +194,11 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('visa-templates/media', 'VisaTemplateController@storeMedia')->name('visa-templates.storeMedia');
     Route::post('visa-templates/ckmedia', 'VisaTemplateController@storeCKEditorImages')->name('visa-templates.storeCKEditorImages');
     Route::resource('visa-templates', 'VisaTemplateController');
+    // preview speaker mail before send
+    Route::get('visa-templates/compose/preview/{id}',"VisaTemplateController@preview")->name('visa-templates.preview');
+    // send mail
+    Route::post("visa-templates/compose/preview/send-mail","Emails\VisaSendingEmailsController@store")->name("visa-templates.emails");
+
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');
     Route::post('messenger', 'MessengerController@storeTopic')->name('messenger.storeTopic');

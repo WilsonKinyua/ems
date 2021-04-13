@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyVisaTemplateRequest;
 use App\Http\Requests\StoreVisaTemplateRequest;
 use App\Http\Requests\UpdateVisaTemplateRequest;
+use App\Models\Visa;
 use App\Models\VisaTemplate;
 use Gate;
 use Illuminate\Http\Request;
@@ -35,13 +36,51 @@ class VisaTemplateController extends Controller
 
     public function store(StoreVisaTemplateRequest $request)
     {
-        $visaTemplate = VisaTemplate::create($request->all());
+        // move and create the image
+        if($filelogo = $request->file("logo")) {
 
-        if ($media = $request->input('ck-media', false)) {
-            Media::whereIn('id', $media)->update(['model_id' => $visaTemplate->id]);
-        }
+        $logo_name = time() . $filelogo->getClientOriginalName();
+        $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
 
-        return redirect()->route('admin.visa-templates.index');
+    }
+
+    if($signaturefile = $request->file("signature")) {
+
+        $signature_name = time() . $signaturefile->getClientOriginalName();
+        $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+    }
+
+    // form request data array
+    $data = [
+        "subject" => $request->subject,
+        "logo" => $logo_name,
+        "date" => $request->date,
+        "address" => $request->address,
+        "ref" => $request->ref,
+        "signature" => $signature_name,
+        "name" => $request->name,
+        "company_organisation" => $request->company_organisation,
+        "body" => $request->body,
+        "phone_number" => $request->phone_number,
+        "email" => $request->email,
+        "website_link" => $request->website_link,
+        'created_by_id' => \Auth::user()->id
+    ];
+
+
+    $visaTemplate = VisaTemplate::create($data);
+
+    return redirect()->route("admin.visa-templates.preview", $visaTemplate->id)
+                            ->with('success', 'Template created successfully');
+
+        // $visaTemplate = VisaTemplate::create($request->all());
+
+        // if ($media = $request->input('ck-media', false)) {
+        //     Media::whereIn('id', $media)->update(['model_id' => $visaTemplate->id]);
+        // }
+
+        // return redirect()->route('admin.visa-templates.index');
     }
 
     public function edit(VisaTemplate $visaTemplate)
@@ -55,9 +94,47 @@ class VisaTemplateController extends Controller
 
     public function update(UpdateVisaTemplateRequest $request, VisaTemplate $visaTemplate)
     {
-        $visaTemplate->update($request->all());
+        // move and create the image
+        if($filelogo = $request->file("logo")) {
 
-        return redirect()->route('admin.visa-templates.index');
+            $logo_name = time() . $filelogo->getClientOriginalName();
+            $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
+
+        }
+
+        if($signaturefile = $request->file("signature")) {
+
+            $signature_name = time() . $signaturefile->getClientOriginalName();
+            $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+        }
+
+        // form request data array
+        $data = [
+            "subject" => $request->subject,
+            "logo" => $logo_name,
+            "date" => $request->date,
+            "address" => $request->address,
+            "ref" => $request->ref,
+            "signature" => $signature_name,
+            "name" => $request->name,
+            "company_organisation" => $request->company_organisation,
+            "body" => $request->body,
+            "phone_number" => $request->phone_number,
+            "email" => $request->email,
+            "website_link" => $request->website_link,
+            'created_by_id' => \Auth::user()->id
+        ];
+
+
+        $visaTemplate->update($data);
+
+        return redirect()->route("admin.visa-templates.preview", $visaTemplate->id)
+                                ->with('success', 'Template created successfully');
+
+        // $visaTemplate->update($request->all());
+
+        // return redirect()->route('admin.visa-templates.index');
     }
 
     public function show(VisaTemplate $visaTemplate)
@@ -96,4 +173,13 @@ class VisaTemplateController extends Controller
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
     }
+
+    // preview mail before send
+    public function preview($id) {
+
+        $template = VisaTemplate::findOrFail($id);
+        $visas = Visa::all();
+        return view('admin.visaTemplates.preview',compact('template','visas'));
+
+        }
 }

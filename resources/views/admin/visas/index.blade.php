@@ -28,6 +28,9 @@
                         {{ trans('global.app_csvImport') }}
                     </button>
                     @include('csvImport.modal', ['model' => 'Visa', 'route' => 'admin.visas.parseCsvImport'])
+                    <a class="btn btn-success" href="{{ route('admin.visa-templates.create') }}">
+                        Compose Email
+                    </a>
                 </div>
             </div>
         @endcan
@@ -178,5 +181,18 @@
 
 })
 
+</script>
+<script>
+    @if (session()->has('success'))
+        toastr.success("{{session()->get('success')}}");
+    @endif
+
+    @if (session()->has('danger'))
+        toastr.warning("{{session()->get('danger')}}");
+    @endif
+
+    @if (session()->has('error'))
+        toastr.error("{{session()->get('error')}}");
+    @endif
 </script>
 @endsection
