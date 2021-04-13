@@ -7,6 +7,7 @@ use App\Http\Controllers\Traits\MediaUploadingTrait;
 use App\Http\Requests\MassDestroyCustomsTemplateRequest;
 use App\Http\Requests\StoreCustomsTemplateRequest;
 use App\Http\Requests\UpdateCustomsTemplateRequest;
+use App\Models\Custom;
 use App\Models\CustomsTemplate;
 use Gate;
 use Illuminate\Http\Request;
@@ -35,13 +36,47 @@ class CustomsTemplateController extends Controller
 
     public function store(StoreCustomsTemplateRequest $request)
     {
-        $customsTemplate = CustomsTemplate::create($request->all());
+            // move and create the image
+            if($filelogo = $request->file("logo")) {
 
-        if ($media = $request->input('ck-media', false)) {
-            Media::whereIn('id', $media)->update(['model_id' => $customsTemplate->id]);
+            $logo_name = time() . $filelogo->getClientOriginalName();
+            $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
+
         }
 
-        return redirect()->route('admin.customs-templates.index');
+        if($signaturefile = $request->file("signature")) {
+
+            $signature_name = time() . $signaturefile->getClientOriginalName();
+            $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+        }
+
+        // form request data array
+        $data = [
+            "subject" => $request->subject,
+            "logo" => $logo_name,
+            "date" => $request->date,
+            "address" => $request->address,
+            "ref" => $request->ref,
+            "signature" => $signature_name,
+            "name" => $request->name,
+            "company_organisation" => $request->company_organisation,
+            "body" => $request->body,
+            "phone_number" => $request->phone_number,
+            "email" => $request->email,
+            "website_link" => $request->website_link,
+            'created_by_id' => \Auth::user()->id
+        ];
+
+        $customsTemplate = CustomsTemplate::create($data);
+
+        // if ($media = $request->input('ck-media', false)) {
+        //     Media::whereIn('id', $media)->update(['model_id' => $customsTemplate->id]);
+        // }
+        return redirect()->route("admin.customs-templates.preview", $customsTemplate->id)
+                                    ->with('success', 'Template created successfully');
+
+        // return redirect()->route('admin.customs-templates.index');
     }
 
     public function edit(CustomsTemplate $customsTemplate)
@@ -55,9 +90,44 @@ class CustomsTemplateController extends Controller
 
     public function update(UpdateCustomsTemplateRequest $request, CustomsTemplate $customsTemplate)
     {
-        $customsTemplate->update($request->all());
+        // move and create the image
+        if($filelogo = $request->file("logo")) {
 
-        return redirect()->route('admin.customs-templates.index');
+            $logo_name = time() . $filelogo->getClientOriginalName();
+            $logo_name = $filelogo->move("uploads/sponsors/img/logos", $logo_name);
+
+        }
+
+        if($signaturefile = $request->file("signature")) {
+
+            $signature_name = time() . $signaturefile->getClientOriginalName();
+            $signature_name = $signaturefile->move("uploads/sponsors/img/signature", $signature_name);
+
+        }
+
+        // form request data array
+        $data = [
+            "subject" => $request->subject,
+            "logo" => $logo_name,
+            "date" => $request->date,
+            "address" => $request->address,
+            "ref" => $request->ref,
+            "signature" => $signature_name,
+            "name" => $request->name,
+            "company_organisation" => $request->company_organisation,
+            "body" => $request->body,
+            "phone_number" => $request->phone_number,
+            "email" => $request->email,
+            "website_link" => $request->website_link,
+            'created_by_id' => \Auth::user()->id
+        ];
+
+        $customsTemplate->update($data);
+
+        return redirect()->route("admin.customs-templates.preview", $customsTemplate->id)
+                                    ->with('success', 'Template updated successfully');
+
+        // return redirect()->route('admin.customs-templates.index');
     }
 
     public function show(CustomsTemplate $customsTemplate)
@@ -95,5 +165,13 @@ class CustomsTemplateController extends Controller
         $media         = $model->addMediaFromRequest('upload')->toMediaCollection('ck-media');
 
         return response()->json(['id' => $media->id, 'url' => $media->getUrl()], Response::HTTP_CREATED);
+    }
+
+    public function preview($id) {
+
+        $template = CustomsTemplate::findOrFail($id);
+        $customs = Custom::all();
+        return view('admin.customsTemplates.preview',compact('template','customs'));
+
     }
 }

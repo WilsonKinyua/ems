@@ -2,16 +2,16 @@
 
 namespace App\Http\Requests;
 
-use App\Models\CustomsTemplate;
+use App\Models\VisaTemplate;
 use Gate;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Http\Response;
 
-class StoreCustomsTemplateRequest extends FormRequest
+class UpdateVisaTemplateRequest extends FormRequest
 {
     public function authorize()
     {
-        return Gate::allows('customs_template_create');
+        return Gate::allows('visa_template_edit');
     }
 
     public function rules()

@@ -178,6 +178,10 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('customs-templates/media', 'CustomsTemplateController@storeMedia')->name('customs-templates.storeMedia');
     Route::post('customs-templates/ckmedia', 'CustomsTemplateController@storeCKEditorImages')->name('customs-templates.storeCKEditorImages');
     Route::resource('customs-templates', 'CustomsTemplateController');
+    // preview speaker mail before send
+    Route::get('customs-templates/compose/preview/{id}',"CustomsTemplateController@preview")->name('customs-templates.preview');
+    // send mail
+    Route::post("customs-templates/compose/preview/send-mail","Emails\CustomsSendingEmailsController@store")->name("customs-templates.emails");
 
     // Visas
     Route::delete('visas/destroy', 'VisaController@massDestroy')->name('visas.massDestroy');

@@ -21,10 +21,10 @@ class UpdateCustomsTemplateRequest extends FormRequest
                 'string',
                 'required',
             ],
-            'logo'                 => [
-                'string',
-                'required',
-            ],
+            // 'logo'                 => [
+            //     'file',
+            //     'required',
+            // ],
             'date'                 => [
                 'required',
                 'date_format:' . config('panel.date_format'),
@@ -39,10 +39,10 @@ class UpdateCustomsTemplateRequest extends FormRequest
             'body'                 => [
                 'required',
             ],
-            'signature'            => [
-                'string',
-                'required',
-            ],
+            // 'signature'            => [
+            //     'file',
+            //     'required',
+            // ],
             'name'                 => [
                 'string',
                 'required',
@@ -52,8 +52,7 @@ class UpdateCustomsTemplateRequest extends FormRequest
                 'required',
             ],
             'phone_number'         => [
-                'string',
-                'nullable',
+                'required',
             ],
             'email'                => [
                 'required',
