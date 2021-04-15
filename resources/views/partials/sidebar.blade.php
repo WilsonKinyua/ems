@@ -1,496 +1,220 @@
-<div class="app-sidebar sidebar-shadow">
-    <div class="app-header__logo">
-        <div class="logo-src"></div>
-        <div class="header__pane ml-auto">
-            <div>
-                <button type="button" class="hamburger close-sidebar-btn hamburger--elastic"
-                    data-class="closed-sidebar">
-                    <span class="hamburger-box">
-                        <span class="hamburger-inner"></span>
-                    </span>
-                </button>
+ <!--  BEGIN SIDEBAR  -->
+ <div class="sidebar-wrapper sidebar-theme">
+
+    <nav id="sidebar">
+        <div class="profile-info">
+            <figure class="user-cover-image"></figure>
+            <div class="user-info">
+                <img src="{{ asset('assets/img/profile-17.jpg')}}" alt="avatar">
+                <h6 class="">Susan Markims</h6>
+                <p class="">Web Developer</p>
             </div>
         </div>
-    </div>
-    <div class="app-header__mobile-menu">
-        <div>
-            <button type="button" class="hamburger hamburger--elastic mobile-toggle-nav">
-                <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                </span>
-            </button>
-        </div>
-    </div>
-    <div class="app-header__menu">
-        <span>
-            <button type="button"
-                class="btn-icon btn-icon-only btn btn-primary btn-sm mobile-toggle-header-nav">
-                <span class="btn-icon-wrapper">
-                    <i class="fa fa-ellipsis-v fa-w-6"></i>
-                </span>
-            </button>
-        </span>
-    </div>
-    <div class="scrollbar-sidebar">
-        <div class="app-sidebar__inner">
-            <ul class="vertical-nav-menu">
-                <li class="app-sidebar__heading">Menu</li>
-                <li class="mm-active">
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-rocket"></i>Delegate
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="{{ route("admin.home")}}" class="{{ request()->is("admin") || request()->is("admin/#") ? "mm-active" : "" }}">
-                                <i class="metismenu-icon"></i>Dashboard
-                            </a>
-                        </li>
-                        <li>
-                            <a href="{{ route('admin.delegates.index')}}" class="{{ request()->is("admin/delegates") || request()->is("admin/delegates/*") ? "mm-active" : "" }}">
-                                <i class="fas fa-users"></i>  Delegates
-                            </a>
-                        </li>
-                        {{-- @php($unread = \App\Models\QaTopic::unreadCount())
-                        <li>
-                            <a href="{{ route("admin.messenger.index") }}" class="{{ request()->is("admin/messenger") || request()->is("admin/messenger/*") ? "mm-active" : "" }}">
-                                <i class="metismenu-icon">
-                                </i>{{ trans('global.messages') }}
-                                <span style="color: red">
-                                    @if($unread > 0)
-                                        <strong>( {{ $unread }} )</strong>
-                                    @endif
-                                </span>
 
-                            </a>
-                        </li> --}}
-                        {{-- <li>
-                            <a href="#">
-                                <i class="metismenu-icon"></i> Minimal
-                                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="dashboards-minimal-1.html">
-                                        <i class="metismenu-icon"></i>Variation 1
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="dashboards-minimal-2.html">
-                                        <i class="metismenu-icon"></i>Variation 2
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="dashboards-crm.html">
-                                <i class="metismenu-icon"></i> CRM
-                            </a>
-                        </li> --}}
-                    </ul>
-                </li>
-                {{-- <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-browser"></i>Pages
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="pages-login.html">
-                                <i class="metismenu-icon"></i> Login
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages-login-boxed.html">
-                                <i class="metismenu-icon"></i>Login Boxed
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages-register.html">
-                                <i class="metismenu-icon"></i>Register
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages-register-boxed.html">
-                                <i class="metismenu-icon"></i>Register Boxed
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages-forgot-password.html">
-                                <i class="metismenu-icon"></i>Forgot Password
-                            </a>
-                        </li>
-                        <li>
-                            <a href="pages-forgot-password-boxed.html">
-                                <i class="metismenu-icon"></i>Forgot Password Boxed
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-plugin"></i>Applications
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="apps-mailbox.html">
-                                <i class="metismenu-icon"></i>Mailbox
-                            </a>
-                        </li>
-                        <li>
-                            <a href="apps-chat.html">
-                                <i class="metismenu-icon"></i>Chat
-                            </a>
-                        </li>
-                        <li>
-                            <a href="apps-faq-section.html">
-                                <i class="metismenu-icon"></i>FAQ Section
-                            </a>
-                        </li>
-                        <li>
-                            <a href="#">
-                                <i class="metismenu-icon"></i>Forums
-                                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="apps-forum-list.html">
-                                        <i class="metismenu-icon"></i>Forum Listing
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="apps-forum-threads.html">
-                                        <i class="metismenu-icon"></i>Forum Threads
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="apps-forum-discussion.html">
-                                        <i class="metismenu-icon"></i>Forum Discussion
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                    </ul>
-                </li>
-                <li class="app-sidebar__heading">UI Components</li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-diamond"></i> Elements
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="#">
-                                <i class="metismenu-icon"></i> Buttons
-                                <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                            </a>
-                            <ul>
-                                <li>
-                                    <a href="elements-buttons-standard.html">
-                                        <i class="metismenu-icon"></i>Standard
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="elements-buttons-pills.html">
-                                        <i class="metismenu-icon"></i>Pills
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="elements-buttons-square.html">
-                                        <i class="metismenu-icon"></i>Square
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="elements-buttons-shadow.html">
-                                        <i class="metismenu-icon"></i>Shadow
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href="elements-buttons-icons.html">
-                                        <i class="metismenu-icon"></i>With Icons
-                                    </a>
-                                </li>
-                            </ul>
-                        </li>
-                        <li>
-                            <a href="elements-dropdowns.html">
-                                <i class="metismenu-icon"></i>Dropdowns
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-icons.html">
-                                <i class="metismenu-icon"></i>Icons
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-badges-labels.html">
-                                <i class="metismenu-icon"></i>Badges
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-cards.html">
-                                <i class="metismenu-icon"></i>Cards
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-loaders.html">
-                                <i class="metismenu-icon"></i>Loading Indicators
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-list-group.html">
-                                <i class="metismenu-icon"></i>List Groups
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-navigation.html">
-                                <i class="metismenu-icon"></i>Navigation Menus
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-timelines.html">
-                                <i class="metismenu-icon"></i>Timeline
-                            </a>
-                        </li>
-                        <li>
-                            <a href="elements-utilities.html">
-                                <i class="metismenu-icon"></i>Utilities
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-car"></i> Components
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="components-tabs.html">
-                                <i class="metismenu-icon"></i>Tabs
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-accordions.html">
-                                <i class="metismenu-icon"></i>Accordions
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-notifications.html">
-                                <i class="metismenu-icon"></i>Notifications
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-modals.html">
-                                <i class="metismenu-icon"></i>Modals
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-loading-blocks.html">
-                                <i class="metismenu-icon"></i>Loading Blockers
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-progress-bar.html">
-                                <i class="metismenu-icon"></i>Progress Bar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-tooltips-popovers.html">
-                                <i class="metismenu-icon"> </i>Tooltips &amp; Popovers
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-carousel.html">
-                                <i class="metismenu-icon"></i>Carousel
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-calendar.html">
-                                <i class="metismenu-icon"></i>Calendar
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-pagination.html">
-                                <i class="metismenu-icon"></i>Pagination
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-count-up.html">
-                                <i class="metismenu-icon"></i>Count Up
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-scrollable-elements.html">
-                                <i class="metismenu-icon"></i>Scrollable
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-tree-view.html">
-                                <i class="metismenu-icon"></i>Tree View
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-maps.html">
-                                <i class="metismenu-icon"></i>Maps
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-ratings.html">
-                                <i class="metismenu-icon"></i>Ratings
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-image-crop.html">
-                                <i class="metismenu-icon"></i>Image Crop
-                            </a>
-                        </li>
-                        <li>
-                            <a href="components-guided-tours.html">
-                                <i class="metismenu-icon"></i>Guided Tours
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-display2"></i> Tables
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="tables-data-tables.html">
-                                <i class="metismenu-icon"> </i>Data Tables
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tables-regular.html">
-                                <i class="metismenu-icon"></i>Regular Tables
-                            </a>
-                        </li>
-                        <li>
-                            <a href="tables-grid.html">
-                                <i class="metismenu-icon"></i>Grid Tables
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="app-sidebar__heading">Dashboard Widgets</li>
-                <li>
-                    <a href="widgets-chart-boxes.html">
-                        <i class="metismenu-icon pe-7s-graph"></i>Chart Boxes 1
-                    </a>
-                </li>
-                <li>
-                    <a href="widgets-chart-boxes-2.html">
-                        <i class="metismenu-icon pe-7s-way"></i>Chart Boxes 2
-                    </a>
-                </li>
-                <li>
-                    <a href="widgets-chart-boxes-3.html">
-                        <i class="metismenu-icon pe-7s-ball"></i>Chart Boxes 3
-                    </a>
-                </li>
-                <li>
-                    <a href="widgets-profile-boxes.html">
-                        <i class="metismenu-icon pe-7s-id"></i>Profile Boxes
-                    </a>
-                </li>
-                <li class="app-sidebar__heading">Forms</li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-light"></i> Elements
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="forms-controls.html">
-                                <i class="metismenu-icon"></i>Controls
-                            </a>
-                        </li>
-                        <li>
-                            <a href="forms-layouts.html">
-                                <i class="metismenu-icon"></i>Layouts
-                            </a>
-                        </li>
-                        <li>
-                            <a href="forms-validation.html">
-                                <i class="metismenu-icon"></i>Validation
-                            </a>
-                        </li>
-                        <li>
-                            <a href="forms-wizard.html">
-                                <i class="metismenu-icon"></i>Wizard
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li>
-                    <a href="#">
-                        <i class="metismenu-icon pe-7s-joy"></i> Widgets
-                        <i class="metismenu-state-icon pe-7s-angle-down caret-left"></i>
-                    </a>
-                    <ul>
-                        <li>
-                            <a href="forms-datepicker.html">
-                                <i class="metismenu-icon"></i>Datepicker
-                            </a>
-                        </li>
-                        <li>
-                            <a href="forms-range-slider.html">
-                                <i class="metismenu-icon"></i>Range Slider
-                            </a>
-                        </li>
-                        <li>
-                            <a href="forms-input-selects.html">
-                                <i class="metismenu-icon"></i>Input Selects
-                            </a>
-                        </li>
-                        <li>
-                            <a href="forms-toggle-switch.html">
-                                <i class="metismenu-icon"></i>Toggle Switch
-                            </a>
-                        </li>
-                        <li>
-                            <a href="forms-wysiwyg-editor.html">
-                                <i class="metismenu-icon"></i>WYSIWYG Editor
-                            </a>
-                        </li>
-                        <li>
-                            <a href="forms-input-mask.html">
-                                <i class="metismenu-icon"></i>Input Mask
-                            </a>
-                        </li>
-                        <li>
-                            <a href="forms-clipboard.html">
-                                <i class="metismenu-icon"></i>Clipboard
-                            </a>
-                        </li>
-                        <li>
-                            <a href="forms-textarea-autosize.html">
-                                <i class="metismenu-icon"></i>Textarea Autosize
-                            </a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="app-sidebar__heading">Charts</li>
-                <li>
-                    <a href="charts-chartjs.html">
-                        <i class="metismenu-icon pe-7s-graph2"></i>ChartJS
-                    </a>
-                </li>
-                <li>
-                    <a href="charts-apexcharts.html">
-                        <i class="metismenu-icon pe-7s-graph"></i>Apex Charts
-                    </a>
-                </li>
-                <li>
-                    <a href="charts-sparklines.html">
-                        <i class="metismenu-icon pe-7s-graph1"></i>Chart Sparklines
-                    </a>
-                </li> --}}
-            </ul>
-        </div>
-    </div>
+        <div class="shadow-bottom"></div>
+        <ul class="list-unstyled menu-categories" id="accordionExample">
+            <li class="menu {{ request()->is("admin/#") || request()->is("admin/#") ? "active" : "" }}">
+                <a href="#dashboard" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-home">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <span>Dashboard</span>
+                    </div>
+                    <div>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-chevron-right">
+                            <polyline points="9 18 15 12 9 6"></polyline>
+                        </svg>
+                    </div>
+                </a>
+                <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled {{ request()->is("admin/*") ? "c-show" : "" }} {{ request()->is("admin/*") ? "show" : "" }}"
+                    id="dashboard" data-parent="#accordionExample">
+                    {{-- <li>
+                        <a href="#"> Sales </a>
+                    </li> --}}
+                    <li class="{{ request()->is("admin/#") || request()->is("admin/#") ? "active" : "" }}">
+                        <a href="{{ route('admin.home') }}"> Dashboard </a>
+                    </li>
+                </ul>
+            </li>
+            {{-- <li class="menu">
+                <a href="#" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-home">
+                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                            <polyline points="9 22 9 12 15 12 15 22"></polyline>
+                        </svg>
+                        <span>Dashboard</span>
+                    </div>
+                </a>
+            </li> --}}
+            @can('delegate_access')
+            <li class="menu {{ request()->is("admin/delegates/*") || request()->is("admin/delegates/*") ? "active" : ""}}">
+                <a href="{{ route('admin.delegates.index')}}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-box">
+                            <path
+                                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+                            </path>
+                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+                            <line x1="12" y1="22.08" x2="12" y2="12"></line>
+                        </svg>
+                        <span>Delegates</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+            @can('sponsor_access')
+            <li class="menu {{ request()->is("admin/sponsors/*") || request()->is("admin/sponsors/*") ? "active" : "" }}">
+                <a href="{{ route("admin.sponsors.index") }}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-zap">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                        <span>Sponsors</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+            @can('speaker_management_access')
+            @can('speaker_access')
+            <li class="menu {{ request()->is("admin/speakers") || request()->is("admin/speakers/*") ? "active" : "" }}">
+                <a href="{{ route("admin.speakers.index") }}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-target">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <circle cx="12" cy="12" r="6"></circle>
+                            <circle cx="12" cy="12" r="2"></circle>
+                        </svg>
+                        <span>Speakers</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+            @endcan
+            @can('guest_of_honor_management_access')
+            @can('guest_of_honor_access')
+            <li class="menu {{ request()->is("admin/guest-of-honors") || request()->is("admin/guest-of-honors/*") ? "active" : "" }}">
+                <a href="{{ route("admin.guest-of-honors.index") }}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-layout">
+                            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                            <line x1="3" y1="9" x2="21" y2="9"></line>
+                            <line x1="9" y1="21" x2="9" y2="9"></line>
+                        </svg>
+                        <span>Guest Of Honor</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+            @endcan
+            @can('exhibitors_management_access')
+            @can('exhibitor_access')
+            <li class="menu {{ request()->is("admin/exhibitors") || request()->is("admin/exhibitors/*") ? "active" : "" }}">
+                <a href="{{ route("admin.exhibitors.index") }}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-layers">
+                            <polygon points="12 2 2 7 12 12 22 7 12 2"></polygon>
+                            <polyline points="2 17 12 22 22 17"></polyline>
+                            <polyline points="2 12 12 17 22 12"></polyline>
+                        </svg>
+                        <span>Exhibitors</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+            @endcan
+            @can('media_management_access')
+            @can('media_access')
+            <li class="menu {{ request()->is("admin/media") || request()->is("admin/media/*") ? "active" : "" }}">
+                <a href="{{ route("admin.media.index") }}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-airplay">
+                            <path
+                                d="M5 17H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v10a2 2 0 0 1-2 2h-1">
+                            </path>
+                            <polygon points="12 15 17 21 7 21 12 15"></polygon>
+                        </svg>
+                        <span>Medias</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+            @endcan
+            @can('partners_management_access')
+            @can('partner_access')
+            <li class="menu {{ request()->is("admin/partners") || request()->is("admin/partners/*") ? "active" : "" }}">
+                <a href="{{ route("admin.partners.index") }}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-clipboard">
+                            <path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2">
+                            </path>
+                            <rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect>
+                        </svg>
+                        <span>Partners</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+            @endcan
+            @can('customs_management_access')
+            @can('custom_access')
+            <li class="menu {{ request()->is("admin/customs") || request()->is("admin/customs/*") ? "active" : "" }}">
+                <a href="{{ route("admin.customs.index") }}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-pie-chart">
+                            <path d="M21.21 15.89A10 10 0 1 1 8 2.83"></path>
+                            <path d="M22 12A10 10 0 0 0 12 2v10z"></path>
+                        </svg>
+                        <span>Customs</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+            @endcan
+            @can('visa_management_access')
+            @can('visa_access')
+            <li class="menu {{ request()->is("admin/visas") || request()->is("admin/visas/*") ? "active" : "" }}">
+                <a href="{{ route("admin.visas.index") }}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-terminal">
+                            <polyline points="4 17 10 11 4 5"></polyline>
+                            <line x1="12" y1="19" x2="20" y2="19"></line>
+                        </svg>
+                        <span>Visa</span>
+                    </div>
+                </a>
+            </li>
+            @endcan
+            @endcan
+        </ul>
+
+    </nav>
+
 </div>
+<!--  END SIDEBAR  -->
