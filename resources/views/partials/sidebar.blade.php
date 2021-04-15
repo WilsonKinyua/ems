@@ -32,11 +32,8 @@
                         </svg>
                     </div>
                 </a>
-                <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled {{ request()->is("admin/*") ? "c-show" : "" }} {{ request()->is("admin/*") ? "show" : "" }}"
+                <ul class="collapse submenu recent-submenu mini-recent-submenu list-unstyled {{ request()->is("admin/*") ? "show" : "" }} {{ request()->is("admin/*") ? "show" : "" }}"
                     id="dashboard" data-parent="#accordionExample">
-                    {{-- <li>
-                        <a href="#"> Sales </a>
-                    </li> --}}
                     <li class="{{ request()->is("admin/#") || request()->is("admin/#") ? "active" : "" }}">
                         <a href="{{ route('admin.home') }}"> Dashboard </a>
                     </li>

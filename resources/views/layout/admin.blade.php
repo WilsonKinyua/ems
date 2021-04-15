@@ -58,10 +58,19 @@
      <!--  BEGIN SIDEBAR  -->
      @include('partials.sidebar')
      <!--  END SIDEBAR  -->
+    <!--  BEGIN CONTENT AREA  -->
+    <div id="content" class="main-content">
 
-     <!--  BEGIN CONTENT AREA  -->
         @yield('content')
-      <!--  END CONTENT AREA  -->
+
+        {{-- <div class="footer-wrapper">
+            <div class="footer-section f-section-1">
+                <p class="">Copyright © 2021 <a target="_blank" href="#">Wezaprosoft</a>, All
+                    rights reserved.</p>
+            </div>
+        </div> --}}
+    </div>
+    <!--  END CONTENT AREA  -->
 
     </div>
     <!-- END MAIN CONTAINER -->
@@ -84,7 +93,7 @@
     <script src="{{ asset('plugins/apex/apexcharts.min.js')}}"></script>
     <script src="{{ asset('assets/js/dashboard/dash_2.js')}}"></script>
     <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
-
+    @yield('scripts')
 </body>
 
 
