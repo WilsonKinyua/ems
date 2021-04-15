@@ -1,26 +1,24 @@
-@extends('layouts.theme')
+@extends('layout.admin')
 
 @section('title')
-      Compose Mail || Delegates - {{ trans('panel.site_title') }}
+    Compose Mail - {{ trans('panel.site_title') }}
 @endsection
 
 @section('content')
+<div class="layout-px-spacing">
 
-<div class="container-fluid">
-    <div class="inner-body">
-
-        <!-- Page Header -->
-        <div class="page-header">
-            <div class="page-header-1">
-                <h1 class="main-content-title tx-30">Delegate</h1>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Compose Mail</li>
-                </ol>
+    <div class="row layout-top-spacing" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+             <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-1">
+                    <h1 class="main-content-title tx-30">Compose Delegate Mail</h1>
+                </div>
             </div>
         </div>
-        <!-- End Page Header -->
+    </div>
 
-        <!-- row -->
+    <div class="widget-content widget-content-area br-6">
         <div class="row">
 
             <div class="col-xl-12 col-lg-12  main-content-body-mail2">
@@ -73,7 +71,8 @@
                 </div>
             </div>
         </div>
-
     </div>
+
 </div>
 @endsection
+

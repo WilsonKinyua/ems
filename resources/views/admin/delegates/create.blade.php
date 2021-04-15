@@ -1,27 +1,24 @@
-@extends('layouts.theme')
+@extends('layout.admin')
 
 @section('title')
       Add Delegate - {{ trans('panel.site_title') }}
 @endsection
 
 @section('content')
+<div class="layout-px-spacing">
 
-<div class="container-fluid">
-    <div class="inner-body">
-
-        <!-- Page Header -->
-        <div class="page-header">
-            <div class="page-header-1">
-                <h1 class="main-content-title tx-30">Delegate</h1>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Add Delegates</li>
-                </ol>
+    <div class="row layout-top-spacing" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+             <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-1">
+                    <h1 class="main-content-title tx-30">Create Delegate</h1>
+                </div>
             </div>
-            {{-- <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#csvImportModal">Upload CSV <i class="fas fa-upload"></i></button> --}}
         </div>
-        <!-- End Page Header -->
+    </div>
 
-        <!-- Row -->
+    <div class="widget-content widget-content-area br-6">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">

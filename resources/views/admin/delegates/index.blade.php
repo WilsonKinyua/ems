@@ -18,8 +18,34 @@
 <div class="layout-px-spacing">
 
     <div class="row layout-top-spacing" id="cancel-row">
-
         <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+             <!-- Page Header -->
+        <div class="page-header">
+            <div class="page-header-1">
+                <h1 class="main-content-title tx-30">Delegates</h1>
+            </div>
+        </div>
+        <!-- End Page Header -->
+               <!-- End Page Header -->
+               @can('delegate_access')
+                <div style="margin-bottom: 10px;" class="row">
+                    <div class="col-lg-12">
+                        @can('delegate_create')
+                        <a class="btn btn-success btn-lg" href="{{ route('admin.delegates.create') }}">
+                            {{ trans('global.add') }} {{ trans('cruds.delegate.title_singular') }}
+                        </a>
+                        <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#csvImportModal">
+                            Upload CSV
+                            <i class="fas fa-upload"></i>
+                        </button>
+                        @endcan
+                        @include('csvImport.modal', ['model' => 'Delegate', 'route' => 'admin.delegates.parseCsvImport'])
+                        <a class="btn btn-secondary btn-lg" href="{{ route('admin.compose.mailmail')}}">
+                            Compose Mail
+                        </a>
+                    </div>
+                </div>
+                @endcan
             <div class="widget-content widget-content-area br-6">
                 <table class="multi-table table table-hover" style="width:100%">
                     <thead>
