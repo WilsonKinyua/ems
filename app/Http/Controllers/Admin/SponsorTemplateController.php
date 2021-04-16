@@ -174,4 +174,12 @@ class SponsorTemplateController extends Controller
 
     }
 
+    public function getPage($id) {
+
+        $template = SponsorTemplate::findOrFail($id);
+        $sponsors = Sponsor::all();
+        return view('admin.sponsorTemplates.send',compact('template','sponsors'));
+
+    }
+
 }

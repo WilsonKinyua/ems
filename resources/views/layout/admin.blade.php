@@ -46,6 +46,7 @@
     <link rel="stylesheet" href="{{ asset('asset/plugins/toastr.min.css')}}">
     <!-- toastr -->
     <link href="{{ asset('plugins/notification/snackbar/snackbar.min.css')}}" rel="stylesheet" type="text/css" />
+    <link href="{{ asset('assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
     @yield('styles')
 </head>
 
@@ -286,3 +287,4 @@
 
 
 </html>
+@yield('modal')
