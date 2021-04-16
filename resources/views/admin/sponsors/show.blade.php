@@ -1,31 +1,33 @@
-@extends('layouts.theme')
+@extends('layout.admin')
 
 @section('title')
-      View Sponsor - {{ trans('panel.site_title') }}
+    View Sponsor - {{ trans('panel.site_title') }}
 @endsection
 
 @section('content')
 
-<div class="container-fluid">
-    <div class="inner-body">
 
-        <!-- Page Header -->
-        <div class="page-header">
-            <div class="page-header-1">
-                <h1 class="main-content-title tx-30">Sponsor</h1>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">View Sponsor</li>
-                </ol>
+<div class="layout-px-spacing">
+
+    <div class="row layout-top-spacing" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+             <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-1">
+                    <h1 class="main-content-title tx-30"> View Sponsor</h1>
+                </div>
             </div>
         </div>
+    </div>
 
+    <div class="widget-content widget-content-area br-6">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card p-3">
                     <div class="form-group">
                         <div class="form-group">
-                            <a class="btn btn-primary" href="{{ route('admin.sponsors.index') }}">
-                                {{ trans('global.back_to_list') }}
+                            <a class="btn btn-primary btn-lg" href="{{ route('admin.sponsors.index') }}">
+                                Back
                             </a>
                         </div>
                         <table class="table table-bordered table-striped">
@@ -88,15 +90,11 @@
                                 </tr>
                             </tbody>
                         </table>
-                        <div class="form-group">
-                            <a class="btn btn-primary" href="{{ route('admin.sponsors.index') }}">
-                                {{ trans('global.back_to_list') }}
-                            </a>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
 @endsection

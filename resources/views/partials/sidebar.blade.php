@@ -71,7 +71,7 @@
             </li>
             @endcan
             @can('sponsor_access')
-            <li class="menu {{ request()->is("admin/sponsors/*") || request()->is("admin/sponsors/*") ? "active" : "" }}">
+            <li class="menu {{ request()->is("admin/sponsors/*") || request()->is("admin/sponsors/*") ? "active" : ""}}">
                 <a href="{{ route("admin.sponsors.index") }}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
