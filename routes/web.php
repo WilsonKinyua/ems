@@ -104,6 +104,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('speaker-template/compose/preview/{id}',"SpeakerTemplateController@preview")->name('speaker.preview');
     // send mail
     Route::post("speaker-template/compose/preview/send-mail","Emails\SpeakerSendingEmails@store")->name("speaker.emails");
+    // display send page
+    Route::get('speaker-template/{id}/send','SpeakerTemplateController@getPage')->name('speaker-send.page');
 
     // Guest Of Honors
     Route::delete('guest-of-honors/destroy', 'GuestOfHonorController@massDestroy')->name('guest-of-honors.massDestroy');

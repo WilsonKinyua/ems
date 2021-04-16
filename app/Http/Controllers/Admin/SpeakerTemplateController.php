@@ -173,4 +173,12 @@ class SpeakerTemplateController extends Controller
         return view('admin.speakerTemplates.preview',compact('template','speakers'));
 
     }
+
+    public function getPage($id) {
+
+        $template = SpeakerTemplate::findOrFail($id);
+        $speakers = Speaker::all();
+        return view('admin.speakerTemplates.send',compact('template','speakers'));
+
+    }
 }
