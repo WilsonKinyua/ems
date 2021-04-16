@@ -16,6 +16,7 @@ class CreateMediasTable extends Migration
             $table->string('postal_address')->nullable();
             $table->string('city')->nullable();
             $table->string('country');
+            $table->integer('created_by_id');
             $table->timestamps();
             $table->softDeletes();
         });

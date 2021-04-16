@@ -27,6 +27,7 @@ class Medias extends Model
         'postal_address',
         'city',
         'country',
+        'created_by_id',
         'created_at',
         'updated_at',
         'deleted_at',

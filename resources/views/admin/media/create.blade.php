@@ -1,23 +1,26 @@
-@extends('layouts.theme')
+@extends('layout.admin')
 
 @section('title')
-Add Media - {{ trans('panel.site_title') }}
+      Add Media - {{ trans('panel.site_title') }}
 @endsection
 
 @section('content')
 
-<div class="container-fluid">
-    <div class="inner-body">
 
-        <!-- Page Header -->
-        <div class="page-header">
-            <div class="page-header-1">
-                <h1 class="main-content-title tx-30">Media</h1>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Add Media</li>
-                </ol>
+<div class="layout-px-spacing">
+
+    <div class="row layout-top-spacing" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+             <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-1">
+                    <h1 class="main-content-title tx-30">Add Media</h1>
+                </div>
             </div>
         </div>
+    </div>
+
+    <div class="widget-content widget-content-area br-6">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -100,7 +103,7 @@ Add Media - {{ trans('panel.site_title') }}
                                 </div>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-danger" type="submit">
+                                <button class="btn btn-primary btn-lg" type="submit">
                                     {{ trans('global.save') }}
                                 </button>
                             </div>
@@ -111,4 +114,5 @@ Add Media - {{ trans('panel.site_title') }}
         </div>
     </div>
 </div>
+
 @endsection

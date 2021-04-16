@@ -140,7 +140,7 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Media
     Route::delete('media/destroy', 'MediasController@massDestroy')->name('media.massDestroy');
     Route::post('media/parse-csv-import', 'MediasController@parseCsvImport')->name('media.parseCsvImport');
-    Route::post('media/process-csv-import', 'MediasController@processCsvImport')->name('media.processCsvImport');
+    Route::post('media/process-csv-import', 'MediasController@processCsvImport')->name('medias.processCsvImport');
     Route::resource('media', 'MediasController');
 
     // Media Templates

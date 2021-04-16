@@ -1,24 +1,26 @@
-@extends('layouts.theme')
+@extends('layout.admin')
 
 @section('title')
-Edit Partner - {{ trans('panel.site_title') }}
+      Edit Partner - {{ trans('panel.site_title') }}
 @endsection
 
 @section('content')
 
-<div class="container-fluid">
-    <div class="inner-body">
 
-        <!-- Page Header -->
-        <div class="page-header">
-            <div class="page-header-1">
-                <h1 class="main-content-title tx-30">Edit Partners</h1>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Edit Partner</li>
-                </ol>
+<div class="layout-px-spacing">
+
+    <div class="row layout-top-spacing" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+             <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-1">
+                    <h1 class="main-content-title tx-30">Edit Partner</h1>
+                </div>
             </div>
         </div>
+    </div>
 
+    <div class="widget-content widget-content-area br-6">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -88,7 +90,7 @@ Edit Partner - {{ trans('panel.site_title') }}
                                 <span class="help-block">{{ trans('cruds.partner.fields.country_helper') }}</span>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-danger" type="submit">
+                                <button class="btn btn-primary btn-lg" type="submit">
                                     {{ trans('global.save') }}
                                 </button>
                             </div>
@@ -99,4 +101,5 @@ Edit Partner - {{ trans('panel.site_title') }}
         </div>
     </div>
 </div>
+
 @endsection
