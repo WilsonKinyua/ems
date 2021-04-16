@@ -4,14 +4,6 @@
       Delegates List - {{ trans('panel.site_title') }}
 @endsection
 
-@section('styles')
-    <!-- BEGIN PAGE LEVEL STYLES -->
-    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/table/datatable/datatables.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/table/datatable/dt-global_style.css')}}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('plugins/table/datatable/custom_dt_multiple_tables.css')}}">
-    <!-- END PAGE LEVEL STYLES -->
-@endsection
-
 @section('content')
 
 
@@ -170,8 +162,7 @@
 
 
 @section('scripts')
-<!-- BEGIN PAGE LEVEL SCRIPTS -->
-<script src="{{ asset('plugins/table/datatable/datatables.js')}}"></script>
+
 <script>
     $(document).ready(function () {
         $('table.multi-table').DataTable({

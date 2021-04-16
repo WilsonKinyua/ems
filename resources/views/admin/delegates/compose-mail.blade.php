@@ -49,7 +49,7 @@
                                     <span class="btn btn-info btn-xs select-all" style="border-radius: 0; padding:10px">{{ trans('global.select_all') }}</span>
                                     <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0; padding:10px">{{ trans('global.deselect_all') }}</span>
                                 </div>
-                                <select class=" form-control select2" name="emails[]" id="emails" multiple required>
+                                <select class=" form-control select2 " name="emails[]" id="emails" multiple required>
                                         @foreach($delegates as $key => $delegate)
                                             <option value="{{ $delegate->id }}">{{ $delegate->firstname}} {{ $delegate->lastname}}</option>
                                         @endforeach
@@ -60,9 +60,9 @@
                                 <textarea class="form-control ckeditor" required name="body" id="body">{!! old('body') !!}</textarea>
                             </div>
                             <div class="card-footer border-top-0 mb-2 text-right">
-                                <a class="btn ripple btn-primary mr-3 wd-100 rounded-11 mt-1 mb-1" href="#">
+                                <a class="btn ripple btn-primary mr-3 wd-100 rounded-11 mt-1 mb-1 btn-lg" href="#">
                                     Cancel</a>
-                                <button class="btn ripple btn-primary wd-100 rounded-11  mt-1 mb-1" type="submit" > Send Mail</button>
+                                <button class="btn ripple btn-primary wd-100 rounded-11  mt-1 mb-1 btn-lg" type="submit" > Send Mail</button>
                             </div>
                         </form>
                     </div>
