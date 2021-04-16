@@ -26,6 +26,7 @@
 
                         <form method="POST" action="{{ route("admin.delegates.store") }}" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">

@@ -1,30 +1,33 @@
-@extends('layouts.theme')
+@extends('layout.admin')
 
 @section('title')
-      Create Guest Of Honor List - {{ trans('panel.site_title') }}
+      Create Guest Of Honor - {{ trans('panel.site_title') }}
 @endsection
 
 @section('content')
 
-<div class="container-fluid">
-    <div class="inner-body">
 
-        <!-- Page Header -->
-        <div class="page-header">
-            <div class="page-header-1">
-                <h1 class="main-content-title tx-30">Create Guest Of Honor</h1>
-                {{-- <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Create Guest Of Honor List</li>
-                </ol> --}}
+<div class="layout-px-spacing">
+
+    <div class="row layout-top-spacing" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+             <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-1">
+                    <h1 class="main-content-title tx-30">Create Guest Of Honor</h1>
+                </div>
             </div>
         </div>
+    </div>
 
+    <div class="widget-content widget-content-area br-6">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <form method="POST" action="{{ route("admin.guest-of-honors.store") }}" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
                             <div class="form-group">
                                 <label class="required" for="name">{{ trans('cruds.guestOfHonor.fields.name') }} <span class="text-danger">*</span></label>
                                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
@@ -95,11 +98,7 @@
                 </div>
             </div>
         </div>
-
     </div>
 </div>
-
-
-
 
 @endsection

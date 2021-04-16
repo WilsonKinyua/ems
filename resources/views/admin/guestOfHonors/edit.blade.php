@@ -1,24 +1,26 @@
-@extends('layouts.theme')
+@extends('layout.admin')
 
 @section('title')
-      Edit Guest Of Honor List - {{ trans('panel.site_title') }}
+    Edit Guest Of Honor - {{ trans('panel.site_title') }}
 @endsection
 
 @section('content')
 
-<div class="container-fluid">
-    <div class="inner-body">
 
-        <!-- Page Header -->
-        <div class="page-header">
-            <div class="page-header-1">
-                <h1 class="main-content-title tx-30">Edit Guest Of Honor</h1>
-                {{-- <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Create Guest Of Honor List</li>
-                </ol> --}}
+<div class="layout-px-spacing">
+
+    <div class="row layout-top-spacing" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+             <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-1">
+                    <h1 class="main-content-title tx-30">Edit Guest Of Honor</h1>
+                </div>
             </div>
         </div>
+    </div>
 
+    <div class="widget-content widget-content-area br-6">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -26,6 +28,7 @@
                         <form method="POST" action="{{ route("admin.guest-of-honors.update", [$guestOfHonor->id]) }}" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
+                            <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
                             <div class="form-group">
                                 <label class="required" for="name">{{ trans('cruds.guestOfHonor.fields.name') }}</label>
                                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', $guestOfHonor->name) }}" required>
@@ -87,7 +90,7 @@
                                 <span class="help-block">{{ trans('cruds.guestOfHonor.fields.country_helper') }}</span>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">
+                                <button class="btn btn-primary btn-lg" type="submit">
                                     {{ trans('global.save') }}
                                 </button>
                             </div>

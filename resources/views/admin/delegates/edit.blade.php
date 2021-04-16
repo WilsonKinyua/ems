@@ -49,6 +49,7 @@
                     <form method="POST" action="{{ route("admin.delegates.update", [$delegate->id]) }}" enctype="multipart/form-data">
                         @method('PUT')
                         @csrf
+                        <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
                        <div class="row">
                            <div class="col-md-4">
                             <div class="form-group">
