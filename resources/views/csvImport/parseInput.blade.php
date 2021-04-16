@@ -67,7 +67,7 @@ Upload CSV - {{ trans('panel.site_title') }}
                                 </tr>
                             </table>
 
-                            <button type="submit" class="btn btn-primary">
+                            <button type="submit" class="btn btn-primary btn-lg">
                                 @lang('global.app_import_data')
                             </button>
                         </form>

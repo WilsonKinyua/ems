@@ -9,7 +9,7 @@ class AddRelationshipFieldsToSponsorsTable extends Migration
     public function up()
     {
         Schema::table('sponsors', function (Blueprint $table) {
-            $table->unsignedBigInteger('created_by_id')->nullable();
+            $table->unsignedBigInteger('created_by_id');
             $table->foreign('created_by_id', 'created_by_fk_3553084')->references('id')->on('users');
         });
     }

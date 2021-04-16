@@ -2,7 +2,15 @@
 
 namespace App\Http\Controllers\Traits;
 
+use App\Models\Custom;
 use App\Models\Delegate;
+use App\Models\Exhibitor;
+use App\Models\GuestOfHonor;
+use App\Models\Medias;
+use App\Models\Partner;
+use App\Models\Speaker;
+use App\Models\Sponsor;
+use App\Models\Visa;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -49,15 +57,66 @@ trait CsvImportTrait
 
             foreach ($for_insert as $insert_item) {
                 if($model == Delegate::class) {
+
                     foreach ($insert_item as $item) {
                         $item["created_by_id"] = \Auth::user()->id;
                        $model::create($item);
                     }
-                    // dd($insert_item);
-                }else {
+
+
+                } elseif($model == Sponsor::class) {
+
+                    foreach ($insert_item as $item) {
+                        $item["created_by_id"] = \Auth::user()->id;
+                       $model::create($item);
+                    }
+
+                } elseif($model == Speaker::class) {
+
+                    foreach ($insert_item as $item) {
+                        $item["created_by_id"] = \Auth::user()->id;
+                       $model::create($item);
+                    }
+                } elseif($model == GuestOfHonor::class) {
+
+                    foreach ($insert_item as $item) {
+                        $item["created_by_id"] = \Auth::user()->id;
+                       $model::create($item);
+                    }
+                }elseif($model == Exhibitor::class) {
+
+                    foreach ($insert_item as $item) {
+                        $item["created_by_id"] = \Auth::user()->id;
+                       $model::create($item);
+                    }
+                }elseif($model == Medias::class) {
+
+                    foreach ($insert_item as $item) {
+                        $item["created_by_id"] = \Auth::user()->id;
+                       $model::create($item);
+                    }
+                }elseif($model == Partner::class) {
+
+                    foreach ($insert_item as $item) {
+                        $item["created_by_id"] = \Auth::user()->id;
+                       $model::create($item);
+                    }
+                }elseif($model == Custom::class) {
+
+                    foreach ($insert_item as $item) {
+                        $item["created_by_id"] = \Auth::user()->id;
+                       $model::create($item);
+                    }
+                }elseif($model == Visa::class) {
+
+                    foreach ($insert_item as $item) {
+                        $item["created_by_id"] = \Auth::user()->id;
+                       $model::create($item);
+                    }
+                } else {
                     $model::insert($insert_item);
                 }
-                // $model::insert($insert_item);
+
             }
 
             $rows  = count($insert);
