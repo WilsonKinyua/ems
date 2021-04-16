@@ -1,21 +1,26 @@
-@extends('layouts.theme')
+@extends('layout.admin')
+
 @section('title')
       Edit Speaker - {{ trans('panel.site_title') }}
 @endsection
+
 @section('content')
 
-<div class="container-fluid">
-    <div class="inner-body">
-         <!-- Page Header -->
-         <div class="page-header">
-            <div class="page-header-1">
-                <h1 class="main-content-title tx-30">Sponsor</h1>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Edit Sponsor</li>
-                </ol>
+
+<div class="layout-px-spacing">
+
+    <div class="row layout-top-spacing" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+             <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-1">
+                    <h1 class="main-content-title tx-30">Edit Speaker</h1>
+                </div>
             </div>
         </div>
+    </div>
 
+    <div class="widget-content widget-content-area br-6">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
@@ -84,7 +89,7 @@
                                 <span class="help-block">{{ trans('cruds.speaker.fields.country_helper') }}</span>
                             </div>
                             <div class="form-group">
-                                <button class="btn btn-primary" type="submit">
+                                <button class="btn btn-primary btn-lg" type="submit">
                                     {{ trans('global.save') }}
                                 </button>
                             </div>
@@ -96,6 +101,5 @@
     </div>
 </div>
 
-
-
 @endsection
+
