@@ -25,6 +25,7 @@ Create Partner - {{ trans('panel.site_title') }}
                     <div class="card-body">
                         <form method="POST" action="{{ route("admin.partners.store") }}" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">

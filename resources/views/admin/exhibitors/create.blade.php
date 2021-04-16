@@ -1,33 +1,37 @@
-@extends('layouts.theme')
+@extends('layout.admin')
 
 @section('title')
-Create Exhibitor - {{ trans('panel.site_title') }}
+      Create Exhibitor - {{ trans('panel.site_title') }}
 @endsection
 
 @section('content')
 
-<div class="container-fluid">
-    <div class="inner-body">
 
-        <!-- Page Header -->
-        <div class="page-header">
-            <div class="page-header-1">
-                <h1 class="main-content-title tx-30">Exhibitors</h1>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Create Exhibitor</li>
-                </ol>
+<div class="layout-px-spacing">
+
+    <div class="row layout-top-spacing" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+             <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-1">
+                    <h1 class="main-content-title tx-30">Create Exhibitor</h1>
+                </div>
             </div>
         </div>
+    </div>
+
+    <div class="widget-content widget-content-area br-6">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body">
                         <form method="POST" action="{{ route("admin.exhibitors.store") }}" enctype="multipart/form-data">
                             @csrf
+                            <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="name">{{ trans('cruds.exhibitor.fields.name') }}</label>
+                                        <label class="required" for="name">{{ trans('cruds.exhibitor.fields.name') }} <span class="text-danger">*</span></label>
                                         <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
                                         @if($errors->has('name'))
                                             <div class="invalid-feedback">
@@ -39,7 +43,7 @@ Create Exhibitor - {{ trans('panel.site_title') }}
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="phone">{{ trans('cruds.exhibitor.fields.phone') }}</label>
+                                        <label class="required" for="phone">{{ trans('cruds.exhibitor.fields.phone') }} <span class="text-danger">*</span></label>
                                         <input class="form-control {{ $errors->has('phone') ? 'is-invalid' : '' }}" type="text" name="phone" id="phone" value="{{ old('phone', '') }}" required>
                                         @if($errors->has('phone'))
                                             <div class="invalid-feedback">
@@ -51,7 +55,7 @@ Create Exhibitor - {{ trans('panel.site_title') }}
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="email">{{ trans('cruds.exhibitor.fields.email') }}</label>
+                                        <label class="required" for="email">{{ trans('cruds.exhibitor.fields.email') }} <span class="text-danger">*</span></label>
                                         <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" id="email" value="{{ old('email') }}" required>
                                         @if($errors->has('email'))
                                             <div class="invalid-feedback">
@@ -63,7 +67,7 @@ Create Exhibitor - {{ trans('panel.site_title') }}
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="postal_address">{{ trans('cruds.exhibitor.fields.postal_address') }}</label>
+                                        <label for="postal_address">{{ trans('cruds.exhibitor.fields.postal_address') }} <span class="text-danger">*</span></label>
                                         <input class="form-control {{ $errors->has('postal_address') ? 'is-invalid' : '' }}" type="text" name="postal_address" id="postal_address" value="{{ old('postal_address', '') }}">
                                         @if($errors->has('postal_address'))
                                             <div class="invalid-feedback">
@@ -75,7 +79,7 @@ Create Exhibitor - {{ trans('panel.site_title') }}
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="city">{{ trans('cruds.exhibitor.fields.city') }}</label>
+                                        <label for="city">{{ trans('cruds.exhibitor.fields.city') }} <span class="text-danger">*</span></label>
                                         <input class="form-control {{ $errors->has('city') ? 'is-invalid' : '' }}" type="text" name="city" id="city" value="{{ old('city', '') }}">
                                         @if($errors->has('city'))
                                             <div class="invalid-feedback">
@@ -87,7 +91,7 @@ Create Exhibitor - {{ trans('panel.site_title') }}
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="country">{{ trans('cruds.exhibitor.fields.country') }}</label>
+                                        <label class="required" for="country">{{ trans('cruds.exhibitor.fields.country') }} <span class="text-danger">*</span></label>
                                         <input class="form-control {{ $errors->has('country') ? 'is-invalid' : '' }}" type="text" name="country" id="country" value="{{ old('country', '') }}" required>
                                         @if($errors->has('country'))
                                             <div class="invalid-feedback">
@@ -108,10 +112,7 @@ Create Exhibitor - {{ trans('panel.site_title') }}
                 </div>
             </div>
         </div>
-
     </div>
 </div>
-
-
 
 @endsection

@@ -27,6 +27,7 @@
                         <form method="POST" action="{{ route("admin.visas.update", [$visa->id]) }}" enctype="multipart/form-data">
                             @method('PUT')
                             @csrf
+                            <input type="hidden" name="created_by_id" value="{{ Auth::user()->id }}">
                             <div class="form-group">
                                 <label class="required" for="name">{{ trans('cruds.visa.fields.name') }}</label>
                                 <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', $visa->name) }}" required>
