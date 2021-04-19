@@ -170,4 +170,12 @@ class GuestOfHonorTemplateController extends Controller
         return view('admin.guestOfHonorTemplates.preview',compact('template','guests'));
 
     }
+
+    public function getPage($id) {
+
+        $template = GuestOfHonorTemplate::findOrFail($id);
+        $guests = GuestOfHonor::all();
+        return view('admin.guestOfHonorTemplates.send',compact('template','guests'));
+
+    }
 }

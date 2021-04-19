@@ -122,6 +122,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('guest-of-honor-template/compose/preview/{id}',"GuestOfHonorTemplateController@preview")->name('guestofhonor.preview');
     // send mail
     Route::post("guest-of-honor-template/compose/preview/send-mail","Emails\GuestOfHonorSendingEmailsController@store")->name("guestofhonor.emails");
+    // display send page
+    Route::get('guest-of-honor-template/{id}/send','GuestOfHonorTemplateController@getPage')->name('guestofhonor-send.page');
 
     // Exhibitors
     Route::delete('exhibitors/destroy', 'ExhibitorsController@massDestroy')->name('exhibitors.massDestroy');

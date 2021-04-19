@@ -1,24 +1,25 @@
-@extends('layouts.theme')
+@extends('layout.admin')
 
 @section('title')
-    Guest of Honor Email Template - {{ trans('panel.site_title') }}
+       Guest of Honor Email Template - {{ trans('panel.site_title') }}
 @endsection
 
 @section('content')
 
-<div class="container-fluid">
-    <div class="inner-body">
+<div class="layout-px-spacing">
 
-        <!-- Page Header -->
-        <div class="page-header">
-            <div class="page-header-1">
-                <h1 class="main-content-title tx-30">Create Guest of Honor Email Template</h1>
-                {{-- <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Create Guest of Honor Email Template</li>
-                </ol> --}}
+    <div class="row layout-top-spacing" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+             <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-1">
+                    <h1 class="main-content-title tx-30">Create Guest of Honor Email Template</h1>
+                </div>
             </div>
         </div>
+    </div>
 
+    <div class="widget-content widget-content-area br-6">
         <div class="row">
             <div class="col-lg-12">
                 <div class="card">
