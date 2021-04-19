@@ -212,6 +212,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('visa-templates/compose/preview/{id}',"VisaTemplateController@preview")->name('visa-templates.preview');
     // send mail
     Route::post("visa-templates/compose/preview/send-mail","Emails\VisaSendingEmailsController@store")->name("visa-templates.emails");
+    // display send page
+    Route::get('visa-templates/{id}/send','VisaTemplateController@getPage')->name('visa-send.page');
 
     Route::get('messenger', 'MessengerController@index')->name('messenger.index');
     Route::get('messenger/create', 'MessengerController@createTopic')->name('messenger.createTopic');

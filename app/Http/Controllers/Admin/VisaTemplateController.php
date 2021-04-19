@@ -181,5 +181,11 @@ class VisaTemplateController extends Controller
         $visas = Visa::all();
         return view('admin.visaTemplates.preview',compact('template','visas'));
 
-        }
+    }
+
+    public function getPage($id) {
+        $template = VisaTemplate::findOrFail($id);
+        $visas = Visa::all();
+        return view('admin.visaTemplates.send',compact('template','visas'));
+    }
 }
