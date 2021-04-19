@@ -174,4 +174,10 @@ class CustomsTemplateController extends Controller
         return view('admin.customsTemplates.preview',compact('template','customs'));
 
     }
+
+    public function getPage($id) {
+        $template = CustomsTemplate::findOrFail($id);
+        $customs = Custom::all();
+        return view('admin.customsTemplates.send',compact('template','customs'));
+    }
 }

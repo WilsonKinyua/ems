@@ -194,6 +194,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('customs-templates/compose/preview/{id}',"CustomsTemplateController@preview")->name('customs-templates.preview');
     // send mail
     Route::post("customs-templates/compose/preview/send-mail","Emails\CustomsSendingEmailsController@store")->name("customs-templates.emails");
+    // display send page
+    Route::get('customs-templates/{id}/send','CustomsTemplateController@getPage')->name('customs-send.page');
 
     // Visas
     Route::delete('visas/destroy', 'VisaController@massDestroy')->name('visas.massDestroy');
