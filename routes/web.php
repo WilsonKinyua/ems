@@ -140,6 +140,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('exhibitors-templates/compose/preview/{id}',"ExhibitorsTemplateController@preview")->name('exhibitors-templates.preview');
     // send mail
     Route::post("exhibitors-templates/compose/preview/send-mail","Emails\ExhibitorsSendingEmailsController@store")->name("exhibitors.emails");
+    // display send page
+    Route::get('exhibitors-templates/{id}/send','ExhibitorsTemplateController@getPage')->name('exhibitors-send.page');
 
     // Media
     Route::delete('media/destroy', 'MediasController@massDestroy')->name('media.massDestroy');

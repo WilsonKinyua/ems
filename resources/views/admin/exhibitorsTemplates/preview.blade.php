@@ -1,36 +1,37 @@
-@extends('layouts.theme')
+@extends('layout.admin')
 
 @section('title')
-      Preview Mail - {{ trans('panel.site_title') }}
+      Exhibitors / Preview - {{ trans('panel.site_title') }}
 @endsection
 
 @section('content')
 
-<div class="container-fluid">
-    <div class="inner-body">
 
-        <!-- Page Header -->
-        <div class="page-header">
-            <div class="page-header-1">
-                <h1 class="main-content-title tx-30">Exhibitors</h1>
-                <ol class="breadcrumb">
-                    <li class="breadcrumb-item active" aria-current="page">Preview Template</li>
-                </ol>
+<div class="layout-px-spacing">
+
+    <div class="row layout-top-spacing" id="cancel-row">
+        <div class="col-xl-12 col-lg-12 col-sm-12  layout-spacing">
+             <!-- Page Header -->
+            <div class="page-header">
+                <div class="page-header-1">
+                    <h1 class="main-content-title tx-30">Exhibitors / Preview</h1>
+                </div>
             </div>
         </div>
-
-        <div style="margin-bottom: 10px;" class="row">
-            <div class="col-lg-12">
-                <a class="btn btn-success" href="{{ route('admin.exhibitors-templates.edit',$template->id) }}">
-                    Edit Template
-                </a>
-                <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
-                    Send
-                </button>
-                @include('modals.exhibitors')
-            </div>
+    </div>
+    <div style="margin-bottom: 10px;" class="row">
+        <div class="col-lg-12">
+            <a class="btn btn-success btn-lg" href="{{ route('admin.exhibitors-templates.edit',$template->id) }}">
+                Edit Template
+            </a>
+            {{-- <button class="btn btn-warning" data-toggle="modal" data-target="#csvImportModal">
+                Send
+            </button>
+            @include('modals.exhibitors') --}}
+            <a class="btn btn-warning btn-lg" href="{{ route('admin.exhibitors-send.page',$template->id)}}">Send Mail</a>
         </div>
-
+    </div>
+    <div class="widget-content widget-content-area br-6">
         <div class="row">
             <div class="col-lg-12">
                 <div class="">

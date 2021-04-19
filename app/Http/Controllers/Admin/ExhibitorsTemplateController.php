@@ -168,4 +168,10 @@ class ExhibitorsTemplateController extends Controller
         return view('admin.exhibitorsTemplates.preview',compact('template','exhibitors'));
 
     }
+
+    public function getPage($id) {
+        $template = ExhibitorsTemplate::findOrFail($id);
+        $exhibitors = Exhibitor::all();
+        return view('admin.exhibitorsTemplates.send',compact('template','exhibitors'));
+    }
 }
