@@ -168,4 +168,10 @@ class MediaTemplateController extends Controller
         return view('admin.mediaTemplates.preview',compact('template','medias'));
 
     }
+
+    public function getPage($id) {
+        $template = MediaTemplate::findOrFail($id);
+        $medias = Medias::all();
+        return view('admin.mediaTemplates.send',compact('template','medias'));
+    }
 }

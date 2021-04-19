@@ -158,6 +158,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('media-templates/compose/preview/{id}',"MediaTemplateController@preview")->name('media-templates.preview');
     // send mail
     Route::post("media-templates/compose/preview/send-mail","Emails\MediaSendingEmailsController@store")->name("media-templates.emails");
+    // display send page
+    Route::get('media-templates/{id}/send','MediaTemplateController@getPage')->name('media-send.page');
 
     // Partners
     Route::delete('partners/destroy', 'PartnersController@massDestroy')->name('partners.massDestroy');
