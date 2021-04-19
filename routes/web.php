@@ -176,6 +176,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::get('partners-templates/compose/preview/{id}',"PartnersTemplateController@preview")->name('partners-templates.preview');
     // send mail
     Route::post("partners-templates/compose/preview/send-mail","Emails\PartnersSendingEmailsController@store")->name("partners-templates.emails");
+    // display send page
+    Route::get('partners-templates/{id}/send','PartnersTemplateController@getPage')->name('partners-send.page');
 
     // Customs
     Route::delete('customs/destroy', 'CustomsController@massDestroy')->name('customs.massDestroy');

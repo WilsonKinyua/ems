@@ -170,4 +170,12 @@ class PartnersTemplateController extends Controller
         return view('admin.partnersTemplates.preview',compact('template','partners'));
 
     }
+
+    public function getPage($id) {
+
+        $template = PartnersTemplate::findOrFail($id);
+        $partners = Partner::all();
+        return view('admin.partnersTemplates.send',compact('template','partners'));
+
+    }
 }
