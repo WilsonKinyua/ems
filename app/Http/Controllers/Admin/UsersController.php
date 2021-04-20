@@ -83,4 +83,40 @@ class UsersController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+    // view user profile
+    public function profileIndex() {
+
+        return view('admin.users.update-account');
+    }
+
+    public function updateAccount(Request $request) {
+
+    if($profile_pic = $request->file("file")) {
+
+        $profile_name = time() . $profile_pic->getClientOriginalName();
+        $profile_name = $profile_pic->move("uploads/img/profile/".\Str::random(80) . "/" , $profile_name);
+
+    }
+
+    $data = [
+        "first_name" => $request->first_name,
+        "last_name" => $request->last_name,
+        "company" => $request->company,
+        "job_title" => $request->job_title,
+        "profile_photo" => $profile_name
+    ];
+
+        $user = \Auth::user();
+        $user->update($data);
+        // print_r(json_encode($user));
+        return redirect()->back()->with('success','Account Update successfully');
+    }
+
+    public function updateBio(Request $request) {
+        $user = \Auth::user();
+        $user->update($request->all());
+        // print_r(json_encode($user));
+        return redirect()->back()->with('success','Account Update successfully');
+    }
 }

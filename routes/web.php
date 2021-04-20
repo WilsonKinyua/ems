@@ -25,6 +25,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // Users
     Route::delete('users/destroy', 'UsersController@massDestroy')->name('users.massDestroy');
     Route::resource('users', 'UsersController');
+    // view user account
+    Route::get('user/account/settings','UsersController@profileIndex')->name("account.user");
+    // update user account
+    Route::post('user/account/update/general','UsersController@updateAccount')->name("general.user");
+    // update bio user account
+    Route::post('user/account/update/bio','UsersController@updateBio')->name("bio.user");
 
     // User Alerts
     Route::delete('user-alerts/destroy', 'UserAlertsController@massDestroy')->name('user-alerts.massDestroy');

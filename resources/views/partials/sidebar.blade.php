@@ -5,9 +5,16 @@
         <div class="profile-info">
             <figure class="user-cover-image"></figure>
             <div class="user-info">
-                <img src="{{ asset('assets/img/profile-17.jpg')}}" alt="avatar">
-                <h6 class="">Susan Markims</h6>
-                <p class="">Web Developer</p>
+                <img src="
+
+                     @if (Auth::user()->profile_photo != '')
+                        {{ asset(Auth::user()->profile_photo) }}
+                     @else
+                     {{ 'https://d2poexpdc5y9vj.cloudfront.net/webapp/2.0/img/nt-avatar.jpg' }}
+                     @endif
+                " alt="">
+                <h6 class="">{{ Auth::user()->first_name}} {{ Auth::user()->last_name}}</h6>
+                <p class="">{{ Auth::user()->job_title}}</p>
             </div>
         </div>
 
