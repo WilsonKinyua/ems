@@ -19,7 +19,7 @@
     justify-content: space-between;
 }
 .table-form .form-group {
-    margin-bottom: 0;    
+    margin-bottom: 0;
 }
 .table-form .form-group label {
     color: #515365;
@@ -124,11 +124,11 @@ table.dataTable {
     top: -108px!important;
 }
 .table > tbody > tr > td {
-    font-size: 13px;
+    font-size: 15px;
     border: none;
     padding: 0;
     padding: 10px 21px 10px 21px;
-    color: #515365;
+    color: black;
     letter-spacing: normal;
     white-space: nowrap;
 }
@@ -143,8 +143,8 @@ table.dataTable {
     background-color: transparent!important;
 }
 .table-hover.non-hover:not(.table-dark) tbody tr:hover {
-    -webkit-transform: none; 
-    transform: none; 
+    -webkit-transform: none;
+    transform: none;
 }
 div.dataTables_wrapper div.dataTables_info {
     padding-top: 0.85em;
@@ -233,7 +233,7 @@ div.dataTables_wrapper div.dataTables_paginate {
 }
 div.dataTables_wrapper div.dataTables_paginate ul.pagination {
     margin: 3px 0;
-    flex-wrap: wrap;   
+    flex-wrap: wrap;
 }
 .page-item.disabled .page-link {
     background: #f1f2f3

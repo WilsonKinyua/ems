@@ -23,7 +23,7 @@
                                 <div class="row">
                                     <div class="col-xl-2 col-lg-12 col-md-4">
                                         <div class="upload mt-4 pr-md-4">
-                                            <input type="file" name="file" class="dropify" data-default-file="" data-max-file-size="2M"/>
+                                            <input type="file" name="file" required class="dropify" data-default-file="" data-max-file-size="2M"/>
                                             <p class="mt-2"><i class="flaticon-cloud-upload mr-1"></i> Upload Picture</p>
                                         </div>
                                     </div>

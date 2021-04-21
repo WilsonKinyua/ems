@@ -47,6 +47,8 @@
     <!-- toastr -->
     <link href="{{ asset('plugins/notification/snackbar/snackbar.min.css')}}" rel="stylesheet" type="text/css" />
     <link href="{{ asset('assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
+    {{-- datapicker --}}
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     @yield('styles')
 </head>
 
@@ -91,7 +93,6 @@
 
     </div>
     <!-- END MAIN CONTAINER -->
-
     <!-- BEGIN GLOBAL MANDATORY SCRIPTS -->
     <script src="{{ asset('assets/js/libs/jquery-3.1.1.min.js')}}"></script>
     <script src="{{ asset('bootstrap/js/popper.min.js')}}"></script>
@@ -147,7 +148,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.47/js/bootstrap-datetimepicker.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.5/js/select2.full.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/dropzone/5.5.1/min/dropzone.min.js"></script>
+    {{-- date picker --}}
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script>
+        flatpickr('#basicFlatpickr', {
+            altInput: true,
+            altFormat: "F j, Y",
+            dateFormat: "d-m-Y",
+        });
+    </script>
     @yield('scripts')
     <script>
         $(function() {

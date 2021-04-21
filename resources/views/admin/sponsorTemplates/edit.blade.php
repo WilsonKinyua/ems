@@ -44,7 +44,7 @@ Edit Preview - {{ trans('panel.site_title') }}
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label class="required" for="date">{{ trans('cruds.sponsorTemplate.fields.date') }} <span class="text-danger">*</span></label>
-                                        <input class="form-control date {{ $errors->has('date') ? 'is-invalid' : '' }}" type="text" name="date" id="date" value="{{ old('date', $sponsorTemplate->date) }}" required>
+                                        <input id="basicFlatpickr" class="form-control {{ $errors->has('date') ? 'is-invalid' : '' }}" type="text" name="date" value="{{ old('date', $sponsorTemplate->date) }}" required>
                                         @if($errors->has('date'))
                                             <div class="invalid-feedback">
                                                 {{ $errors->first('date') }}
