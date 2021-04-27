@@ -66,7 +66,7 @@
 												<a href="#" class="btn btn-facebook"><i
 														class="fa fa-facebook fa-1x"></i></a>
 											</div> --}}
-											<hr class="divider my-6">
+											{{-- <hr class="divider my-6"> --}}
                                             <form method="POST" action="{{ route('login') }}" class="">
                                                 @csrf
 											<div class="input-group mb-4">

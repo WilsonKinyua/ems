@@ -61,7 +61,7 @@
 												<a href="#" class="btn btn-facebook"><i
 														class="fa fa-facebook fa-1x"></i></a>
 											</div> --}}
-											<hr class="divider my-6">
+											{{-- <hr class="divider my-6"> --}}
                                             <form method="POST" class="" action="{{ route('register') }}">
                                                 {{ csrf_field() }}
                                                 <div class="row">

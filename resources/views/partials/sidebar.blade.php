@@ -20,7 +20,7 @@
 
         <div class="shadow-bottom"></div>
         <ul class="list-unstyled menu-categories" id="accordionExample">
-            <li class="menu {{ request()->is("admin/#") || request()->is("admin/#") ? "active" : "" }}">
+            {{-- <li class="menu {{ request()->is("admin/#") || request()->is("admin/#") ? "active" : "" }}">
                 <a href="#dashboard" data-toggle="collapse" aria-expanded="true" class="dropdown-toggle">
                     <div class="">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
@@ -45,7 +45,21 @@
                         <a href="{{ route('admin.home') }}"> Dashboard </a>
                     </li>
                 </ul>
+            </li> --}}
+            @can('delegate_access')
+            <li class="menu {{ request()->is("admin/#") || request()->is("admin/#") ? "active" : "" }}">
+                <a href="{{ route('admin.home') }}" aria-expanded="false" class="dropdown-toggle">
+                    <div class="">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                            stroke-linejoin="round" class="feather feather-zap">
+                            <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+                        </svg>
+                        <span>Delegates Management</span>
+                    </div>
+                </a>
             </li>
+            @endcan
             {{-- <li class="menu">
                 <a href="#" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
@@ -59,7 +73,7 @@
                     </div>
                 </a>
             </li> --}}
-            @can('delegate_access')
+            {{-- @can('delegate_access')
             <li class="menu {{ request()->is("admin/delegates/*") || request()->is("admin/delegates/*") ? "active" : ""}}">
                 <a href="{{ route('admin.delegates.index')}}" aria-expanded="false" class="dropdown-toggle">
                     <div class="">
@@ -215,7 +229,7 @@
                 </a>
             </li>
             @endcan
-            @endcan
+            @endcan --}}
         </ul>
 
     </nav>
