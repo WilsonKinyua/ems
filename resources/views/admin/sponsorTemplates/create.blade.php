@@ -30,7 +30,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="subject">Subject <span class="text-danger">*</span></label>
+                                        <label for="subject">Subject </label>
                                         <input class="form-control {{ $errors->has('subject') ? 'is-invalid' : '' }}" type="text" name="subject" id="subject" required value="{{ old('subject', '') }}">
                                         @if($errors->has('subject'))
                                             <div class="invalid-feedback">
@@ -42,7 +42,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="date">{{ trans('cruds.sponsorTemplate.fields.date') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="date">{{ trans('cruds.sponsorTemplate.fields.date') }} </label>
                                         <input id="basicFlatpickr" class="form-control {{ $errors->has('date') ? 'is-invalid' : '' }}" type="text" name="date" id="date" value="{{ old('date') }}" required>
                                         @if($errors->has('date'))
                                             <div class="invalid-feedback">
@@ -54,63 +54,64 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="logo">{{ trans('cruds.sponsorTemplate.fields.logo') }} <span class="text-danger">*</span></label> <br>
+                                        <label class="required" for="logo">{{ trans('cruds.sponsorTemplate.fields.logo') }} </label> <br>
                                         <input  type="file" name="logo" id="logo" required>
                                     </div>
                                 </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label class="required" for="ref">Ref <span class="text-danger">*</span></label>
-                                <input class="form-control {{ $errors->has('ref') ? 'is-invalid' : '' }}" type="text" name="ref" id="ref" placeholder="Why Market Research is Crucial for your Growing Business" value="{{ old('ref', '') }}" required>
-                                @if($errors->has('ref'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('ref') }}
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <label class="required" for="ref">Ref </label>
+                                        <input class="form-control {{ $errors->has('ref') ? 'is-invalid' : '' }}" type="text" name="ref" id="ref" placeholder="Why Market Research is Crucial for your Growing Business" value="{{ old('ref', '') }}" required>
+                                        @if($errors->has('ref'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors->first('ref') }}
+                                            </div>
+                                        @endif
+                                        <span class="help-block">{{ trans('cruds.sponsorTemplate.fields.ref_helper') }}</span>
                                     </div>
-                                @endif
-                                <span class="help-block">{{ trans('cruds.sponsorTemplate.fields.ref_helper') }}</span>
-                            </div>
-                            <div class="form-group">
-                                <label for="address">{{ trans('cruds.sponsorTemplate.fields.address') }} <span class="text-danger">*</span></label>
-                                <textarea class="form-control ckeditor {{ $errors->has('address') ? 'is-invalid' : '' }}" required name="address" id="address">{!! old('address') !!}
-                                    <p>
-                                        Nicole Thomas<br />
-                                        35 Chestnut Street<br />
-                                        Dell Village, Wisconsin 54101<br />
-                                        555-555-5555<br />
-                                        nicole@thomas.com
-                                    </p>
-                                </textarea>
-                                @if($errors->has('address'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('address') }}
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="address" class="required">{{ trans('cruds.sponsorTemplate.fields.address') }} </label>
+                                        <textarea class="form-control ckeditor {{ $errors->has('address') ? 'is-invalid' : '' }}" required name="address" id="address">{!! old('address') !!}
+                                            <p>
+                                                Nicole Thomas<br />
+                                                35 Chestnut Street<br />
+                                                Dell Village, Wisconsin 54101<br />
+                                                555-555-5555<br />
+                                                nicole@thomas.com
+                                            </p>
+                                        </textarea>
+                                        @if($errors->has('address'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors->first('address') }}
+                                            </div>
+                                        @endif
+                                        <span class="help-block">{{ trans('cruds.sponsorTemplate.fields.address_helper') }}</span>
                                     </div>
-                                @endif
-                                <span class="help-block">{{ trans('cruds.sponsorTemplate.fields.address_helper') }}</span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="body">{{ trans('cruds.sponsorTemplate.fields.body') }} <span class="text-danger">*</span></label>
-                                <textarea class="form-control ckeditor {{ $errors->has('body') ? 'is-invalid' : '' }}" name="body" id="body" required>{!! old('body') !!}</textarea>
-                                @if($errors->has('body'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('body') }}
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label class="required" for="body">{{ trans('cruds.sponsorTemplate.fields.body') }} </label>
+                                        <textarea class="form-control ckeditor {{ $errors->has('body') ? 'is-invalid' : '' }}" name="body" id="body" required>{!! old('body') !!}</textarea>
+                                        @if($errors->has('body'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors->first('body') }}
+                                            </div>
+                                        @endif
+                                        <span class="help-block">{{ trans('cruds.sponsorTemplate.fields.body_helper') }}</span>
                                     </div>
-                                @endif
-                                <span class="help-block">{{ trans('cruds.sponsorTemplate.fields.body_helper') }}</span>
-                            </div>
-
-                            <div class="row">
+                                </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="signature">{{ trans('cruds.sponsorTemplate.fields.signature') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="signature">{{ trans('cruds.sponsorTemplate.fields.signature') }} </label>
                                         <br>
                                         <input  type="file" name="signature" id="signature" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="name">{{ trans('cruds.sponsorTemplate.fields.name') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="name">{{ trans('cruds.sponsorTemplate.fields.name') }} </label>
                                         <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', '') }}" required>
                                         @if($errors->has('name'))
                                             <div class="invalid-feedback">
@@ -122,7 +123,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="company_organisation">{{ trans('cruds.sponsorTemplate.fields.company_organisation') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="company_organisation">{{ trans('cruds.sponsorTemplate.fields.company_organisation') }} </label>
                                         <input class="form-control {{ $errors->has('company_organisation') ? 'is-invalid' : '' }}" type="text" name="company_organisation" id="company_organisation" value="{{ old('company_organisation', '') }}" required>
                                         @if($errors->has('company_organisation'))
                                             <div class="invalid-feedback">
@@ -134,7 +135,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="phone_number">{{ trans('cruds.sponsorTemplate.fields.phone_number') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="phone_number">{{ trans('cruds.sponsorTemplate.fields.phone_number') }} </label>
                                         <input class="form-control {{ $errors->has('phone_number') ? 'is-invalid' : '' }}" type="text" name="phone_number" id="phone_number" value="{{ old('phone_number', '') }}" step="1" required>
                                         @if($errors->has('phone_number'))
                                             <div class="invalid-feedback">
@@ -146,7 +147,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="email">{{ trans('cruds.sponsorTemplate.fields.email') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="email">{{ trans('cruds.sponsorTemplate.fields.email') }} </label>
                                         <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" id="email" value="{{ old('email') }}" required>
                                         @if($errors->has('email'))
                                             <div class="invalid-feedback">
@@ -158,7 +159,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="website_link">{{ trans('cruds.sponsorTemplate.fields.website_link') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="website_link">{{ trans('cruds.sponsorTemplate.fields.website_link') }} </label>
                                         <input class="form-control {{ $errors->has('website_link') ? 'is-invalid' : '' }}" type="text" placeholder="https://www.google.com" name="website_link" id="website_link" value="{{ old('website_link', '') }}" required>
                                         @if($errors->has('website_link'))
                                             <div class="invalid-feedback">

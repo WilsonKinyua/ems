@@ -31,7 +31,7 @@
                             <div class="row">
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label for="subject">Subject <span class="text-danger">*</span></label>
+                                        <label for="subject">Subject </label>
                                         <input class="form-control {{ $errors->has('subject') ? 'is-invalid' : '' }}" type="text" name="subject" id="subject" required value="{{ old('subject', $visaTemplate->subject) }}">
                                         @if($errors->has('subject'))
                                             <div class="invalid-feedback">
@@ -43,7 +43,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="date">{{ trans('cruds.visaTemplate.fields.date') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="date">{{ trans('cruds.visaTemplate.fields.date') }} </label>
                                         <input class="form-control {{ $errors->has('date') ? 'is-invalid' : '' }}" type="text" name="date" id="basicFlatpickr" value="{{ old('date', $visaTemplate->date) }}" required>
                                         @if($errors->has('date'))
                                             <div class="invalid-feedback">
@@ -55,14 +55,14 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="logo">{{ trans('cruds.visaTemplate.fields.logo') }} <span class="text-danger">*</span></label> <br>
+                                        <label class="required" for="logo">{{ trans('cruds.visaTemplate.fields.logo') }} </label> <br>
                                         <input  type="file" name="logo" id="logo" required>
                                     </div>
                                 </div>
                             </div>
 
                             <div class="form-group">
-                                <label class="required" for="ref">Ref <span class="text-danger">*</span></label>
+                                <label class="required" for="ref">Ref </label>
                                 <input class="form-control {{ $errors->has('ref') ? 'is-invalid' : '' }}" type="text" name="ref" id="ref" placeholder="Why Market Research is Crucial for your Growing Business" value="{{ old('ref', $visaTemplate->ref) }}" required>
                                 @if($errors->has('ref'))
                                     <div class="invalid-feedback">
@@ -71,40 +71,42 @@
                                 @endif
                                 <span class="help-block">{{ trans('cruds.visaTemplate.fields.ref_helper') }}</span>
                             </div>
-                            <div class="form-group">
-                                <label for="address">{{ trans('cruds.visaTemplate.fields.address') }} <span class="text-danger">*</span></label>
-                                <textarea class="form-control ckeditor {{ $errors->has('address') ? 'is-invalid' : '' }}" required name="address" id="address">{!! old('address', $visaTemplate->address) !!}
-                                </textarea>
-                                @if($errors->has('address'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('address') }}
-                                    </div>
-                                @endif
-                                <span class="help-block">{{ trans('cruds.visaTemplate.fields.address_helper') }}</span>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="body">{{ trans('cruds.visaTemplate.fields.body') }} <span class="text-danger">*</span></label>
-                                <textarea class="form-control ckeditor {{ $errors->has('body') ? 'is-invalid' : '' }}" name="body" id="body" required>{!! old('body',$visaTemplate->body) !!}</textarea>
-                                @if($errors->has('body'))
-                                    <div class="invalid-feedback">
-                                        {{ $errors->first('body') }}
-                                    </div>
-                                @endif
-                                <span class="help-block">{{ trans('cruds.visaTemplate.fields.body_helper') }}</span>
-                            </div>
-
                             <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="address">{{ trans('cruds.visaTemplate.fields.address') }} </label>
+                                        <textarea class="form-control ckeditor {{ $errors->has('address') ? 'is-invalid' : '' }}" required name="address" id="address">{!! old('address', $visaTemplate->address) !!}
+                                        </textarea>
+                                        @if($errors->has('address'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors->first('address') }}
+                                            </div>
+                                        @endif
+                                        <span class="help-block">{{ trans('cruds.visaTemplate.fields.address_helper') }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="body">{{ trans('cruds.visaTemplate.fields.body') }} </label>
+                                        <textarea class="form-control ckeditor {{ $errors->has('body') ? 'is-invalid' : '' }}" name="body" id="body" required>{!! old('body',$visaTemplate->body) !!}</textarea>
+                                        @if($errors->has('body'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors->first('body') }}
+                                            </div>
+                                        @endif
+                                        <span class="help-block">{{ trans('cruds.visaTemplate.fields.body_helper') }}</span>
+                                    </div>
+                                </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="signature">{{ trans('cruds.visaTemplate.fields.signature') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="signature">{{ trans('cruds.visaTemplate.fields.signature') }} </label>
                                         <br>
                                         <input  type="file" name="signature" id="signature" required>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="name">{{ trans('cruds.visaTemplate.fields.name') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="name">{{ trans('cruds.visaTemplate.fields.name') }} </label>
                                         <input class="form-control {{ $errors->has('name') ? 'is-invalid' : '' }}" type="text" name="name" id="name" value="{{ old('name', $visaTemplate->name) }}" required>
                                         @if($errors->has('name'))
                                             <div class="invalid-feedback">
@@ -116,7 +118,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="company_organisation">{{ trans('cruds.visaTemplate.fields.company_organisation') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="company_organisation">{{ trans('cruds.visaTemplate.fields.company_organisation') }} </label>
                                         <input class="form-control {{ $errors->has('company_organisation') ? 'is-invalid' : '' }}" type="text" name="company_organisation" id="company_organisation" value="{{ old('company_organisation', $visaTemplate->company_organisation) }}" required>
                                         @if($errors->has('company_organisation'))
                                             <div class="invalid-feedback">
@@ -128,7 +130,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="phone_number">{{ trans('cruds.visaTemplate.fields.phone_number') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="phone_number">{{ trans('cruds.visaTemplate.fields.phone_number') }} </label>
                                         <input class="form-control {{ $errors->has('phone_number') ? 'is-invalid' : '' }}" type="text" name="phone_number" id="phone_number" value="{{ old('phone_number', $visaTemplate->phone_number) }}" step="1" required>
                                         @if($errors->has('phone_number'))
                                             <div class="invalid-feedback">
@@ -140,7 +142,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="email">{{ trans('cruds.visaTemplate.fields.email') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="email">{{ trans('cruds.visaTemplate.fields.email') }} </label>
                                         <input class="form-control {{ $errors->has('email') ? 'is-invalid' : '' }}" type="email" name="email" id="email" value="{{ old('email',$visaTemplate->email) }}" required>
                                         @if($errors->has('email'))
                                             <div class="invalid-feedback">
@@ -152,7 +154,7 @@
                                 </div>
                                 <div class="col-md-4">
                                     <div class="form-group">
-                                        <label class="required" for="website_link">{{ trans('cruds.visaTemplate.fields.website_link') }} <span class="text-danger">*</span></label>
+                                        <label class="required" for="website_link">{{ trans('cruds.visaTemplate.fields.website_link') }} </label>
                                         <input class="form-control {{ $errors->has('website_link') ? 'is-invalid' : '' }}" type="text" placeholder="https://www.google.com" name="website_link" id="website_link" value="{{ old('website_link', $visaTemplate->website_link) }}" required>
                                         @if($errors->has('website_link'))
                                             <div class="invalid-feedback">

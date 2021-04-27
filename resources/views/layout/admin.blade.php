@@ -49,6 +49,8 @@
     <link href="{{ asset('assets/css/components/custom-modal.css')}}" rel="stylesheet" type="text/css" />
     {{-- datapicker --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    {{-- custom styles --}}
+    <link rel="stylesheet" href="{{ asset('css/custom.css')}}">
     @yield('styles')
 </head>
 
