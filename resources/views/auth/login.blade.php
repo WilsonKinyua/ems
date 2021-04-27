@@ -57,7 +57,7 @@
                                                     </div>
                                                 @endif
 											</div>
-											<div class="btn-list d-flex">
+											{{-- <div class="btn-list d-flex">
 												<a href="#"
 													class="btn btn-google btn-block"><i
 														class="fa fa-google fa-1x mr-2"></i> Google</a>
@@ -65,7 +65,7 @@
 														class="fa fa-twitter fa-1x"></i></a>
 												<a href="#" class="btn btn-facebook"><i
 														class="fa fa-facebook fa-1x"></i></a>
-											</div>
+											</div> --}}
 											<hr class="divider my-6">
                                             <form method="POST" action="{{ route('login') }}" class="">
                                                 @csrf
