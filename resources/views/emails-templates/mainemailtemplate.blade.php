@@ -203,7 +203,7 @@
                                 <tr>
                                   <td style="padding-right: 0px;padding-left: 0px;" align="center">
 
-                                    <img align="center" border="0" src="images/image-1.jpeg" alt="Image" title="Image"
+                                    <img align="center" border="0" src="{{ asset($details['logo']) }}" alt="Image" title="Image"
                                       style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 30%;max-width: 174px;"
                                       width="174" />
 
