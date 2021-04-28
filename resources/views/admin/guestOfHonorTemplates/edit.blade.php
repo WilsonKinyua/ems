@@ -74,18 +74,6 @@
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="form-group">
-                                        <label for="body">{{ trans('cruds.sponsorTemplate.fields.body') }} </label>
-                                        <textarea class="form-control ckeditor {{ $errors->has('body') ? 'is-invalid' : '' }}" name="body" id="body" required>{!! old('body',$guestOfHonorTemplate->body) !!}</textarea>
-                                        @if($errors->has('body'))
-                                            <div class="invalid-feedback">
-                                                {{ $errors->first('body') }}
-                                            </div>
-                                        @endif
-                                        <span class="help-block">{{ trans('cruds.sponsorTemplate.fields.body_helper') }}</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-group">
                                         <label for="address">{{ trans('cruds.sponsorTemplate.fields.address') }} </label>
                                         <textarea class="form-control ckeditor {{ $errors->has('address') ? 'is-invalid' : '' }}" required name="address" id="address">{!! old('address', $guestOfHonorTemplate->address) !!}
                                         </textarea>
@@ -95,6 +83,18 @@
                                             </div>
                                         @endif
                                         <span class="help-block">{{ trans('cruds.sponsorTemplate.fields.address_helper') }}</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="body">{{ trans('cruds.sponsorTemplate.fields.body') }} </label>
+                                        <textarea class="form-control ckeditor {{ $errors->has('body') ? 'is-invalid' : '' }}" name="body" id="body" required>{!! old('body',$guestOfHonorTemplate->body) !!}</textarea>
+                                        @if($errors->has('body'))
+                                            <div class="invalid-feedback">
+                                                {{ $errors->first('body') }}
+                                            </div>
+                                        @endif
+                                        <span class="help-block">{{ trans('cruds.sponsorTemplate.fields.body_helper') }}</span>
                                     </div>
                                 </div>
                                 <div class="col-md-4">
