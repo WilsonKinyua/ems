@@ -79,4 +79,15 @@ class SpeakerController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+    // view for compose mail
+    public function ComposeMail() {
+
+        abort_if(Gate::denies('speaker_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $recepients = Speaker::with(['created_by'])->get();
+
+        return view("admin.compose.email",compact("recepients"));
+
+    }
 }

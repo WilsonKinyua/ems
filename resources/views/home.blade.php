@@ -263,7 +263,7 @@
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
                         <div class="media-body">
-                            <h6 class="tx-inverse"><a href="{{ route('admin.speaker-templates.create')}}">Compose Speaker Email</a></h6>
+                            <h6 class="tx-inverse"><a href="{{ route('admin.compose.speaker')}}">Compose Speaker Email</a></h6>
                         </div>
                     </div>
                 </li>
@@ -727,7 +727,7 @@
     </div>
     @endcan
     @endcan
-    
+
     @can('visa_management_access')
     @can('visa_access')
     <div class="col-xl-4 col-lg-6 col-md-6 col-sm-12 col-12 layout-spacing">
