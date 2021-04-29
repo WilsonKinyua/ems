@@ -316,23 +316,23 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 77,
-                'title' => 'exhibitors_template_create',
+                'title' => '',
             ],
             [
                 'id'    => 78,
-                'title' => 'exhibitors_template_edit',
+                'title' => '',
             ],
             [
                 'id'    => 79,
-                'title' => 'exhibitors_template_show',
+                'title' => '',
             ],
             [
                 'id'    => 80,
-                'title' => 'exhibitors_template_delete',
+                'title' => '',
             ],
             [
                 'id'    => 81,
-                'title' => 'exhibitors_template_access',
+                'title' => '',
             ],
             [
                 'id'    => 82,
@@ -404,23 +404,23 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 99,
-                'title' => 'partners_template_create',
+                'title' => '',
             ],
             [
                 'id'    => 100,
-                'title' => 'partners_template_edit',
+                'title' => '',
             ],
             [
                 'id'    => 101,
-                'title' => 'partners_template_show',
+                'title' => '',
             ],
             [
                 'id'    => 102,
-                'title' => 'partners_template_delete',
+                'title' => '',
             ],
             [
                 'id'    => 103,
-                'title' => 'partners_template_access',
+                'title' => '',
             ],
             [
                 'id'    => 104,
@@ -516,23 +516,23 @@ class PermissionsTableSeeder extends Seeder
             ],
             [
                 'id'    => 127,
-                'title' => 'speaker_template_create',
+                'title' => 'sent_email_message_create',
             ],
             [
                 'id'    => 128,
-                'title' => 'speaker_template_edit',
+                'title' => 'sent_email_message_edit',
             ],
             [
                 'id'    => 129,
-                'title' => 'speaker_template_show',
+                'title' => 'sent_email_message_show',
             ],
             [
                 'id'    => 130,
-                'title' => 'speaker_template_delete',
+                'title' => 'sent_email_message_delete',
             ],
             [
                 'id'    => 131,
-                'title' => 'speaker_template_access',
+                'title' => 'sent_email_message_access',
             ],
             [
                 'id'    => 132,
@@ -585,26 +585,6 @@ class PermissionsTableSeeder extends Seeder
             [
                 'id'    => 144,
                 'title' => 'exhibitors_management_access',
-            ],
-            [
-                'id'    => 145,
-                'title' => 'sent_email_message_create',
-            ],
-            [
-                'id'    => 146,
-                'title' => 'sent_email_message_edit',
-            ],
-            [
-                'id'    => 147,
-                'title' => 'sent_email_message_show',
-            ],
-            [
-                'id'    => 148,
-                'title' => 'sent_email_message_delete',
-            ],
-            [
-                'id'    => 149,
-                'title' => 'sent_email_message_access',
             ],
         ];
 

@@ -37,10 +37,6 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Sponsors
     Route::apiResource('sponsors', 'SponsorsApiController');
 
-    // Speaker Templates
-    Route::post('speaker-templates/media', 'SpeakerTemplateApiController@storeMedia')->name('speaker-templates.storeMedia');
-    Route::apiResource('speaker-templates', 'SpeakerTemplateApiController');
-
     // Guest Of Honors
     Route::apiResource('guest-of-honors', 'GuestOfHonorApiController');
 
@@ -51,10 +47,6 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
     // Exhibitors
     Route::apiResource('exhibitors', 'ExhibitorsApiController');
 
-    // Exhibitors Templates
-    Route::post('exhibitors-templates/media', 'ExhibitorsTemplateApiController@storeMedia')->name('exhibitors-templates.storeMedia');
-    Route::apiResource('exhibitors-templates', 'ExhibitorsTemplateApiController');
-
     // Media
     Route::apiResource('media', 'MediasApiController');
 
@@ -64,10 +56,6 @@ Route::group(['prefix' => 'v1', 'as' => 'api.', 'namespace' => 'Api\V1\Admin', '
 
     // Partners
     Route::apiResource('partners', 'PartnersApiController');
-
-    // Partners Templates
-    Route::post('partners-templates/media', 'PartnersTemplateApiController@storeMedia')->name('partners-templates.storeMedia');
-    Route::apiResource('partners-templates', 'PartnersTemplateApiController');
 
     // Customs
     Route::apiResource('customs', 'CustomsApiController');

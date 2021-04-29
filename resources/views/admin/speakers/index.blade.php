@@ -30,7 +30,7 @@
                 {{ trans('global.app_csvImport') }}
             </button>
             @include('csvImport.modal', ['model' => 'Speaker', 'route' => 'admin.speakers.parseCsvImport'])
-            <a class="btn btn-success btn-lg" href="{{ route('admin.speaker-templates.create') }}">
+            <a class="btn btn-success btn-lg" href="{{ route('admin.compose.speaker') }}">
                 Compose Mail
             </a>
         </div>
