@@ -814,8 +814,7 @@
                                 <p style="font-size: 14px; line-height: 140%;"><span
                                     style="font-family: 'Open Sans', sans-serif; font-size: 14px; line-height: 19.6px;">&nbsp;
                                     &nbsp;</span><span
-                                    style="font-family: 'Open Sans', sans-serif; font-size: 14px; line-height: 19.6px;">This
-                                    is a new Text block. Change the text.</span></p>
+                                    style="font-family: 'Open Sans', sans-serif; font-size: 14px; line-height: 19.6px;">{{ trans('panel.site_title') }}</span></p>
                               </div>
 
                             </td>

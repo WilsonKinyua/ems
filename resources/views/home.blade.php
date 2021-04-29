@@ -441,7 +441,7 @@
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
                         <div class="media-body">
-                            <h6 class="tx-inverse"><a href="{{ route('admin.exhibitors-templates.create')}}">Compose Exhibitor Email</a></h6>
+                            <h6 class="tx-inverse"><a href="{{ route('admin.compose.exhibitors')}}">Compose Exhibitor Email</a></h6>
                         </div>
                     </div>
                 </li>
@@ -619,7 +619,7 @@
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
                         <div class="media-body">
-                            <h6 class="tx-inverse"><a href="{{ route('admin.partners-templates.create')}}">Compose Partner's Email</a></h6>
+                            <h6 class="tx-inverse"><a href="{{ route('admin.compose.partners')}}">Compose Partner's Email</a></h6>
                         </div>
                     </div>
                 </li>

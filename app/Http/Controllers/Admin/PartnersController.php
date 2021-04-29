@@ -79,4 +79,13 @@ class PartnersController extends Controller
 
         return response(null, Response::HTTP_NO_CONTENT);
     }
+
+    public function composeMail() {
+
+        abort_if(Gate::denies('partner_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
+
+        $partners = Partner::with(['created_by'])->get();
+
+        return view("admin.compose.partners-email",compact("partners"));
+    }
 }

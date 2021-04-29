@@ -14,7 +14,7 @@
              <!-- Page Header -->
             <div class="page-header">
                 <div class="page-header-1">
-                    <h1 class="main-content-title tx-30">Sponsor List</h1>
+                    <h1 class="main-content-title tx-30">Speaker List</h1>
                 </div>
             </div>
         </div>

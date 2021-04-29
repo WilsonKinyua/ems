@@ -29,7 +29,7 @@ Partners List - {{ trans('panel.site_title') }}
                     {{ trans('global.app_csvImport') }}
                 </button>
                 @include('csvImport.modal', ['model' => 'Medias', 'route' => 'admin.media.parseCsvImport'])
-                <a class="btn btn-primary btn-lg" href="{{ route('admin.partners-templates.create') }}">
+                <a class="btn btn-primary btn-lg" href="{{ route('admin.compose.partners') }}">
                     Create Email Template
                 </a>
             </div>

@@ -104,18 +104,6 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     // sending emails
     Route::post("speakers/send-emails","Emails\SpeakerSendingEmails@store")->name("speakers.emails");
 
-    // Speaker Templates
-    Route::delete('speaker-templates/destroy', 'SpeakerTemplateController@massDestroy')->name('speaker-templates.massDestroy');
-    Route::post('speaker-templates/media', 'SpeakerTemplateController@storeMedia')->name('speaker-templates.storeMedia');
-    Route::post('speaker-templates/ckmedia', 'SpeakerTemplateController@storeCKEditorImages')->name('speaker-templates.storeCKEditorImages');
-    Route::resource('speaker-templates', 'SpeakerTemplateController');
-    // preview speaker mail before send
-    Route::get('speaker-template/compose/preview/{id}',"SpeakerTemplateController@preview")->name('speaker.preview');
-    // send mail
-    Route::post("speaker-template/compose/preview/send-mail","Emails\SpeakerSendingEmails@store")->name("speaker.emails");
-    // display send page
-    Route::get('speaker-template/{id}/send','SpeakerTemplateController@getPage')->name('speaker-send.page');
-
     // Guest Of Honors
     Route::delete('guest-of-honors/destroy', 'GuestOfHonorController@massDestroy')->name('guest-of-honors.massDestroy');
     Route::post('guest-of-honors/parse-csv-import', 'GuestOfHonorController@parseCsvImport')->name('guest-of-honors.parseCsvImport');
@@ -139,18 +127,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('exhibitors/parse-csv-import', 'ExhibitorsController@parseCsvImport')->name('exhibitors.parseCsvImport');
     Route::post('exhibitors/process-csv-import', 'ExhibitorsController@processCsvImport')->name('exhibitors.processCsvImport');
     Route::resource('exhibitors', 'ExhibitorsController');
-
-    // Exhibitors Templates
-    Route::delete('exhibitors-templates/destroy', 'ExhibitorsTemplateController@massDestroy')->name('exhibitors-templates.massDestroy');
-    Route::post('exhibitors-templates/media', 'ExhibitorsTemplateController@storeMedia')->name('exhibitors-templates.storeMedia');
-    Route::post('exhibitors-templates/ckmedia', 'ExhibitorsTemplateController@storeCKEditorImages')->name('exhibitors-templates.storeCKEditorImages');
-    Route::resource('exhibitors-templates', 'ExhibitorsTemplateController');
-    // preview speaker mail before send
-    Route::get('exhibitors-templates/compose/preview/{id}',"ExhibitorsTemplateController@preview")->name('exhibitors-templates.preview');
-    // send mail
-    Route::post("exhibitors-templates/compose/preview/send-mail","Emails\ExhibitorsSendingEmailsController@store")->name("exhibitors.emails");
-    // display send page
-    Route::get('exhibitors-templates/{id}/send','ExhibitorsTemplateController@getPage')->name('exhibitors-send.page');
+    Route::get('compose/send/exhibitors/mail','ExhibitorsController@composeMail')->name("compose.exhibitors");
+    // sending emails
+    Route::post("exhibitors/send-emails","Emails\ExhibitorsSendingEmails@store")->name("exhibitors.emails");
 
     // Media
     Route::delete('media/destroy', 'MediasController@massDestroy')->name('media.massDestroy');
@@ -175,18 +154,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('partners/parse-csv-import', 'PartnersController@parseCsvImport')->name('partners.parseCsvImport');
     Route::post('partners/process-csv-import', 'PartnersController@processCsvImport')->name('partners.processCsvImport');
     Route::resource('partners', 'PartnersController');
-
-    // Partners Templates
-    Route::delete('partners-templates/destroy', 'PartnersTemplateController@massDestroy')->name('partners-templates.massDestroy');
-    Route::post('partners-templates/media', 'PartnersTemplateController@storeMedia')->name('partners-templates.storeMedia');
-    Route::post('partners-templates/ckmedia', 'PartnersTemplateController@storeCKEditorImages')->name('partners-templates.storeCKEditorImages');
-    Route::resource('partners-templates', 'PartnersTemplateController');
-    // preview speaker mail before send
-    Route::get('partners-templates/compose/preview/{id}',"PartnersTemplateController@preview")->name('partners-templates.preview');
-    // send mail
-    Route::post("partners-templates/compose/preview/send-mail","Emails\PartnersSendingEmailsController@store")->name("partners-templates.emails");
-    // display send page
-    Route::get('partners-templates/{id}/send','PartnersTemplateController@getPage')->name('partners-send.page');
+    Route::get('compose/send/partners/mail','PartnersController@composeMail')->name("compose.partners");
+    // sending emails
+    Route::post("partners/send-emails","Emails\PartnersSendingEmailsController@store")->name("partners.emails");
 
     // Customs
     Route::delete('customs/destroy', 'CustomsController@massDestroy')->name('customs.massDestroy');
