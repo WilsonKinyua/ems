@@ -37,7 +37,7 @@
                         </div>
                     </div>
                     <div class="card-body pb-0">
-                        <form action="{{ route('admin.delagates.emails')}}" method="POST" enctype="multipart/form-data">
+                        <form action="{{ route('admin.speakers.emails')}}" method="POST" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                 <label class="required" for="lastname">Subject</label>
@@ -50,8 +50,8 @@
                                     <span class="btn btn-info btn-xs deselect-all" style="border-radius: 0; padding:10px">{{ trans('global.deselect_all') }}</span>
                                 </div>
                                 <select class=" form-control select2 " name="emails[]" id="emails" multiple required>
-                                        @foreach($delegates as $key => $delegate)
-                                            <option value="{{ $delegate->id }}">{{ $delegate->firstname}} {{ $delegate->lastname}}</option>
+                                        @foreach($speakers as $key => $recepient)
+                                            <option value="{{ $recepient->id }}">{{ $recepient->name}}</option>
                                         @endforeach
                                 </select>
                             </div>

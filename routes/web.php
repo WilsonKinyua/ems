@@ -101,6 +101,8 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('speakers/process-csv-import', 'SpeakerController@processCsvImport')->name('speakers.processCsvImport');
     Route::resource('speakers', 'SpeakerController');
     Route::get('compose/send/mail','SpeakerController@composeMail')->name("compose.speaker");
+    // sending emails
+    Route::post("speakers/send-emails","Emails\SpeakerSendingEmails@store")->name("speakers.emails");
 
     // Speaker Templates
     Route::delete('speaker-templates/destroy', 'SpeakerTemplateController@massDestroy')->name('speaker-templates.massDestroy');

@@ -586,6 +586,26 @@ class PermissionsTableSeeder extends Seeder
                 'id'    => 144,
                 'title' => 'exhibitors_management_access',
             ],
+            [
+                'id'    => 145,
+                'title' => 'sent_email_message_create',
+            ],
+            [
+                'id'    => 146,
+                'title' => 'sent_email_message_edit',
+            ],
+            [
+                'id'    => 147,
+                'title' => 'sent_email_message_show',
+            ],
+            [
+                'id'    => 148,
+                'title' => 'sent_email_message_delete',
+            ],
+            [
+                'id'    => 149,
+                'title' => 'sent_email_message_access',
+            ],
         ];
 
         Permission::insert($permissions);
