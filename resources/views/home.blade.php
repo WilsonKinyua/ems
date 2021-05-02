@@ -63,15 +63,9 @@
             <div class="widget-content">
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
-                        {{-- <div class="d-flex mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-map-pin">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div> --}}
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-list"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.delegates.index')}}">View Delegates List</a></h6>
                             {{-- <p class="mg-b-0">25 New Travel Locations</p> --}}
@@ -80,6 +74,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-plus"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.delegates.create') }}">Add Delegate</a></h6>
                         </div>
@@ -87,6 +84,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-envelope"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.compose.mailmail')}}">Compose Delegate Email</a></h6>
                         </div>
@@ -150,15 +150,9 @@
             <div class="widget-content">
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
-                        {{-- <div class="d-flex mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-map-pin">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div> --}}
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-list"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.sponsors.index')}}">View Sponsors List</a></h6>
                             {{-- <p class="mg-b-0">25 New Travel Locations</p> --}}
@@ -167,6 +161,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-plus"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.sponsors.create') }}">Add Sponsor</a></h6>
                         </div>
@@ -174,6 +171,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-envelope"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.sponsor-templates.create')}}">Compose Sponsor Email</a></h6>
                         </div>
@@ -238,15 +238,9 @@
             <div class="widget-content">
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
-                        {{-- <div class="d-flex mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-map-pin">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div> --}}
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-list"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.speakers.index')}}">View Speaker List</a></h6>
                             {{-- <p class="mg-b-0">25 New Travel Locations</p> --}}
@@ -255,6 +249,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-plus"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.speakers.create') }}">Add Speaker</a></h6>
                         </div>
@@ -262,6 +259,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-envelope"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.compose.speaker')}}">Compose Speaker Email</a></h6>
                         </div>
@@ -327,15 +327,9 @@
             <div class="widget-content">
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
-                        {{-- <div class="d-flex mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-map-pin">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div> --}}
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-list"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.guest-of-honors.index')}}">View Guest of Honor List</a></h6>
                             {{-- <p class="mg-b-0">25 New Travel Locations</p> --}}
@@ -344,6 +338,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-plus"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.guest-of-honors.create') }}">Add Guest of Honor</a></h6>
                         </div>
@@ -351,6 +348,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-envelope"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.guest-of-honor-templates.create')}}">Compose Guest of Honor Email</a></h6>
                         </div>
@@ -416,15 +416,9 @@
             <div class="widget-content">
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
-                        {{-- <div class="d-flex mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-map-pin">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div> --}}
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-list"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.exhibitors.index')}}">View Exhibitor List</a></h6>
                             {{-- <p class="mg-b-0">25 New Travel Locations</p> --}}
@@ -433,6 +427,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-plus"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.exhibitors.create') }}">Add Exhibitor</a></h6>
                         </div>
@@ -440,6 +437,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-envelope"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.compose.exhibitors')}}">Compose Exhibitor Email</a></h6>
                         </div>
@@ -505,15 +505,9 @@
             <div class="widget-content">
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
-                        {{-- <div class="d-flex mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-map-pin">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div> --}}
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-list"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.media.index')}}">View Media List</a></h6>
                             {{-- <p class="mg-b-0">25 New Travel Locations</p> --}}
@@ -522,6 +516,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-plus"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.media.create') }}">Add Media</a></h6>
                         </div>
@@ -529,6 +526,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-envelope"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.media-templates.create')}}">Compose Media Email</a></h6>
                         </div>
@@ -594,15 +594,9 @@
             <div class="widget-content">
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
-                        {{-- <div class="d-flex mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-map-pin">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div> --}}
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-list"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.partners.index')}}">View Partners List</a></h6>
                             {{-- <p class="mg-b-0">25 New Travel Locations</p> --}}
@@ -611,6 +605,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-plus"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.partners.create') }}">Add Partner</a></h6>
                         </div>
@@ -618,6 +615,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-envelope"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.compose.partners')}}">Compose Partner's Email</a></h6>
                         </div>
@@ -683,15 +683,9 @@
             <div class="widget-content">
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
-                        {{-- <div class="d-flex mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-map-pin">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div> --}}
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-list"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.customs.index')}}">View Customs List</a></h6>
                             {{-- <p class="mg-b-0">25 New Travel Locations</p> --}}
@@ -700,6 +694,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-plus"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.customs.create') }}">Add Custom</a></h6>
                         </div>
@@ -707,6 +704,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-envelope"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.customs-templates.create')}}">Compose Custom Email</a></h6>
                         </div>
@@ -772,15 +772,9 @@
             <div class="widget-content">
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
-                        {{-- <div class="d-flex mr-3">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24"
-                                viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                                stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
-                                class="feather feather-map-pin">
-                                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
-                                <circle cx="12" cy="10" r="3"></circle>
-                            </svg>
-                        </div> --}}
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-list"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.visas.index')}}">View Visa List</a></h6>
                             {{-- <p class="mg-b-0">25 New Travel Locations</p> --}}
@@ -789,6 +783,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-plus"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.visas.create') }}">Add Visa</a></h6>
                         </div>
@@ -796,6 +793,9 @@
                 </li>
                 <li class="list-group-item list-group-item-action">
                     <div class="media">
+                        <div class="d-flex mr-3">
+                            <i class="fa fa-envelope"></i>
+                        </div>
                         <div class="media-body">
                             <h6 class="tx-inverse"><a href="{{ route('admin.visa-templates.create')}}">Compose Visa Mail</a></h6>
                         </div>

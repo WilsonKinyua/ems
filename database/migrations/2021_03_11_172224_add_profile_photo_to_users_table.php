@@ -15,7 +15,7 @@ class AddProfilePhotoToUsersTable extends Migration
     {
         Schema::table('users', function (Blueprint $table) {
             $table->text("profile_photo")->nullable();
-            $table->text("description")->default("Please update account!")->nullable();
+            $table->text("description")->nullable();
         });
     }
 
