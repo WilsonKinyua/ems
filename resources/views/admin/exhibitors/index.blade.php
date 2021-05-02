@@ -32,6 +32,7 @@
                 <a class="btn btn-success btn-lg" href="{{ route('admin.compose.exhibitors') }}">
                     Compose Mail
                 </a>
+                <a class="btn btn-secondary btn-lg">Template</a>
             </div>
         </div>
     @endcan

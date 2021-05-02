@@ -33,6 +33,7 @@
                 <a class="btn btn-primary btn-lg" href="{{ route('admin.customs-templates.create') }}">
                     Compose Mail
                 </a>
+                <a class="btn btn-secondary btn-lg">Template</a>
             </div>
         </div>
     @endcan

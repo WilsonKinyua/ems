@@ -35,6 +35,7 @@
                         <a class="btn btn-secondary btn-lg" href="{{ route('admin.compose.mailmail')}}">
                             Compose Mail
                         </a>
+                        <a class="btn btn-secondary btn-lg">Template</a>
                     </div>
                 </div>
                 @endcan

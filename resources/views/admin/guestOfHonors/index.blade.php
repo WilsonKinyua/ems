@@ -32,6 +32,7 @@
                 <a class="btn btn-primary btn-lg" href="{{ route('admin.guest-of-honor-templates.create') }}">
                     Compose Mail
                 </a>
+                <a class="btn btn-secondary btn-lg">Template</a>
             </div>
         </div>
     @endcan

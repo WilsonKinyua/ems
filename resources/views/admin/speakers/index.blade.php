@@ -26,13 +26,14 @@
             <a class="btn btn-success btn-lg" href="{{ route('admin.speakers.create') }}">
                 {{ trans('global.add') }} {{ trans('cruds.speaker.title_singular') }}
             </a>
-            <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#csvImportModal">
+            {{-- <button class="btn btn-warning btn-lg" data-toggle="modal" data-target="#csvImportModal">
                 {{ trans('global.app_csvImport') }}
             </button>
-            @include('csvImport.modal', ['model' => 'Speaker', 'route' => 'admin.speakers.parseCsvImport'])
+            @include('csvImport.modal', ['model' => 'Speaker', 'route' => 'admin.speakers.parseCsvImport']) --}}
             <a class="btn btn-success btn-lg" href="{{ route('admin.compose.speaker') }}">
                 Compose Mail
             </a>
+            <a class="btn btn-secondary btn-lg">Template</a>
         </div>
     </div>
     @endcan

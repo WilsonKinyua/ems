@@ -32,6 +32,7 @@
                 <a class="btn btn-success btn-lg" href="{{ route('admin.media-templates.create') }}">
                     Create {{ trans('cruds.mediaTemplate.title_singular') }}
                 </a>
+                <a class="btn btn-secondary btn-lg">Template</a>
             </div>
         </div>
     @endcan

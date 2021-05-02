@@ -32,6 +32,7 @@ Partners List - {{ trans('panel.site_title') }}
                 <a class="btn btn-primary btn-lg" href="{{ route('admin.compose.partners') }}">
                     Create Email Template
                 </a>
+                <a class="btn btn-secondary btn-lg">Template</a>
             </div>
         </div>
     @endcan

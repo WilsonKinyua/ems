@@ -31,6 +31,7 @@ Sponsor List - {{ trans('panel.site_title') }}
                 <a class="btn btn-secondary btn-lg" href="{{ route("admin.sponsor-templates.create") }}">
                     Compose Mail
                 </a>
+                <a class="btn btn-secondary btn-lg">Template</a>
             </div>
         </div>
         @endcan

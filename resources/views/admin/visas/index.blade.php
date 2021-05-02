@@ -32,6 +32,7 @@
                 <a class="btn btn-primary btn-lg" href="{{ route('admin.visa-templates.create') }}">
                     Compose Email
                 </a>
+                <a class="btn btn-secondary btn-lg">Template</a>
             </div>
         </div>
     @endcan
