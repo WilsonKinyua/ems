@@ -239,7 +239,6 @@ Route::get('/ip', function () {
 
 //     return new App\Mail\SendingEmails($invoice);
 // });
-Route::get('/theme', function () {
 
-    return view('layout.admin');
-});
+Route::get("speaker/create/{id}/{token}", "Admin\HomeController@createSpeaker")->name("speaker.create");
+Route::post("speaker/add", "Admin\HomeController@speakerAdd")->name("speaker.create-self");

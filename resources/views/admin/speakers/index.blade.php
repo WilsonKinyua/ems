@@ -34,6 +34,8 @@
                 Compose Mail
             </a>
             <a class="btn btn-secondary btn-lg">Template</a>
+            <a class="btn btn-primary btn-lg text-bold" data-toggle="modal" data-target="#exampleModal">Enable Self-Registration (Speaker)</a>
+            @include('modal.self-registration')
         </div>
     </div>
     @endcan
