@@ -18,13 +18,13 @@
         </div>
         <div class="modal-body">
             <div class="form-group">
-                <input type="text" class="form-control" readonly value="{{ route('speaker.create', [Auth::user()->id, Str::random(30)] )}}">
+                <input id="link" type="text" class="form-control" readonly value="{{ route('speaker.create', [Auth::user()->id, Str::random(30)] )}}">
             </div>
         </div>
         <div class="modal-footer">
             <button class="btn" data-dismiss="modal"><i
                     class="flaticon-cancel-12"></i> Close</button>
-            <button type="button" class="btn btn-primary">Copy Link</button>
+            <button onclick="copyLink()" type="button" class="btn btn-primary">Copy Link</button>
         </div>
     </div>
 </div>
